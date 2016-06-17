@@ -79,7 +79,7 @@ h3{
 
 p{
   color: white;
-  font-size: 16px!important;
+  font-size: 18px!important;
   font-family: "Lato", sans-serif!important;
   margin: 25px 0;
 }
@@ -201,10 +201,17 @@ footer a:hover{
   display: block;
   margin: 0 auto;
   height: 196px;
-  width: 434px;
-  background: url(../img/playce-logo.png);
+  max-width: 100%;
+  background: url(../img/playce-logo.png) center no-repeat;
   text-indent: -9999px;
   display: block;
+}
+
+@media screen and (min-width: 200px) and (max-width: 640px) {
+  #logo {
+    width: 300px;
+    height:135px;
+  }
 }
 
 /* ------------------------
