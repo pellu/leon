@@ -5,29 +5,47 @@
 */
 
 html { 
-background: url('../img/background.jpg') no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  background: url('../img/background.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @font-face {
-    font-family: "Open Sans";
-    font-style: normal;
-    src: url('OpenSans-Regular.ttf');
+  font-family: "Open Sans";
+  font-style: normal;
+  src: url('OpenSans-Regular.ttf');
 }
 
 @font-face {
-    font-family: "Charente";
-    font-style: normal;
-    src: url('../font/CharenRG.ttf');
+  font-family: "Charente";
+  font-style: normal;
+  src: url('../font/CharenRG.ttf');
 }
 
 @font-face {
-    font-family: "Charenteb";
-    font-style: bold;
-    src: url('../font/CharenB_.ttf');
+  font-family: "Charenteb";
+  font-style: bold;
+  src: url('../font/CharenB_.ttf');
+}
+
+@font-face {
+  font-family: "LatoM";
+  font-style: italic;
+  src: url('../font/Lato-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: "LatoM";
+  font-style: normal;
+  src: url('../font/Lato-Medium.ttf');
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  src: url('../font/Lato-Reg.ttf');
 }
 
 /* ------------------------
@@ -36,13 +54,44 @@ background-size: cover;
 /*html{overflow:scroll;
 overflow-x: hidden;
 overflow-y: hidden;}*/
-h1{color: white;text-transform: uppercase;letter-spacing:-4px;font-size:128px!important;font-family: "Charenteb"!important;}
-h2{color:#7EBEE4!important;text-transform: uppercase;font-size:40px!important;font-family: "Charenteb", sans-serif!important;margin-top: -18px!important;}
-p{color: white;font-size:21px!important;font-family: "Open Sans", sans-serif!important;}
+h1{
+  color: white;text-transform: uppercase;
+  letter-spacing:-4px;
+  font-size:128px!important;
+  font-family: "Charenteb"!important;
+}
+
+h2{
+  color:#7EBEE4!important;
+  font-size: 42px!important;
+  font-family: "LatoM", sans-serif!important;
+  font-style: italic;
+  margin-top: 50px!important;
+}
+
+h3{
+  color:#7EBEE4!important;
+  font-size: 30px!important;
+  font-family: "LatoM", sans-serif!important;
+  font-style: normal;
+  margin-top: 50px;
+}
+
+p{
+  color: white;
+  font-size: 16px!important;
+  font-family: "Lato", sans-serif!important;
+  margin: 25px 0;
+}
+
 .bg{
   background: url('../img/background.jpg') no-repeat center center fixed;
   color:#fff;
   background-size:cover;
+}
+.input-group{
+  font-family: "Lato", sans-serif!important;
+  font-size: 18px;
 }
 form p{color:#7EBEE4!important;font-size:34.5px!important;text-transform: uppercase;font-family: "Charenteb"!important;}
 .input-group-btn:last-child>.btn{
@@ -73,10 +122,6 @@ form p{color:#7EBEE4!important;font-size:34.5px!important;text-transform: upperc
 input#email{
   height: 39px;
 }
-footer{
-  padding-top:20px;
-  padding-bottom:20px;
-}
 footer p{
   padding-top:5px;
   font-size:13px!important;
@@ -88,14 +133,134 @@ footer a{
 footer a:hover{
   color:white;
 }
-footer img{
-  margin-bottom: 50px!important;
+
+/* ------------------------
+---------- RS Buttons ---------
+------------------------ */
+
+.socialmedia-wrap {
+  margin: 0 auto;
+  margin-top: 50px;
 }
+
+.socialmedia {
+  display: inline-block;
+  height: 95px;
+  width: 95px;
+}
+
+#facebook{
+  background: url(../img/n-facebook@1x.png) center no-repeat;
+}
+#twitter{
+  background: url(../img/n-twitter@1x.png) center no-repeat;
+}
+#instagram{
+  background: url(../img/n-instagram@1x.png) center no-repeat;
+}
+
+#facebook:hover,
+#facebook:focus {
+  background: url(../img/h-facebook@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+#twitter:hover,
+#twitter:focus {
+  background: url(../img/h-twitter@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+#instagram:hover,
+#instagram:focus {
+  background: url(../img/h-instagram@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+#facebook:active{
+  background: url(../img/c-facebook@1x.png) center no-repeat;
+  z-index: 2;
+
+}
+
+#twitter:active{
+  background: url(../img/c-twitter@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+#instagram:active{
+  background: url(../img/c-instagram@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+/* ------------------------
+---------- End RS Buttons ---------
+------------------------ */
+
+#logo a {
+  display: block;
+  margin: 0 auto;
+  height: 196px;
+  width: 434px;
+  background: url(../img/playce-logo.png);
+  text-indent: -9999px;
+  display: block;
+}
+
+/* ------------------------
+---------- KIT PRESSE ---------
+------------------------ */
+
+#kitpresse{
+  display: block;
+  height: 90px;
+  width: 192px;
+  margin: 0 auto;
+  background: url(../img/n-kitpresse@1x.png) center no-repeat;
+}
+#kitpresse:hover,
+#kitpresse:focus {
+  background: url(../img/h-kitpresse@1x.png) center no-repeat;
+  z-index: 2;
+}
+#kitpresse:active{
+  background: url(../img/c-kitpresse@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+/* ------------------------
+---------- End KIT PRESSE ---------
+------------------------ */
+
+/* ------------------------
+---------- S'enregistrer ---------
+------------------------ */
+
+#senregistrer{
+  display: block;
+  height: 76px;
+  width: 186px;
+  margin: 0 auto;
+  background: url(../img/n-senregistrer@1x.png) center no-repeat;
+  border: 0px;
+  text-indent: -9999px;
+  margin-top: -18px;
+  margin-left: -18px;
+}
+#senregistrer:hover,
+#senregistrer:focus {
+  background: url(../img/h-senregistrer@1x.png) center no-repeat;
+  z-index: 2;
+}
+
+/* ------------------------
+---------- End S'enregistrer ---------
+------------------------ */
 
 /* ------------------------
 ---------- BUTTON ---------
 ------------------------ */
-  .push_button {
+.push_button {
   position: relative;
   width:220px;
   height:40px;
@@ -193,20 +358,6 @@ footer img{
   background-image:linear-gradient(top, #3EACBA, #48C6D4);
 }
 
-
-
-.divider {
-  height:50px;
-}
-
-.bg-1 h1,p.lead{color: black;}
-section {
-    height:800px;
-    padding-top:50px;
-    padding-bottom:50px;
-    overflow:auto;
-}
-
 /* ------------------------
 ------- FORMULAIRE --------
 ------------------------ */
@@ -214,7 +365,7 @@ section {
 .checkbox{width:50px}
 .inline {
   display: inline-block;
-  }
+}
 label {
   min-width: 120px;
 }
@@ -229,8 +380,8 @@ label {
   margin: 20px 0 20px;
 }
 .form-control {
-    margin: 0 auto;
-    width: 60%;
+  margin: 0 auto;
+  width: 60%;
 }
 
 /*.text.container h1, .container p{text-align: center;}*/
