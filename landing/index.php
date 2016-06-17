@@ -13,7 +13,8 @@
 	<meta name="twitter:creator" content="@letsplayce">
 	<meta name="twitter:title" content="Playce - Come in and Play">
 	<meta name="twitter:description" content="La nouvelle plate-forme de mise ne relation entre gamers ! LetsPlayce.com permet aux pratiquants de jeux vidéo, jeux de plateau, cartes à jouer et à collectionner, de se réunir et de partager un moment convivial près de chez eux !">
-	<meta name="twitter:image" content="http://www.letsplayce.com/img/fb-a.jpg">	
+	<meta name="twitter:image" content="http://www.letsplayce.com/img/fb-a.jpg">
+	<link rel="icon" href="favicon.ico">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 </head>
