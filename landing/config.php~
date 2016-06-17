@@ -1,0 +1,18 @@
+<?php
+define("SQL_HOST","localhost");
+define("SQL_USER","c4letsplayce");
+define("SQL_PASS","ifcpALL#5");
+define("SQL_DBNAME","c4letsplayce");
+
+$conn = mysql_connect('localhost', 'c4letsplayce', 'ifcpALL#5') or die(mysql_error());
+$db=mysql_select_db('c4letsplayce', $conn) or die(mysql_error());
+
+try
+{
+  $mysql = new PDO("mysql:dbname=".SQL_DBNAME.";host=".SQL_HOST,SQL_USER,SQL_PASS);
+}
+catch(Exception $e)
+{
+  die("Erreur : " . $e->getMessage());
+}
+?>

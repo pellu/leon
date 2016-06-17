@@ -1,55 +1,41 @@
 <?php
-session_start();
-//Test s'il y a une session avec un nom
-if(!isset($_COOKIE['admin']) ){
- //accès refusé si pas 'admin'
-header('Location: http://letsplayce.com');  
-}
-
-//connexion
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set("memory_limit","120M");
+ 
+$filename = "export_leon_".date('Y-m-d_H-i').".csv";
+$schema_insert = "";
+$meta = array();
+$csv_terminated = "\n";
+$csv_separator = ",";
+$csv_enclosed = '"';
+$csv_escaped = "\\";
+ 
 require_once('../config.php');
-
-//date pour le fichier
-$date = date("d-m-Y");
-
-//header to give the order to the browser
-header('Content-Type: text/csv');
-header("Content-Disposition: attachment; filename=".$date."-mails-letsplayce.csv"); // Téléchargement du fichier avec date
-
-//select table to export the data
-$select_table=mysql_query('SELECT * from newsletter');
-$rows = mysql_fetch_assoc($select_table);
-
-if ($rows)
-{
-getcsv(array_keys($rows));
+$req = $mysql->prepare("SELECT * FROM newsletter");
+$req->execute() or die(print_r($req->errorInfo()));
+ 
+for($i = 0; $i < 11; $i++) {
+    $meta[] = $req->getColumnMeta($i);
 }
-while($rows)
-{
-getcsv($rows);
-$rows = mysql_fetch_assoc($select_table);
+foreach($meta as $cle => $valeur) {
+    $l = $csv_enclosed . str_replace($csv_enclosed, $csv_escaped . $csv_enclosed,  stripslashes($meta[$cle]['name'])) . $csv_enclosed;
+    $schema_insert .= $l;
+    $schema_insert .= $csv_separator;
 }
-
-// get total number of fields present in the database
-function getcsv($no_of_field_names)
-{
-$separate = '';
-
-
-// do the action for all field names as field name
-foreach ($no_of_field_names as $field_name)
-{
-if (preg_match('/\\r|\\n|"/', $field_name))
-{
-$field_name = '' . str_replace('', $field_name) . '';
+$out = trim(substr($schema_insert, 0, -1));
+$out .= $csv_terminated;
+ 
+$req->setFetchMode(PDO::FETCH_ASSOC);
+foreach($req as $row) {
+    $out .= $row['id'].',"'.$row['date'].'","'.$row['heure'].'","'.$row['email'].'"'.$csv_terminated;
 }
-echo $separate . $field_name;
-
-//sepearte with the comma
-$separate = ';';
-}
-
-//make new row and line
-echo "\r\n";
-}
+ 
+header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+header("Content-Length: " . strlen($out));
+header("Content-type: text/x-csv");
+header("Content-Disposition: attachment; filename=$filename");
+echo $out;
+exit;
+ 
 ?>
