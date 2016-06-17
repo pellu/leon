@@ -71,16 +71,16 @@
 					Le site LetsPlayce.com est édité par l’agence Léon.
 
 					<h4>Directeur de la publication</h4>
-					Le directeur de la publication est Polina Obershyteva (contact@loverlooser.com)
+					Le directeur de la publication est Clément Faivre (contact@letsplayce.com)
 
-					Développeur
-					Site développé par Matriona Agency.
+					<h4>Développeur</h4>
+					Site développé par <a href="http://www.jordanpelluard.fr">Jordan Pelluard</a> et <a href="https://www.linkedin.com/in/yohandiasleao">Yohan Dias-Leão</a>.
 
-					Hébergement du site
-					Le site loverlooser.com est hébergé par Jordan Pelluard, via So You Start.
+					<h4>Hébergement du site</h4>
+					Le site LetsPlayce.com est hébergé par Jordan Pelluard, via So You Start.
 
-					Cookies
-					Pour le bon fonctionnement de la plateforme, celle-ci nécessite l’utilisation de cookies pour Facebook, Twitter et l’analyse des visites.</p>
+					<h4>Cookies</h4>
+					Pour le bon fonctionnement de la plateforme, celle-ci nécessite l’utilisation de cookies pour Facebook, Twitter, Google Plus et l’analyse des visites.</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
