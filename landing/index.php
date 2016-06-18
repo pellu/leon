@@ -7,15 +7,26 @@
     <meta name="generator" content="Bootply"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description"
-          content="La nouvelle plate-forme de mise ne relation entre gamers ! LetsPlayce.com permet aux pratiquants de jeux vidéo, jeux de plateau, cartes à jouer et à collectionner, de se réunir et de partager un moment convivial près de chez eux !"/>
-    <meta property="og:image" content="http://www.letsplayce.com/img/fb-a.jpg"/>
+          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !"/>
+    <!-- Twitter card-->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@letsplayce">
     <meta name="twitter:creator" content="@letsplayce">
     <meta name="twitter:title" content="Playce - Come in and Play">
     <meta name="twitter:description"
-          content="La nouvelle plate-forme de mise ne relation entre gamers ! LetsPlayce.com permet aux pratiquants de jeux vidéo, jeux de plateau, cartes à jouer et à collectionner, de se réunir et de partager un moment convivial près de chez eux !">
+          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
     <meta name="twitter:image" content="http://www.letsplayce.com/img/fb-a.jpg">
+    <!-- OG-->
+    <meta property="og:title" content="Playce - Come in and Play">
+    <meta property="og:description"
+          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
+    <meta property="og:site_name" content="LetsPlayce.com">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.letsplayce.com">
+    <meta property="og:language" content="fr">
+    <meta property="og:image" content="http://www.letsplayce.com/img/fb-a.jpg">
+
+
     <link rel="icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -23,8 +34,8 @@
 <body>
 <section class="bg text-center">
     <h1 class="col-md-4 col-md-offset-4 col-sm-12"><a href="index.html"><img id="logo" src="img/playce-logo.png"
-                                                                             alt="Playce" height="196" width="434"></a>
-    </h1>
+                                                                             alt="Playce - LetsPlayce.com" height="196"
+                                                                             width="434"></a></h1>
     <h2 class="col-md-4 col-md-offset-4 col-sm-12">Come in and play !</h2>
     <div class="col-md-4 col-md-offset-4" style="padding: 0 60px">
         <p>Playce, la nouvelle plateforme qui permet de vous retrouver entre joueurs, et de rencontrer de nouveaux
@@ -41,7 +52,7 @@
             $heure = date("H:i");
             require_once('config.php');
             $mysql->query("INSERT INTO newsletter (id, date, heure, email)VALUES ('', '$date', '$heure', '$email')");
-            $ok = "Le mail est bien reçu<br><br>";
+            $ok = "<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien été pris en compte,<br/>vous serez averti(e) lors du lancement du site.</p>";
         }
         ?>
         <?php echo $ok; ?>
@@ -51,24 +62,26 @@
                 <input type="email" id="email" name="email" class="form-control" value="<?php echo $email; ?>"
                        placeholder="Votre mail" required>
 					<span class="input-group-btn">
-						<input type="submit" name="ajout" id="senregistrer" id="check" alt="senregistrer">
+						<input type="submit" name="ajout" id="senregistrer" id="check"
+                               alt="S'enregistrer sur Playce - LetsPlayce.com">
 					</span>
             </div><!-- fin input-group -->
         </form>
     </div>
     <div class="col-md-6 col-md-offset-3 col-sm-12" class="socialmedia-wrap">
-        <a href="http://bit.ly/1W0BQDL" target="_blank"
+        <a href="http://bit.ly/1W0BQDL"
            onclick="window.open('http://bit.ly/1W0BQDL'); trackOutboundLink('http://bit.ly/1W0BQDL');"
-           class="socialmedia" id="facebook"></a>
-        <a href="http://bit.ly/23ddTu4" target="_blank"
+           class="socialmedia" id="facebook" alt="Acceder à la page Facebook de Playce - LetsPlayce.com"></a>
+        <a href="http://bit.ly/23ddTu4"
            onclick="window.open('http://bit.ly/23ddTu4'); trackOutboundLink('http://bit.ly/23ddTu4');"
-           class="socialmedia" id="twitter"></a>
-        <a href="http://bit.ly/1UAm8u3" target="_blank"
+           class="socialmedia" id="twitter" alt="Acceder au Twitter feed de Playce - LetsPlayce.com"></a>
+        <a href="http://bit.ly/1UAm8u3"
            onclick="window.open('http://bit.ly/1UAm8u3'); trackOutboundLink('http://bit.ly/1UAm8u3');"
-           class="socialmedia" id="instagram"></a>
-        <a href="#" id="kitpresse"></a>
-        <p>2016 Playce.Sync, In. Tous droits réservés.<br/>
-            <a class="modal-dialog modal-sm" data-toggle="modal" data-target="#myModal" href="">Mentions légales</a></p>
+           class="socialmedia" id="instagram" alt="Acceder aux posts Instagram de Playce - LetsPlayce.com"></a>
+        <a href="#" id="kitpresse" alt="Télécharger le Kit Press de Playce - LetsPlayce.com"></a>
+        <p class="footer"> Playce &copy; Copyright 2016 - Tous droits réservés.<br/>
+            <a class="modal-dialog modal-sm" data-toggle="modal" data-target="#myModal" href="#">Mentions légales</a>
+        </p>
     </div>
 </section>
 <div id="myModal" class="modal fade" role="dialog">
@@ -85,11 +98,11 @@
                 Le site LetsPlayce.com est édité par l’agence Léon.
 
                 <h4>Directeur de la publication</h4>
-                Le directeur de la publication est Clément Faivre (contact@letsplayce.com)
+                Le directeur de la publication est Clément Faivre (<a href="mailto:contact@letsplayce.com">contact@letsplayce.com</a>)
 
                 <h4>Développeur</h4>
-                Site développé par <a href="http://www.jordanpelluard.fr">Jordan Pelluard</a> et <a
-                    href="https://www.linkedin.com/in/yohandiasleao">Yohan Dias-Leão</a>.
+                Site développé par <a href="http://www.jordanpelluard.fr" target="_blank">Jordan Pelluard</a> et <a
+                    href="https://www.linkedin.com/in/yohandiasleao" target="_blank">Yohan Dias-Leão</a>.
 
                 <h4>Hébergement du site</h4>
                 Le site LetsPlayce.com est hébergé par Jordan Pelluard, via So You Start.

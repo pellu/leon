@@ -97,17 +97,17 @@ h2 {
 }
 
 h3 {
-    color: #7EBEE4 !important;
-    font-size: 30px !important;
-    font-family: "LatoM", sans-serif !important;
+    color: #7EBEE4;
+    font-size: 30px;
+    font-family: "LatoM", sans-serif;
     font-style: normal;
     margin-top: 50px;
 }
 
 p {
     color: white;
-    font-size: 18px !important;
-    font-family: "Lato", sans-serif !important;
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
     margin: 25px 0;
 }
 
@@ -263,6 +263,9 @@ footer a:hover {
 ---------- End RS Buttons ---------
 ------------------------ */
 
+.footer {
+    font-size: 14px;
+}
 /* ------------------------
 ------ Mentions PopIn -------
 ------------------------ */
