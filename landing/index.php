@@ -7,25 +7,26 @@
     <meta name="generator" content="Bootply"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description"
-          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !"/>
+          content="La nouvelle plate-forme de mise en relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !"/>
     <!-- Twitter card-->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@letsplayce">
     <meta name="twitter:creator" content="@letsplayce">
     <meta name="twitter:title" content="Playce - Come in and Play">
     <meta name="twitter:description"
-          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
+          content="La nouvelle plate-forme de mise en relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
     <meta name="twitter:image" content="http://www.letsplayce.com/img/fb-a.jpg">
     <!-- OG-->
     <meta property="og:title" content="Playce - Come in and Play">
     <meta property="og:description"
-          content="La nouvelle plate-forme de mise ne relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
+          content="La nouvelle plate-forme de mise en relation entre gamers ! Playce permet aux joueurs de jeux vidéo, jeux de plateau, cartes à jouer de se réunir et de partager un moment convivial près de chez eux !">
     <meta property="og:site_name" content="LetsPlayce.com">
     <meta property="og:type" content="website">
     <meta property="og:url" content="http://www.letsplayce.com">
     <meta property="og:language" content="fr">
     <meta property="og:image" content="http://www.letsplayce.com/img/fb-a.jpg">
-
+    <!-- Keywords-->
+    <meta name="keywords" content="playce, letsplayce, come in and play, game, games, jeu, jeux, plateforme, plate-forme, gamer, gamers, jeu video, jeux video, partage, partager, convivial, convivialite, proche, proximite">
 
     <link rel="icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
