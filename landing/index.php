@@ -70,13 +70,13 @@
     </div>
     <div class="col-md-6 col-md-offset-3 col-sm-12" class="socialmedia-wrap">
         <a href="http://bit.ly/1W0BQDL"
-           onclick="window.open('http://bit.ly/1W0BQDL'); trackOutboundLink('http://bit.ly/1W0BQDL');"
+           onclick="trackOutboundNewWindow('http://bit.ly/1W0BQDL'); return false;"
            class="socialmedia" id="facebook" alt="Acceder à la page Facebook de Playce - LetsPlayce.com"></a>
         <a href="http://bit.ly/23ddTu4"
-           onclick="window.open('http://bit.ly/23ddTu4'); trackOutboundLink('http://bit.ly/23ddTu4');"
+           onclick="trackOutboundNewWindow('http://bit.ly/23ddTu4'); return false;"
            class="socialmedia" id="twitter" alt="Acceder au Twitter feed de Playce - LetsPlayce.com"></a>
         <a href="http://bit.ly/1UAm8u3"
-           onclick="window.open('http://bit.ly/1UAm8u3'); trackOutboundLink('http://bit.ly/1UAm8u3');"
+           onclick="trackOutboundNewWindow('http://bit.ly/1UAm8u3'); return false;"
            class="socialmedia" id="instagram" alt="Acceder aux posts Instagram de Playce - LetsPlayce.com"></a>
         <a href="#" id="kitpresse" alt="Télécharger le Kit Press de Playce - LetsPlayce.com"></a>
         <p class="footer"> Playce &copy; Copyright 2016 - Tous droits réservés.<br/>
@@ -138,11 +138,11 @@
     })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
     ga('create', 'UA-79449232-1', 'auto');
     ga('send', 'pageview');
-    var trackOutboundLink = function (url) {
+    var trackOutboundNewWindow = function (url) {
         ga('send', 'event', 'outbound', 'click', url, {
             'transport': 'beacon',
             'hitCallback': function () {
-                document.location = url;
+                window.open(url);
             }
         });
     }
