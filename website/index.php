@@ -105,7 +105,7 @@ else{
 }
 
 ?>
-<form method="POST" action="index.php">
+<form method="POST" action="">
 <strong>Votre recherche</strong><br/><br/>
 <input type="text" name="search" value="<?php echo $search ?>" >
 <input type="submit" value="GO" name="submit">
