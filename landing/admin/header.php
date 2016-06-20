@@ -5,16 +5,14 @@ if(isset($_COOKIE['admin'])){ ?>
 <html>
 <head>
   <title>LEON - ADMIN</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    <meta charset="utf-8">
+    <link href="http://localhost/leon/website/css/style.css" rel="stylesheet">
+    <link href="http://localhost/leon/website/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <header>
 <center><h1>LEON - ADMIN</h1>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
-	<meta charset="utf-8">
-	<link rel="stylesheet" media="screen" type="text/css" title="style" href="http://localhost/leon/website/css/style.css" />
-	<link rel="stylesheet" media="screen" type="text/css" title="style" href="http://localhost/leon/website/css/bootstrap.min.css" />
-</head>
 <body >
     <!-- Navigation -->
     <nav class="navbar" role="navigation">
