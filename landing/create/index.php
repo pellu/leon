@@ -6,8 +6,10 @@
 	    require_once('../config.php');
 	    $mysql->query("DROP TABLE `users`");
 	    $mysql->query("DROP TABLE `newsletter`");
+	    $mysql->query("DROP TABLE `profil`");
 	    $mysql->query("CREATE TABLE users (id int(11) NOT NULL AUTO_INCREMENT, date text NOT NULL, heure time NOT NULL, prenom text NOT NULL, nom text NOT NULL, pass text NOT NULL, email text NOT NULL, PRIMARY KEY (id));");
 	    $mysql->query("CREATE TABLE newsletter (id int(11) NOT NULL AUTO_INCREMENT, date text NOT NULL, heure time NOT NULL, email text NOT NULL, PRIMARY KEY (id));");
+	    $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, PRIMARY KEY (id));");
 	    $ok = "Tables créées ok<br><br>";
 	    echo $ok;
 	}

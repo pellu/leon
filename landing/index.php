@@ -34,9 +34,7 @@
 </head>
 <body>
 <section class="bg text-center">
-    <h1 class="col-md-4 col-md-offset-4 col-sm-12"><a href="index.html"><img id="logo" src="img/playce-logo.png"
-                                                                             alt="Playce - LetsPlayce.com" height="196"
-                                                                             width="434"></a></h1>
+    <h1 class="col-md-4 col-md-offset-4 col-sm-12"><a href="#"><img id="logo" src="img/playce-logo.png" alt="Playce - LetsPlayce.com" height="196" width="434"></a></h1>
     <h2 class="col-md-4 col-md-offset-4 col-sm-12">Come in and play !</h2>
     <div class="col-md-4 col-md-offset-4" style="padding: 0 60px">
         <p>Playce, la nouvelle plateforme qui permet de vous retrouver entre joueurs, et de rencontrer de nouveaux
@@ -50,42 +48,45 @@
         $ok = "";
         if (isset($_POST['ajout'])) {
             $date = date("d-m-Y");
-            $heure = date("H:i");
+            $heure = date("H:i:s");
             require_once('config.php');
             $mysql->query("INSERT INTO newsletter (id, date, heure, email)VALUES ('', '$date', '$heure', '$email')");
             $ok = "<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien été pris en compte,<br/>vous serez averti(e) lors du lancement du site.</p>";
+            $email = '';
         }
         ?>
-        <?php echo $ok; ?>
+        <?php echo $ok;?>
         <form role="form" id="form_ajax" action="" method="post" data-enable-shim="true" class="form">
             <div class="input-group">
 
                 <input type="email" id="email" name="email" class="form-control" value="<?php echo $email; ?>"
                        placeholder="Votre mail" required>
-					<span class="input-group-btn">
-						<input type="submit" name="ajout" id="senregistrer" id="check"
+                    <span class="input-group-btn">
+                        <input type="submit" name="ajout" id="senregistrer" id="check"
                                alt="S'enregistrer sur Playce - LetsPlayce.com">
-					</span>
+                    </span>
             </div><!-- fin input-group -->
         </form>
     </div>
     <div class="col-md-6 col-md-offset-3 col-sm-12" class="socialmedia-wrap">
         <a href="http://bit.ly/1W0BQDL"
            onclick="trackOutboundNewWindow('http://bit.ly/1W0BQDL'); return false;"
+           onclick="window.open(this.href); return false;"
            class="socialmedia" id="facebook" alt="Acceder à la page Facebook de Playce - LetsPlayce.com"></a>
         <a href="http://bit.ly/23ddTu4"
            onclick="trackOutboundNewWindow('http://bit.ly/23ddTu4'); return false;"
-           class="socialmedia" id="twitter" alt="Acceder au Twitter feed de Playce - LetsPlayce.com"></a>
+           onclick="window.open(this.href); return false;" class="socialmedia" id="twitter" alt="Acceder au Twitter feed de Playce - LetsPlayce.com"></a>
         <a href="http://bit.ly/1UAm8u3"
            onclick="trackOutboundNewWindow('http://bit.ly/1UAm8u3'); return false;"
+           onclick="window.open(this.href); return false;"
            class="socialmedia" id="instagram" alt="Acceder aux posts Instagram de Playce - LetsPlayce.com"></a>
         <a href="#" id="kitpresse" alt="Télécharger le Kit Press de Playce - LetsPlayce.com"></a>
         <p class="footer"> Playce &copy; Copyright 2016 - Tous droits réservés.<br/>
-            <a class="modal-dialog modal-sm" data-toggle="modal" data-target="#myModal" href="#">Mentions légales</a>
+        <a href="#mentionsLegales" class="modal-dialog modal-sm" data-target="#mentionsLegales" data-toggle="modal">Mentions légales</a>
         </p>
     </div>
 </section>
-<div id="myModal" class="modal fade" role="dialog">
+<div id="mentionsLegales" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -113,10 +114,10 @@
                 Twitter, Google Plus et l’analyse des visites.</p>
             </div>
             <div class="modal-footer" id="footermentions">
-                <button type="button" class="btn btn-default" data-dismiss="modal">FERMER LA FENÊTRE</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                FERMER LA FENÊTRE</button>
             </div>
         </div>
-
     </div>
 </div>
 <script type='text/javascript' src="js/jquery.min.js"></script>
@@ -125,26 +126,3 @@
 <script type='text/javascript' src="js/scrolling-nav.js"></script>
 </body>
 </html>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-79449232-1', 'auto');
-    ga('send', 'pageview');
-    var trackOutboundNewWindow = function (url) {
-        ga('send', 'event', 'outbound', 'click', url, {
-            'transport': 'beacon',
-            'hitCallback': function () {
-                window.open(url);
-            }
-        });
-    }
-</script>

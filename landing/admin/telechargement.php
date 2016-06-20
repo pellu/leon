@@ -1,4 +1,5 @@
 <?php
+if(isset($_COOKIE['admin']) ){
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ini_set("memory_limit","120M");
@@ -37,5 +38,7 @@ header("Content-type: text/x-csv");
 header("Content-Disposition: attachment; filename=$filename");
 echo $out;
 exit;
- 
+}else{
+    header("Location:index.php");
+}
 ?>
