@@ -7,9 +7,10 @@ Etat<select name="etat">
   <option value="neuf">neuf</option>
   <option value="occasion">occasion</option>
 </select>
-<input type="submit">
+<input type="submit" name="submit">
 </form>
 <?php
+if(isset($_POST['submit'])){
 //Connection à la base de données
 require_once("config.php");
  
@@ -43,7 +44,6 @@ echo "<tr valign='top' class='TDDonnees' onmouseover=\"setPointer('over', this, 
   </tr>";
     }
   }
- 
   echo "</table>";
-
+}else{}
 ?>
