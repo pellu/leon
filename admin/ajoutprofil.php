@@ -50,7 +50,7 @@ else
     $pseudo=htmlentities($pseudo,ENT_QUOTES,'UTF-8');
     $description=htmlentities($description,ENT_QUOTES,'UTF-8');
     $stmt->execute();
-    header('location:http://localhost/leon/landing/admin/profil.php');
+    header('location:http://localhost/leon/admin/profil.php');
     }
 }
     else{

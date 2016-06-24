@@ -44,7 +44,7 @@ echo '<td bgcolor="#CCCCCC">'.$donnees['pseudo'].'</td>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['description'].'</td>';
 echo '<td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/'.$donnees['url'].'-'.$donnees['id'].'">'.$donnees['url'].'-'.$donnees['id'].'</a></td>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['date'].'</td>';
-echo '<td bgcolor="#CCCCCC">';?><a href="modifier.php?id=<?php echo $donnees['id'];?>">Modifier</a> / <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer l\'utilisateur');" href="http://localhost/leon/admin/supprimer.php?id=<?php echo $donnees['id'];?>">Supprimer</a>
+echo '<td bgcolor="#CCCCCC">';?><a href="modifierprofil.php?id=<?php echo $donnees['id'];?>">Modifier</a> / <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer l\'utilisateur');" href="http://localhost/leon/admin/supprimerprofil.php?id=<?php echo $donnees['id'];?>">Supprimer</a>
 <?php echo '</td>';
 echo '</tr>'."\n";
 }
