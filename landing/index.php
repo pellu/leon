@@ -26,7 +26,7 @@
     <meta property="og:language" content="fr">
     <meta property="og:image" content="http://www.letsplayce.com/img/fb-a.jpg">
     <!-- Keywords-->
-    <meta name="keywords" content="playce, letsplayce, come in and play, game, games, jeu, jeux, plateforme, plate-forme, gamer, gamers, jeu video, jeux video, partage, partager, convivial, convivialite, proche, proximite">
+    <meta name="keywords" content="playce, letsplayce, come in and play, lets playce, game, games, jeu, jeux, plateforme, plate-forme, gamer, gamers, jeu video, jeux video, partage, partager, convivial, convivialite, proche, proximite">
 
     <link rel="icon" href="favicon.ico">
     <link href="css/bootstrap.min.css" rel="stylesheet">
