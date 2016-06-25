@@ -18,6 +18,7 @@ if(isset($data['url'])) {
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
+                <p><img src="http://localhost/leon/website/photos/<?php echo $data['avatar'];?>"></p>
 				<h2>Pseudo : <?php echo $data['pseudo'];?></h2>
 				<h3>Utilisateur inscrit le : <?php echo $data['date_inscription']; ?></h3>
 				<p>Description : <?php echo $data['description']; ?></p>

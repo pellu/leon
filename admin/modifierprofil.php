@@ -39,6 +39,7 @@ include('header.php');
 
                     }else{echo'';}
                 ?>
+                    <p><img src="http://localhost/leon/website/photos/<?php echo $donnees['avatar'];?>"></p>
                     <h2>Pseudo : <?php echo $donnees['pseudo'];?></h2>
                     <h3>Profil inscrit le : <?php echo $donnees['date_inscription']; ?></h3>
                     <p>Description : <?php echo $donnees['description']; ?></p>

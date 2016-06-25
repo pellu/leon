@@ -18,7 +18,6 @@ include('header.php');?>
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `profil`");
   $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, date_inscription text NOT NULL, email text NOT NULL, city text NOT NULL, avatar text NOT NULL, pass text NOT NULL, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, id_steam text NOT NULL, hosted_event text NOT NULL, participated_event text NOT NULL, PRIMARY KEY (id));");
-  $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, PRIMARY KEY (id));");
 }
 ?>
 <center><form action="" method="post">
@@ -26,12 +25,13 @@ if(isset($_POST['delete'])){
 </form><br><br></center>
 <?php
 $reponse = $mysql->query('SELECT * FROM profil ORDER BY id DESC');
-echo '<table align="center" style="width:900px;" bgcolor="#FFFFFF">'."\n";
+echo '<table align="center" style="width:990px;" bgcolor="#FFFFFF">'."\n";
 // première ligne
 echo '<tr style="color:white;">';
 echo '<td bgcolor="#3498db"><b>N&deg;</b></td>';
 echo '<td bgcolor="#3498db"><b>Pseudo</b></td>';
 echo '<td bgcolor="#3498db" width="300px"><b>Description</b></td>';
+echo '<td bgcolor="#3498db"><b>Avatar</b></td>';
 echo '<td bgcolor="#3498db"><b>URL</b></td>';
 echo '<td bgcolor="#3498db"><b>Date</b></td>';
 echo '<td bgcolor="#3498db"><b>Action</b></td>';
@@ -43,6 +43,7 @@ echo '<tr>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['id'].'</td>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['pseudo'].'</td>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['description'].'</td>';
+echo '<td bgcolor="#CCCCCC"><img src="http://localhost/leon/website/photos/'.$donnees['avatar'].'"></td>';
 echo '<td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/'.$donnees['url'].'-'.$donnees['id'].'">'.$donnees['url'].'-'.$donnees['id'].'</a></td>';
 echo '<td bgcolor="#CCCCCC">'.$donnees['date_inscription'].'</td>';
 echo '<td bgcolor="#CCCCCC">';?><a href="modifierprofil.php?id=<?php echo $donnees['id'];?>">Modifier</a> / <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer l\'utilisateur');" href="http://localhost/leon/admin/supprimerprofil.php?id=<?php echo $donnees['id'];?>">Supprimer</a>
