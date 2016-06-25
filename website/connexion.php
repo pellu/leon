@@ -257,8 +257,8 @@ else
       <label>Votre pseudo est <a title="Vous pourrez changer votre pseudo une fois inscrit">*</a>: <?php echo $pseudo_steam ?></label>
       <label style="display:none;">IdSteam: <input type="text" name="id_steam" value="<?php echo $id_steam ?>"/></label><br/>
       <label>Votre mail <a title="Pas visible pour les autres membres">*</a>: <input type="mail" name="email" value="<?php echo $email ?>"></label>
-      <label>Votre mot de passe</a>: <input type="text" name="pass" value="<?php echo $pass ?>"></label>
-      <label>Confirmation du mot de passe: <input type="text" name="confirmation_pass" value="<?php echo $confirmation_pass ?>"></label>
+      <label>Votre mot de passe</a>: <input type="password" name="pass" value="<?php echo $pass ?>"></label>
+      <label>Confirmation du mot de passe: <input type="password" name="confirmation_pass" value="<?php echo $confirmation_pass ?>"></label>
       <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label><br/>
       <input type="hidden" name="url" value="<?php echo $url ?>"/>
       <input type="submit" value="ENVOYER"/>

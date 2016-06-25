@@ -77,8 +77,8 @@ else
     <form method="post" action="">
       <label>Votre pseudo: <input type="text" name="pseudo" value="<?php echo $pseudo ?>"/></label><br/>
       <label>Votre mail <a title="Pas visible pour les autres membres">*</a>: <input type="mail" name="email" value="<?php echo $email ?>"></label>
-      <label>Votre mot de passe</a>: <input type="text" name="pass" value="<?php echo $pass ?>"></label>
-      <label>Confirmation du mot de passe: <input type="text" name="confirmation_pass" value="<?php echo $confirmation_pass ?>"></label>
+      <label>Votre mot de passe</a>: <input type="password" name="pass" value="<?php echo $pass ?>"></label>
+      <label>Confirmation du mot de passe: <input type="password" name="confirmation_pass" value="<?php echo $confirmation_pass ?>"></label>
       <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label><br/>
       <input type="hidden" name="url" value="<?php echo $url ?>"/>
       <input type="submit" value="ENVOYER"/>
