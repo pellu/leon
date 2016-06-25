@@ -15,23 +15,23 @@ include('header.php');
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <?php
-                $id=$_GET["id"];
-                $req = $mysql->prepare('SELECT * FROM news WHERE id='.$id.' LIMIT 1');
+                $id_news=$_GET["id"];
+                $req = $mysql->prepare('SELECT c.* , p.* FROM news c, profil p WHERE c.pseudo_news=p.id AND id_news="'.$id_news.'" ORDER BY c.id_news DESC LIMIT 1');
                 $req->execute(array($_GET['id']));
 
                 while ($donnees = $req->fetch())
                 {?>
                 <?php
-                    if(isset($_POST['contenu'])){
-                        $contenu=$_POST['contenu'];
-                        }else{$contenu= $donnees['contenu'];}
+                    if(isset($_POST['contenu_news'])){
+                        $contenu_news=$_POST['contenu_news'];
+                        }else{$contenu_news= $donnees['contenu_news'];}
                     if (isset($_POST['submit'])){
                         $date = date("Y-m-d");
-                        $id = $_GET["id"];
+                        $id_news = $_GET["id"];
 
-                        $modif = $mysql->prepare("UPDATE news SET contenu='$contenu', date='$date' WHERE id='".$id."'");
+                        $modif = $mysql->prepare("UPDATE news SET contenu_news='$contenu_news', date_news='$date' WHERE id_news='".$id_news."'");
                         $modif->execute(array(
-                            'contenu' => $contenu,
+                            'contenu_news' => $contenu_news,
                             'date' => $date
                         ));
                         echo 'Modification effective';
@@ -39,11 +39,11 @@ include('header.php');
 
                     }else{echo'';}
                 ?>
-                    <h2>Pseudo : <?php echo $donnees['pseudo'];?></h2>
-                    <h3>news inscrit le : <?php echo $donnees['date']; ?></h3>
-                    <p>contenu : <?php echo $donnees['contenu']; ?></p>
+                    <h2>Pseudo : <a target="_blank" href="http://localhost/leon/website/profil/<?php echo $donnees['url']; ?>-<?php echo $donnees['id']; ?>"/><?php echo $donnees['pseudo'];?></a></h2>
+                    <h3>news inscrit le : <?php echo $donnees['date_news']; ?></h3>
+                    <p>contenu : <?php echo $contenu_news; ?></p>
                     <form method="post" action="">
-                        <label>contenu: <textarea name="contenu"/><?php echo $contenu ?></textarea></label><br/>
+                        <label>contenu: <textarea name="contenu_news"/><?php echo $contenu_news; ?></textarea></label><br/>
                         <input type="submit" name="submit" value="Modifier le news"/>
                     </form>
                 <?php

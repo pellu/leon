@@ -16,12 +16,6 @@ function Slug($str){
   array('', '-', ''), remove_accent($str)));
 }
 
-
-$servername = "localhost";
-$username = "root";
-$password = "atlantis28";
-$dbname = "c4letsplayce";
-
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -31,7 +25,6 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM profil";
 $result = $conn->query($sql);
-
 ?>
 <div class="container">
   <div class="row">
@@ -39,23 +32,24 @@ $result = $conn->query($sql);
 <?php
 $req = $mysql->prepare("SELECT * FROM news");
 $req->execute() or die(print_r($req->errorInfo())); 
+
 if(isset($_POST['pseudo'])){
-  $pseudo=$_POST['pseudo'];
-}else{$pseudo="";}
-if(isset($_POST['titre'])){
-  $titre=$_POST['titre'];
-}else{$titre="";}
+  $pseudo_news= $_POST['pseudo'];
+}else{$pseudo_news="";}
+if(isset($_POST['titre_news'])){
+  $titre_news=$_POST['titre_news'];
+}else{$titre_news="";}
 if(isset($_POST['contenu'])){
-  $contenu=$_POST['contenu'];
-}else{$contenu="";}
-if(isset($_POST['url'])){
-  $url=Slug($titre);
-}else{$url="";}
-$date = date("Y-m-d");
+  $contenu_news=$_POST['contenu'];
+}else{$contenu_news="";}
+if(isset($_POST['url_news'])){
+  $url_news=Slug($titre_news);
+}else{$url_news="";}
+$date_news=date("Y-m-d");
 
 if(!isset($_POST['submit']))
 {
-  if(empty($titre)) 
+  if(empty($titre_news)) 
     {
     echo 'Seul le champs contenu peut etre vide'; 
     }
@@ -63,13 +57,10 @@ if(!isset($_POST['submit']))
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      
     {
-    $stmt = $mysql->prepare("INSERT INTO news(id, date, pseudo, titre, contenu, url) VALUES ('','$date', '$pseudo', '$titre','$contenu','$url')");
-    $stmt->bindParam(':pseudo', $pseudo);
-    $stmt->bindParam(':titre', $titre);
-    $stmt->bindParam(':contenu', $contenu);
-    // insertion d'une ligne
-    $titre=htmlentities($titre,ENT_QUOTES,'UTF-8');
-    $contenu=htmlentities($contenu,ENT_QUOTES,'UTF-8');
+    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, contenu_news, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$contenu_news','$url_news')");
+    $stmt->bindParam(':pseudo_news', $pseudo_news);
+    $stmt->bindParam(':titre_news', $titre_news);
+    $stmt->bindParam(':contenu_news', $contenu_news);
     $stmt->execute();
     header('location:http://localhost/leon/admin/news.php');
     }
@@ -79,25 +70,26 @@ else
     }
 ?>
     <form method="post" action="">
-    <?php if ($result->num_rows > 0) {
-    echo "Pseudo: <select name='pseudo'>";
+<?php //Affichage du pseudo / id de l'utilisateur 
+  if ($result->num_rows > 0) {
+    echo "<label>Pseudo: <select name='pseudo'>";
     while($row = $result->fetch_assoc()) {
-        echo '<option value=' . $row["pseudo"]. '>' . $row["pseudo"]. '</option>';
-    }
-    echo "</select>";
-} else {
+      echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
+      }
+      echo "</select></label>";
+  } else {
     echo "0 results";
 }
 $conn->close();?>
-      <label>titre: <input type="text" name="titre" value="<?php echo $titre ?>"/></label><br/>
-      <label>contenu: <textarea name="contenu"/><?php echo $contenu ?></textarea></label><br/>
-      <input type="hidden" name="url" value="<?php echo $url ?>"/>
+      <label>titre: <input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label><br/>
+      <label>contenu: <textarea name="contenu"/><?php echo $contenu_news ?></textarea></label><br/>
+      <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
       <input type="submit" value="ENVOYER"/>
     </form>
     </div>
   </div>
 </div>
-<?php echo $pseudo;?>
+
 </body>
 </html>
 <?php

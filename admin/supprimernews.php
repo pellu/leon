@@ -2,7 +2,7 @@
 if(isset($_COOKIE['admin']) ){
 	include('config.php');
 	$id = $_GET["id"];
-	$sql = "DELETE FROM `news` WHERE id='".$id."'";
+	$sql = "DELETE FROM `news` WHERE id_news='".$id."'";
 	  $count = $mysql->exec($sql);
 	  $mysql = null;
 header("Location:news.php");

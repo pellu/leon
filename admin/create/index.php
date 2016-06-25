@@ -10,6 +10,8 @@
 	    $mysql->query("CREATE TABLE users (id int(11) NOT NULL AUTO_INCREMENT, date text NOT NULL, heure time NOT NULL, prenom text NOT NULL, nom text NOT NULL, pass text NOT NULL, email text NOT NULL, PRIMARY KEY (id));");
 	    $mysql->query("CREATE TABLE newsletter (id int(11) NOT NULL AUTO_INCREMENT, date text NOT NULL, heure time NOT NULL, email text NOT NULL, PRIMARY KEY (id));");
 	    $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, PRIMARY KEY (id));");
+	    $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, titre_news text NOT NULL, contenu_news text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
+	}
 	    $ok = "Tables créées ok<br><br>";
 	    echo $ok;
 	}
