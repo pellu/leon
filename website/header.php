@@ -36,23 +36,23 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i class="fa fa-bars">Menu</i>
             </button>
-            <a class="navbar-brand" href="index.php">
-                <img src="img/logo-final.png">
+            <a class="navbar-brand" href="http://localhost/leon/website/">
+                <img src="http://localhost/leon/website/img/logo-final.png">
             </a>
         </div>
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="menu" href="index.php">Decouvrir</a>
+                    <a class="menu" href="http://localhost/leon/website/">Decouvrir</a>
                 </li>
                 <li>
-                    <a class="menu" href="#partenaire">Devenir hôte</a>
+                    <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>
                 </li>
                 <li>
-                    <a class="menu" href="#nouveau">Trouver une soirée</a>
+                    <a class="menu" href="#nouveau">Trouver une soir&eacute;e</a>
                 </li>
                 <li>
-                    <a class="menu" href="inscription.php">Connexion</a>
+                    <a class="menu" href="connexion.php">Connexion</a>
                 </li>
             </ul>
         </div>

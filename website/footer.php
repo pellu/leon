@@ -3,14 +3,14 @@
 	    <div class="row">
 	        <div class="col-lg-10 col-lg-offset-1">
 	        <div class="col-lg-3">
-	        	<img src="img/logo-final.png">
+	        	<img src="http://localhost/leon/website/img/logo-final.png">
 	        </div>
 	        <div class="col-lg-2">
 	        	<p>Playce</p>
 	        	<ul>
 	        		<li>Concept</li>
 	        		<li>Recherche</li>
-	        		<li>Mentions légales</li>
+	        		<li>Mentions l&eacute;gales</li>
 	        	</ul>
 	        </div>
 	        <div class="col-lg-2">
@@ -28,7 +28,7 @@
 	        	</ul>	
 	        </div>
 	        <div class="col-lg-3">
-	        	<p>S'inscrire à la newsletter</p>
+	        	<p>S'inscrire &agrave; la newsletter</p>
 	        	 <form role="form" id="form_ajax" action="" method="post" data-enable-shim="true">
 					<div class="input-group">
 						<input type="email" id="email" name="email" class="form-control" value="" placeholder="Entrez votre mail" required="">

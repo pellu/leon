@@ -1,130 +1,92 @@
 <?php session_start();?>
-<?php include('header.php');?>
+<br><br>
+<?php include('header.php');
+include('config.php');?><br><br><br><br><h1>Inscription</h1>
 <?php
-    require ('steamauth/steamauth.php');  
+header( 'content-type: text/html; charset=ISO-8859-1' );
+/* Remplace caractères accentués d'une chaine */
+function remove_accent($str)
+{
+  $a = array('À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ð', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø', 'Ù', 'Ú', 'Û', 'Ü', 'Ý', 'ß', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ñ', 'ò', 'ó', 'ô', 'õ', 'ö', 'ø', 'ù', 'ú', 'û', 'ü', 'ý', 'ÿ', 'Ā', 'ā', 'Ă', 'ă', 'Ą', 'ą', 'Ć', 'ć', 'Ĉ', 'ĉ', 'Ċ', 'ċ', 'Č', 'č', 'Ď', 'ď', 'Đ', 'đ', 'Ē', 'ē', 'Ĕ', 'ĕ', 'Ė', 'ė', 'Ę', 'ę', 'Ě', 'ě', 'Ĝ', 'ĝ', 'Ğ', 'ğ', 'Ġ', 'ġ', 'Ģ', 'ģ', 'Ĥ', 'ĥ', 'Ħ', 'ħ', 'Ĩ', 'ĩ', 'Ī', 'ī', 'Ĭ', 'ĭ', 'Į', 'į', 'İ', 'ı', 'Ĳ', 'ĳ', 'Ĵ', 'ĵ', 'Ķ', 'ķ', 'Ĺ', 'ĺ', 'Ļ', 'ļ', 'Ľ', 'ľ', 'Ŀ', 'ŀ', 'Ł', 'ł', 'Ń', 'ń', 'Ņ', 'ņ', 'Ň', 'ň', 'ŉ', 'Ō', 'ō', 'Ŏ', 'ŏ', 'Ő', 'ő', 'Œ','œ', 'Ŕ', 'ŕ', 'Ŗ', 'ŗ', 'Ř', 'ř', 'Ś', 'ś', 'Ŝ', 'ŝ', 'Ş', 'ş', 'Š', 'š', 'Ţ', 'ţ', 'Ť', 'ť', 'Ŧ', 'ŧ', 'Ũ', 'ũ', 'Ū', 'ū', 'Ŭ', 'ŭ', 'Ů', 'ů', 'Ű', 'ű', 'Ų', 'ų', 'Ŵ', 'ŵ', 'Ŷ', 'ŷ', 'Ÿ', 'Ź', 'ź', 'Ż', 'ż', 'Ž', 'ž', 'ſ', 'ƒ', 'Ơ', 'ơ', 'Ư', 'ư', 'Ǎ', 'ǎ', 'Ǐ', 'ǐ', 'Ǒ', 'ǒ', 'Ǔ', 'ǔ', 'Ǖ', 'ǖ', 'Ǘ', 'ǘ', 'Ǚ', 'ǚ', 'Ǜ', 'ǜ', 'Ǻ', 'ǻ', 'Ǽ', 'ǽ', 'Ǿ', 'ǿ');
+  $b = array('A', 'A', 'A', 'A', 'A', 'A', 'AE', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'D', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'U', 'U', 'U', 'U', 'Y', 's', 'a', 'a', 'a', 'a', 'a', 'a', 'ae', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'n', 'o', 'o', 'o', 'o', 'o', 'o', 'u', 'u', 'u', 'u', 'y', 'y', 'A', 'a', 'A', 'a', 'A', 'a', 'C', 'c', 'C', 'c', 'C', 'c', 'C', 'c', 'D', 'd', 'D', 'd', 'E', 'e', 'E', 'e', 'E', 'e', 'E', 'e', 'E', 'e', 'G', 'g', 'G', 'g', 'G', 'g', 'G', 'g', 'H', 'h', 'H', 'h', 'I', 'i', 'I', 'i', 'I', 'i', 'I', 'i', 'I', 'i', 'IJ', 'ij', 'J', 'j', 'K', 'k', 'L', 'l', 'L', 'l', 'L', 'l', 'L', 'l', 'L', 'l', 'N', 'n', 'N', 'n', 'N', 'n', 'n', 'O', 'o', 'O', 'o', 'O', 'o', 'OE', 'oe', 'R', 'r', 'R', 'r', 'R', 'r', 'S', 's', 'S', 's', 'S', 's', 'S', 's', 'T', 't', 'T', 't', 'T', 't', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'W', 'w', 'Y', 'y', 'Y', 'Z', 'z', 'Z', 'z', 'Z', 'z', 's', 'f', 'O', 'o', 'U', 'u', 'A', 'a', 'I', 'i', 'O', 'o', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'U', 'u', 'A', 'a', 'AE', 'ae', 'O', 'o');
+  return str_replace($a, $b, $str);
+}
+/* Générateur de Slug (Friendly Url) : convertit un titre en une URL conviviale.*/
+function Slug($str){
+  return mb_strtolower(preg_replace(array('/[^a-zA-Z0-9 \'-]/', '/[ -\']+/', '/^-|-$/'),
+  array('', '-', ''), remove_accent($str)));
+}
 ?>
-<br><br><br><br><br><br>
-		<?php
-if(!isset($_SESSION['steamid'])) {
-    echo "<div style='margin: 30px auto; text-align: center;'>Welcome Guest! Please log in!<br>";
-    loginbutton();
-	echo "</div>";
-	}  else {
-    include ('steamauth/userInfo.php');
-	?>
-	<div style="display:none;" style='float:left;'>
-			<a href='https://github.com/SmItH197/SteamAuthentication'>
-				<button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
-			</a>
-			<a href='https://github.com/SmItH197/SteamAuthentication/releases'>
-				<button class='btn btn-warning' style='margin: 2px 3px;' type='button'>Download</button>
-			</a>
-		</div>
-		<br>
-		<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+<?php
+$req = $mysql->prepare("SELECT * FROM profil");
+$req->execute() or die(print_r($req->errorInfo()));
 
-		<h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4><span style='float:right;'><?php logoutbutton(); ?></span>
-		<table style="display:none;" class='table table-striped'>
-			<tr>
-				<td><b>Variable name</b></td>
-				<td><b>Value</b></td>
-				<td><b>Description</b></td>
-			</tr>
-			<tr>
-				<td>$steamprofile['steamid']</td>
-				<td><?=$steamprofile['steamid']?></td>
-				<td>SteamID64 of the user</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['communityvisibilitystate']</td>
-				<td><?=$steamprofile['communityvisibilitystate']?></td>
-				<td>1 - Account not visible; 3 - Account is public (Depends on the relationship of your account to the others)</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['profilestate']</td>
-				<td><?=$steamprofile['profilestate']?></td>
-				<td>1 - The user has a Steam Community profile; 0 - if not</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['personaname']</td>
-				<td><?=$steamprofile['personaname']?></td>
-				<td>Public name of the user</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['lastlogoff']</td>
-				<td><?=$steamprofile['lastlogoff']?></td>
-				<td>
-					<a href='http://www.unixtimestamp.com/' target='_blank'>Unix timestamp</a> of the user's last logoff
-				</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['profileurl']</td>
-				<td><?=$steamprofile['profileurl']?></td>
-				<td>Link to the user's profile</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['personastate']</td>
-				<td><?=$steamprofile['personastate']?></td>
-				<td>0 - Offline, 1 - Online, 2 - Busy, 3 - Away, 4 - Snooze, 5 - looking to trade, 6 - looking to play</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['realname']</td>
-				<td><?=$steamprofile['realname']?></td>
-				<td>"Real" name</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['primaryclanid']</td>
-				<td><?=$steamprofile['primaryclanid']?></td>
-				<td>The ID of the user's primary group</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['timecreated']</td>
-				<td><?=$steamprofile['timecreated']?>
-				</td>
-				<td>
-					<a href='http://www.unixtimestamp.com/' target='_blank'>Unix timestamp</a> for the time the user's account was created
-				</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['uptodate']</td>
-				<td><?=$steamprofile['uptodate']?></td>
-				<td>
-					<a href='http://www.unixtimestamp.com/' target='_blank'>Unix timestamp</a> for the time the user's account information was last updated
-				</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['avatar']</td>
-				<td>
-					<img src='<?=$steamprofile['avatar']?>'><br>
-					<?=$steamprofile['avatar']?>
-				</td>
-				<td>Address of the user's 32x32px avatar</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['avatarmedium']</td>
-				<td>
-					<img src='<?=$steamprofile['avatarmedium']?>'><br>
-					<?=$steamprofile['avatarmedium']?>
-				</td>
-				<td>Address of the user's 64x64px avatar</td>
-			</tr>
-			<tr>
-				<td>$steamprofile['avatarfull']</td>
-				<td>
-					<img src='<?=$steamprofile['avatarfull']?>'><br>
-					<?=$steamprofile['avatarfull']?>
-				</td>
-				<td>Address of the user's 184x184px avatar</td>
-			</tr>
-		</table>
-		<?php
-		
-		}    
-		?>
-	</div>
-	<?php
-if(isset($steamprofile['avatarfull'])){
-	include('ajout.php');
-}else{}
+if(isset($_POST['pseudo'])){
+  $pseudo=$_POST['pseudo'];
+}else{$pseudo="";}
+if(isset($_POST['description'])){
+  $description=$_POST['description'];
+}else{$description="";}
+if(isset($_POST['email'])){
+  $email=$_POST['email'];
+}else{$email="";}
+if(isset($_POST['pass'])){
+  $pass=sha1($_POST['pass']);
+}else{$pass="";}
+if(isset($_POST['confirmation_pass'])){
+  $confirmation_pass=sha1($_POST['confirmation_pass']);
+}else{$confirmation_pass="";}
+if(isset($_POST['url'])){
+  $url=Slug($pseudo);
+}else{$url="";}
+if(isset($_POST['id_description'])){
+  $id_description=$_POST['id_description'];
+}else{$id_description="";}
+$date_inscription = date("Y-m-d");
+
+if(!isset($_POST['submit']))
+{
+  if(empty($pseudo) AND empty($email) AND empty($pass) AND empty($confirmation_pass)) 
+    {
+    echo 'Seul le champ description peut-&ecirc;tre vide';
+    }
+
+// Aucun champ n'est vide, on peut enregistrer dans la table 
+else      
+    {
+    $stmt = $mysql->prepare("INSERT INTO profil(id, date_inscription, email, pass, pseudo, description, url) VALUES ('','$date_inscription', '$email', '$pass', '$pseudo','$description','$url')");
+    $stmt->bindParam(':pseudo', $pseudo);
+    $stmt->bindParam(':date_inscription', $date_inscription);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':pass', $pass);
+    $stmt->bindParam(':description', $description);
+    // insertion d'une ligne
+    $pseudo=htmlentities($pseudo,ENT_QUOTES,'UTF-8');
+    $description=htmlentities($description,ENT_QUOTES,'UTF-8');
+    $stmt->execute();
+    header('location:http://localhost/leon/website/monprofil.php');
+    }
+}
+    else{
+      echo '';
+    }
 ?>
+    <form method="post" action="">
+      <label>Votre pseudo: <input type="text" name="pseudo" value="<?php echo $pseudo ?>"/></label><br/>
+      <label>Votre mail <a title="Pas visible pour les autres membres">*</a>: <input type="mail" name="email" value="<?php echo $email ?>"></label>
+      <label>Votre mot de passe</a>: <input type="text" name="pass" value="<?php echo $pass ?>"></label>
+      <label>Confirmation du mot de passe: <input type="text" name="confirmation_pass" value="<?php echo $confirmation_pass ?>"></label>
+      <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label><br/>
+      <input type="hidden" name="url" value="<?php echo $url ?>"/>
+      <input type="submit" value="ENVOYER"/>
+    </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
 <?php include('footer.php');?>

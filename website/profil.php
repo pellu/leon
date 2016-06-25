@@ -19,7 +19,7 @@ if(isset($data['url'])) {
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
 				<h2>Pseudo : <?php echo $data['pseudo'];?></h2>
-				<h3>Utilisateur inscrit le : <?php echo $data['date']; ?></h3>
+				<h3>Utilisateur inscrit le : <?php echo $data['date_inscription']; ?></h3>
 				<p>Description : <?php echo $data['description']; ?></p>
             </div>
         </div>

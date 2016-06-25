@@ -37,7 +37,7 @@ echo "<div align='center' class='Titre'>Résultat de la recherche</div>
   $result2 = @mysql_query ($query2) or die (mysql_error());
  
   while($temp2=mysql_fetch_assoc($result2)){
-echo "<tr valign='top' class='TDDonnees' onmouseover=\"setPointer('over', this, '#FFFFFF', '', '', '')\" onmouseout=\"setPointer('out', this, '#f5f5f5', '', '', '')\">
+echo "<tr valign='top' class='TDDonnees'>
     <td >".$temp2['voiture']."</td>
     <td >".$temp2['prix']."</td>
    <td >".$temp2['etat']."</td>

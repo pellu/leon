@@ -40,7 +40,7 @@ include('header.php');
                     }else{echo'';}
                 ?>
                     <h2>Pseudo : <?php echo $donnees['pseudo'];?></h2>
-                    <h3>Profil inscrit le : <?php echo $donnees['date']; ?></h3>
+                    <h3>Profil inscrit le : <?php echo $donnees['date_inscription']; ?></h3>
                     <p>Description : <?php echo $donnees['description']; ?></p>
                     <form method="post" action="">
                         <label>Description: <textarea name="description"/><?php echo $description ?></textarea></label><br/>
