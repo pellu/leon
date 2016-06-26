@@ -36,12 +36,39 @@ $req->execute() or die(print_r($req->errorInfo()));
 if(isset($_POST['pseudo'])){
   $pseudo_news= $_POST['pseudo'];
 }else{$pseudo_news="";}
+if(isset($_POST['ville_news'])){
+  $ville_news=$_POST['ville_news'];
+}else{$ville_news="";}
 if(isset($_POST['titre_news'])){
   $titre_news=$_POST['titre_news'];
 }else{$titre_news="";}
-if(isset($_POST['contenu'])){
-  $contenu_news=$_POST['contenu'];
+if(isset($_POST['adresse'])){
+  $adresse=$_POST['adresse'];
+}else{$adresse="";}
+if(isset($_POST['prix'])){
+  $prix=$_POST['prix'];
+}else{$prix="";}
+if(isset($_POST['typedesoiree'])){
+  $typedesoiree=$_POST['typedesoiree'];
+}else{$typedesoiree="";}
+if(isset($_POST['console'])){
+  $console=$_POST['console'];
+}else{$console="";}
+if(isset($_POST['typedejeu'])){
+  $typedejeu=$_POST['typedejeu'];
+}else{$typedejeu="";}
+if(isset($_POST['nb_participants'])){
+  $nb_participants=$_POST['nb_participants'];
+}else{$nb_participants="";}
+if(isset($_POST['contenu_news'])){
+  $contenu_news=$_POST['contenu_news'];
 }else{$contenu_news="";}
+if(isset($_POST['datedejeu'])){
+  $datedejeu=$_POST['datedejeu'];
+}else{$datedejeu="";}
+if(isset($_POST['heuredejeu'])){
+  $heuredejeu=$_POST['heuredejeu'];
+}else{$heuredejeu="";}
 if(isset($_POST['url_news'])){
   $url_news=Slug($titre_news);
 }else{$url_news="";}
@@ -57,10 +84,19 @@ if(!isset($_POST['submit']))
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      
     {
-    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, contenu_news, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$contenu_news','$url_news')");
+    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
     $stmt->bindParam(':pseudo_news', $pseudo_news);
+    $stmt->bindParam(':ville_news', $ville_news);
     $stmt->bindParam(':titre_news', $titre_news);
+    $stmt->bindParam(':adresse', $adresse);
+    $stmt->bindParam(':prix', $prix);
+    $stmt->bindParam(':typedesoiree', $typedesoiree);
+    $stmt->bindParam(':console', $console);
+    $stmt->bindParam(':typedejeu', $typedejeu);
+    $stmt->bindParam(':nb_participants', $nb_participants);
     $stmt->bindParam(':contenu_news', $contenu_news);
+    $stmt->bindParam(':datedejeu', $datedejeu);
+    $stmt->bindParam(':heuredejeu', $heuredejeu);
     $stmt->execute();
     header('location:http://localhost/leon/admin/news.php');
     }
@@ -81,80 +117,90 @@ else
     echo "Pas de profil dans la base<br />";
 }
 $conn->close();?><br>
+      <label>Titre:<input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label>
       <label>Ville:
-        <select name="ville">
-      <option value="" disabled selected>Où vas-tu jouer ?</option>
-      <option value="antony">Antony (92)</option>
-      <option value="argenteuil">Argenteuil (95)</option>
-      <option value="aubervilliers">Aubervilliers (93)</option>
-      <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
-      <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
-      <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
-      <option value="bondy">Bondy (93)</option>
-      <option value="cergy">Cergy (95)</option>
-      <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
-      <option value="chelles">Chelles (77)</option>
-      <option value="clamart">Clamart (92)</option>
-      <option value="clichy">Clichy (92)</option>
-      <option value="colombes">Colombes (92)</option>
-      <option value="courbevoie">Courbevoie (92)</option>
-      <option value="creteil">Cr&eacute;teil (94)</option>
-      <option value="drancy">Drancy (93)</option>
-      <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
-      <option value="evry">&Eacute;vry (91)</option>
-      <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
-      <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
-      <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
-      <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
-      <option value="levallois-perret">Levallois-Perret (92)</option>
-      <option value="maisons-alfort">Maisons-Alfort (94)</option>
-      <option value="meaux">Meaux (77)</option>
-      <option value="montreuil">Montreuil (93)</option>
-      <option value="nanterre">Nanterre (92)</option>
-      <option value="paris1">Neuilly-sur-Seine (92)</option>
-      <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
-      <option value="pantin">Pantin (93)</option>
-      <option value="paris1">Paris (75 001)</option>
-      <option value="paris1">Paris (75 002)</option>
-      <option value="paris3">Paris (75 003)</option>
-      <option value="paris4">Paris (75 004)</option>
-      <option value="paris5">Paris (75 005)</option>
-      <option value="paris6">Paris (75 006)</option>
-      <option value="paris7">Paris (75 007)</option>
-      <option value="paris8">Paris (75 008)</option>
-      <option value="paris9">Paris (75 009)</option>
-      <option value="paris10">Paris (75 010)</option>
-      <option value="paris11">Paris (75 011)</option>
-      <option value="paris12">Paris (75 012)</option>
-      <option value="paris13">Paris (75 013)</option>
-      <option value="paris14">Paris (75 014)</option>
-      <option value="paris15">Paris (75 015)</option>
-      <option value="paris16">Paris (75 016)</option>
-      <option value="paris17">Paris (75 017)</option>
-      <option value="paris18">Paris (75 018)</option>
-      <option value="paris19">Paris (75 019)</option>
-      <option value="paris20">Paris (75 020)</option>
-      <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
-      <option value="saint-denis">Saint-Denis (93)</option>
-      <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
-      <option value="sarcelles">Sarcelles (95)</option>
-      <option value="sartrouville">Sartrouville (78)</option>
-      <option value="sevran">Sevran (93)</option>
-      <option value="versailles">Versailles</option>
-      <option value="villejuif">Villejuif (94)</option>
-      <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
-    </select>
-      </label><br>
-      <label>contenu:
-        <select name="etat">
-          <option value="">Tous</option>
-          <option value="neuf">neuf</option>
-          <option value="occasion">occasion</option>
-        </select>
-      </label>
-      <label>contenu: <textarea name="contenu"/><?php echo $contenu_news ?></textarea></label><br/>
-      <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
-      <input type="submit" value="ENVOYER"/>
+        <select name="ville_news">
+        <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>
+        <option value="antony">Antony (92)</option>
+        <option value="argenteuil">Argenteuil (95)</option>
+        <option value="aubervilliers">Aubervilliers (93)</option>
+        <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
+        <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
+        <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
+        <option value="bondy">Bondy (93)</option>
+        <option value="cergy">Cergy (95)</option>
+        <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
+        <option value="chelles">Chelles (77)</option>
+        <option value="clamart">Clamart (92)</option>
+        <option value="clichy">Clichy (92)</option>
+        <option value="colombes">Colombes (92)</option>
+        <option value="courbevoie">Courbevoie (92)</option>
+        <option value="creteil">Cr&eacute;teil (94)</option>
+        <option value="drancy">Drancy (93)</option>
+        <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
+        <option value="evry">&Eacute;vry (91)</option>
+        <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
+        <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
+        <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
+        <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
+        <option value="levallois-perret">Levallois-Perret (92)</option>
+        <option value="maisons-alfort">Maisons-Alfort (94)</option>
+        <option value="meaux">Meaux (77)</option>
+        <option value="montreuil">Montreuil (93)</option>
+        <option value="nanterre">Nanterre (92)</option>
+        <option value="paris1">Neuilly-sur-Seine (92)</option>
+        <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
+        <option value="pantin">Pantin (93)</option>
+        <option value="paris1">Paris (75 001)</option>
+        <option value="paris1">Paris (75 002)</option>
+        <option value="paris3">Paris (75 003)</option>
+        <option value="paris4">Paris (75 004)</option>
+        <option value="paris5">Paris (75 005)</option>
+        <option value="paris6">Paris (75 006)</option>
+        <option value="paris7">Paris (75 007)</option>
+        <option value="paris8">Paris (75 008)</option>
+        <option value="paris9">Paris (75 009)</option>
+        <option value="paris10">Paris (75 010)</option>
+        <option value="paris11">Paris (75 011)</option>
+        <option value="paris12">Paris (75 012)</option>
+        <option value="paris13">Paris (75 013)</option>
+        <option value="paris14">Paris (75 014)</option>
+        <option value="paris15">Paris (75 015)</option>
+        <option value="paris16">Paris (75 016)</option>
+        <option value="paris17">Paris (75 017)</option>
+        <option value="paris18">Paris (75 018)</option>
+        <option value="paris19">Paris (75 019)</option>
+        <option value="paris20">Paris (75 020)</option>
+        <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
+        <option value="saint-denis">Saint-Denis (93)</option>
+        <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
+        <option value="sarcelles">Sarcelles (95)</option>
+        <option value="sartrouville">Sartrouville (78)</option>
+        <option value="sevran">Sevran (93)</option>
+        <option value="versailles">Versailles</option>
+        <option value="villejuif">Villejuif (94)</option>
+        <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
+      </select>
+    </label><br>
+    <label>Adresse:<input type="text" name="adresse" value="<?php echo $adresse ?>"/></label><br>
+    <label>Prix:
+      <select name="prix">
+        <option value="5">5 &euro;</option>
+        <option value="10" selected>10 &euro;</option>
+        <option value="15">15 &euro;</option>
+      </select>
+    </label><br>
+    <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
+    <label>Photo <a title="Photo carré">*</a>: <input name="photo" type="file" id="fichier_a_uploader" /></label>
+    <label>Type de soir&eacute;e:<input type="text" name="typedesoiree" value="<?php echo $typedesoiree ?>"/></label>
+    <label>Type de jeu:<input type="text" name="typedejeu" value="<?php echo $typedejeu ?>"/></label>
+    <label>Console:<input type="text" name="console" value="<?php echo $console ?>"/></label>
+    <label>Nombre de participants:<input type="text" name="nb_participants" value="<?php echo $nb_participants ?>"/></label>
+    <label>Description:<input type="text" name="contenu_news" value="<?php echo $contenu_news ?>"/></label>
+    <label>Date de la soir&eacute;e:<input type="text" name="datedejeu" value="<?php echo $datedejeu ?>"/></label>
+    <label>Heure de la soir&eacute;e:<input type="text" name="heuredejeu" value="<?php echo $heuredejeu ?>"/></label>
+    <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
+    <input type="submit" value="ENVOYER"/>
     </form>
     </div>
   </div>

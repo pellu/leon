@@ -1,6 +1,6 @@
 <form action="" method="post">
   <input type="hidden">
-    <select name="ville">
+    <select name="ville_news">
       <option value="" disabled selected>Où vas-tu jouer ?</option>
       <option value="antony">Antony (92)</option>
       <option value="argenteuil">Argenteuil (95)</option>
@@ -68,7 +68,8 @@
 if(isset($_POST['submit'])){
 //Connection à la base de données
 require_once("config.php");
-$mysql = 'SELECT * FROM news WHERE 1 = 1' ; 
+$fields = array('vile_news');
+$mysql = 'SELECT news.ville_news, news.id_news FROM news WHERE 1 = 1'; 
 foreach ( $fields as $field ) { 
     if ( isset($_POST[$field]) && $_POST[$field] !== '' ) { // Ignore les champs vides 
         $mysql .= " AND $field = '{$_POST[$field]}'" ; 
@@ -81,21 +82,23 @@ echo "
 <div align='center' class='Titre'>Résultat de la recherche</div>
   <table width='100%' border='0' align='center' cellpadding='10' cellspacing='1'>
   <tr valign='top'>
-      <th>voiture</th>
-    <th >Prix</th>
-  <th >Etat</th>
+      <th>Titre</th>
+      <th>Ville</th>
+      <th>Lien</th>
   </tr>";
 
   while($temp=mysql_fetch_assoc($result)){
-  $query2 = "SELECT * FROM news WHERE news.id='".$temp['id']."'";
+  $query2 = "SELECT * FROM news WHERE news.id_news='".$temp['id_news']."'";
   $result2 = @mysql_query ($query2) or die (mysql_error());
  
   while($temp2=mysql_fetch_assoc($result2)){
-echo "<tr valign='top' class='TDDonnees'>
-    <td >".$temp2['voiture']."</td>
-    <td >".$temp2['prix']."</td>
-   <td >".$temp2['etat']."</td>
-  </tr>";
+echo ""?>
+    <tr valign='top' class='TDDonnees'>
+    <td ><?php echo $temp2['titre_news'];?></td>
+    <td ><?php echo $temp2['ville_news'];?></td>
+    <td ><a href="'http://localhost/leon/website/<?php echo $temp2['url_news'];?>">rr</a><?php echo $temp2['url_news'];?></td>
+  </tr>
+  <?php echo "";
     }
   }
   echo "</table>";
