@@ -78,7 +78,7 @@ else
       }
       echo "</select></label>";
   } else {
-    echo "0 results";
+    echo "Pas de profil dans la base<br />";
 }
 $conn->close();?>
       <label>titre: <input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label><br/>

@@ -30,6 +30,11 @@ if(isset($_COOKIE['admin'])){ ?>
                             <li><a href="/leon/admin/ajoutnews.php">Ajouter une news</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/leon/admin/commentaires.php">Liste des commentaires<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/leon/admin/ajoutcommentaires.php">Ajouter un commentaire</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/leon/admin/newsletter.php">Newsletter</a></li>
                     <li><a href="/leon/admin/deconnexion.php">Deconnexion</a></li>
                 </ul>
