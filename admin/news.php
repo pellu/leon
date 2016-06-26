@@ -17,7 +17,7 @@ include('header.php');?>
 <?php
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `news`");
-  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, titre_news text NOT NULL, contenu_news text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
+  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, ville text NOT NULL, adresse text NOT NULL, prix text NOT NULL, photo text NOT NULL, typedesoiree text NOT NULL, console text NOT NULL, typedejeu text NOT NULL, nb_participants text NOT NULL, contenu_news text NOT NULL, datedejeu text NOT NULL, heuredejeu text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
 }
 ?>
 <center><form action="" method="post">
@@ -28,12 +28,11 @@ if(isset($_POST['delete'])){
 <table align="center" style="width:900px;" bgcolor="#FFFFFF">
 <tr style="color:white;">
 <th bgcolor="#3498db">N&deg;</th>
-<th bgcolor="#3498db">News de</th>
-<th bgcolor="#3498db">Titre</th>
+<th bgcolor="#3498db">Organisateur</th>
 <th bgcolor="#3498db">Contenu</th>
 <th bgcolor="#3498db">Date</th>
 <th bgcolor="#3498db">URL</th>
-<th bgcolor="#3498db">Modifier</th>
+<th bgcolor="#3498db">Action</th>
 </tr>
 <?php
 
@@ -44,7 +43,6 @@ while($result=mysql_fetch_array($resnews))
     <tr>
     <td bgcolor="#CCCCCC"><?php echo $result['id_news']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $result['url']; ?>-<?php echo $result['id']; ?>"><?php echo $result['pseudo']; ?></td>
-    <td bgcolor="#CCCCCC"><?php echo $result['titre_news']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['contenu_news']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['date_news']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/news/<?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?>"><?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?></a></td>
