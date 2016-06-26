@@ -26,7 +26,7 @@ $result = mysql_query($mysql) or die('Erreur SQL !<br />'.$mysql.'<br />'.mysql_
 
 echo "
 <div align='center' class='Titre'>Résultat de la recherche</div>
-  <table border='0' align='center' cellpadding='10' cellspacing='1'>
+  <table width='100%' border='0' align='center' cellpadding='10' cellspacing='1'>
   <tr valign='top'>
       <th>voiture</th>
     <th >Prix</th>
