@@ -1,10 +1,31 @@
-<?php 
-include('header.php');
-include('config.php');?>
-<section class="container content-section text-center">
+<?php include('header.php');
+require ('steamauth/steamauth.php');
+if(!isset($_SESSION['steamid'])) {
+    echo "<div style='margin: 30px auto; text-align: center;'>Vous pouvez vous connecter via steam<br>";
+    loginbutton();
+  echo "</div>";
+  }  else {
+    include ('steamauth/userInfo.php');
+    include('header.php');
+    include('config.php');
+  ?>
+  <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
-<?php
+  <div style="display:none;" style='float:left;'>
+      <a href='https://github.com/SmItH197/SteamAuthentication'>
+        <button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
+      </a>
+      <a href='https://github.com/SmItH197/SteamAuthentication/releases'>
+        <button class='btn btn-warning' style='margin: 2px 3px;' type='button'>Download</button>
+      </a>
+    </div>
+    <br>
+    <br>
+<?php if(isset($_SESSION['steamid'])) {?>
+    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4><span style='float:right;'><?php logoutbutton(); ?></span>
+    <?php
+    }
 
 // SCRIPT ENVOI PHOTO
 define('TARGET', 'photos/');    // Repertoire cible
@@ -97,9 +118,18 @@ $nomImage = '';
   }
 }
 
+$pseudo_steam=$steamprofile['personaname'];
+$id_steam=$steamprofile['steamid'];
+
 if(isset($_POST['description'])){
   $description=$_POST['description'];
 }else{$description="";}
+if(isset($pseudo_steam)){
+  $pseudo=$pseudo_steam;
+}else{$pseudo="";}
+if(isset($pseudo_steam)){
+  $pseudo=$pseudo_steam;
+}else{$pseudo="";}
 if(isset($_POST['city'])){
   $city=$_POST['city'];
 }else{$city="";}
@@ -160,7 +190,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
           $url=Slug($pseudo);
           $date_inscription=date("d-m-Y");
           //On enregistre les informations dans la base de donnee
-          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, description, pass, email, city, avatar, url) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$description.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$avatar.'", "'.$url.'")'))
+          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, description, pass, email, city, avatar, url, id_steam) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$description.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$avatar.'", "'.$url.'", "'.$id_steam.'")'))
           {
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
@@ -221,7 +251,9 @@ if($form)
     <form action="" method="POST" enctype="multipart/form-data">
         Veuillez remplir ce formulaire pour vous inscrire:<br />
         <div class="center">
-            <label for="pseudo">Nom d'utilisateur</label><input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])){echo htmlentities($_POST['pseudo'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
+            <label for="pseudo" style="display:none;">Votre pseudo: <input type="text" name="pseudo" value="<?php echo $pseudo;?>"/></label><br/>
+            <label>Votre pseudo est <a title="Vous pourrez changer votre pseudo une fois inscrit">*</a>: <?php echo $pseudo_steam ?></label><br/>
+            <!--<label for="pseudo">Nom d'utilisateur</label><input type="text" name="pseudo" value="<?php //if(isset($_POST['pseudo'])){echo htmlentities($_POST['pseudo'], ENT_QUOTES, 'UTF-8');} ?><!--" /><br />-->
             <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="pass" name="pass" /><br />
             <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="pass" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
@@ -229,10 +261,14 @@ if($form)
           <label>Avatar: <input name="avatar" type="file" id="fichier_a_uploader" /></label><br>
           <label>Votre ville: <input type="text" name="city" value="<?php echo $city ?>"/></label><br/>
           <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label>
+          <label for="id_steam" style="display:none;"><input type="text" name="id_steam" value="<?php echo $id_steam;?>"/></label><br/>
             <input type="submit" value="Envoyer" />
     </div>
     </form>
 </div>
+<?php
+}
+?>
 <?php
 }
 ?>
