@@ -1,63 +1,86 @@
 <?php session_start();?>
-<?php include('header.php');
+<?php include('header.php'); include('config.php');
 require ('steamauth/steamauth.php');
-?>
+?><br><br><br><br><br><br><br><br>
 <?php
-$message="";
-if(isset($_POST['submit']))
+//Si lutilisateur est connecte, on le deconecte
+if(isset($_SESSION['email']))
 {
-  $email=htmlspecialchars($_POST['email']);
-  $pass=sha1(htmlspecialchars($_POST['pass']));
-  require_once('config.php');
-  $requete=$mysql->prepare('SELECT * FROM profil WHERE email = :email AND pass = :pass');
-  $requete->execute(array(':email'=>$email,':pass'=>$pass));
-  if($requete->rowCount()==1)
+  //On le deconecte en supprimant simplement les sessions email et userid
+  unset($_SESSION['email'], $_SESSION['userid']);
+?>
+<div class="message">Vous avez bien &eacute;t&eacute; d&eacute;connect&eacute;.<br />
+<a href="<?php echo $url_home; ?>">Accueil</a></div>
+<?php
+}
+else
+{
+  $oemail = '';
+  //On verifie si le formulaire a ete envoye
+  if(isset($_POST['email'], $_POST['pass']))
   {
-    $donnee=$requete->fetch(PDO::FETCH_ASSOC);
-    $_SESSION=$donnee;
-      $lifetime=600;
-      session_set_cookie_params($lifetime);
-      $timestamp = time() + 30*24*3600;
-    $hashed_password = sha1($_SESSION['pseudo']);
-    setcookie("user",sha1($_SESSION['pseudo']), $timestamp);
-    header('location:http://localhost/leon/website/monprofil.php');
-    $message="Connexion ok";
+    //On echappe les variables pour pouvoir les mettre dans des requetes SQL
+    if(get_magic_quotes_gpc())
+    {
+      $oemail = stripslashes($_POST['email']);
+      $email = mysql_real_escape_string(stripslashes($_POST['email']));
+      $pass = stripslashes($_POST['pass']);
+    }
+    else
+    {
+      $email = mysql_real_escape_string($_POST['email']);
+      $pass = $_POST['pass'];
+    }
+    //On recupere le mot de passe de lutilisateur
+    $req = mysql_query('SELECT pass,id from profil where email="'.$email.'"');
+    $dn = mysql_fetch_array($req);
+    //On le compare a celui quil a entre et on verifie si le membre existe
+    if($dn['pass']==$pass and mysql_num_rows($req)>0)
+    {
+      //Si le mot de passe es bon, on ne vas pas afficher le formulaire
+      $form = false;
+      //On enregistre son email dans la session email et son identifiant dans la session userid
+      $_SESSION['email'] = $_POST['email'];
+      $_SESSION['userid'] = $dn['id'];
+?>
+<div class="message">Vous avez bien &eacute;t&eacute; connect&eacute;. Vous pouvez acc&eacute;der &agrave; votre espace membre.<br />
+<a href="<?php echo $url_home; ?>">Accueil</a></div>
+<?php
+    }
+    else
+    {
+      //Sinon, on indique que la combinaison nest pas bonne
+      $form = true;
+      $message = 'La combinaison que vous avez entr&eacute; n\'est pas bonne.';
+    }
   }
   else
   {
-    $message="Email ou mot de passe invalide";
+    $form = true;
+  }
+  if($form)
+  {
+    //On affiche un message sil y a lieu
+  if(isset($message))
+  {
+    echo '<div class="message">'.$message.'</div>';
+  }
+  //On affiche le formulaire
+?>
+<div class="content">
+    <form action="connexion.php" method="post">
+        Veuillez entrer vos identifiants pour vous connecter:<br />
+        <div class="center">
+            <label for="email">Nom d'utilisateur</label><input type="text" name="email" id="email" value="<?php echo htmlentities($oemail, ENT_QUOTES, 'UTF-8'); ?>" /><br />
+            <label for="pass">Mot de passe</label><input type="pass" name="pass" id="pass" /><br />
+            <input type="submit" value="Connection" />
+    </div>
+    </form>
+</div>
+<?php
   }
 }
 ?>
-<style type="text/css">
-  div.centre
-{
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
-<div class="text-center centre" style="padding:50px 0">
-  <div class="logo">Connexion</div>
-  <div class="login-form-1">
-    <?php echo'<form id="login-form" class="text-left" class="formconnect" action="'.$_SERVER['PHP_SELF'].'" method="post">
-      <div class="login-form-main-message"></div>
-      <div class="main-login-form">
-        <div class="login-group">
-          <div class="form-group">
-            <label for="lg_username" class="sr-only">Email du compte</label>
-            <input type="email" class="form-control" id="lg_username" name="email" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="lg_password" class="sr-only">Mot de passe</label>
-            <input type="password" class="form-control" id="lg_password" name="pass" placeholder="Mot de passe">
-          </div>
-        </div>
-        <button type="submit" value="Connexion" name="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      </div>
-    </form>';?>
-    </div></div>
     <a href="inscription.php">Je souhaite m'inscrire avec un mail</a>
     <?php
 if(!isset($_SESSION['steamid'])) {

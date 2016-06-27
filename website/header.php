@@ -49,10 +49,10 @@
                     <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>
                 </li>
                 <li>
-                    <a class="menu" href="#nouveau">Trouver une soir&eacute;e</a>
+                    <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
                 </li>
                 <li>
-                    <a class="menu" href="connexion.php">Connexion</a>
+                    <a class="menu" href="http://localhost/leon/website/connexion.php">Connexion</a>
                 </li>
             </ul>
         </div>
