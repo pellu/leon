@@ -82,7 +82,7 @@
             </div>
         </div>
         <div class="col-lg-6 col-ls-6 col-xs-12 col-lg-offset-3 col-ls-offset-3">
-            <h3>Qu'est-ce que Playce ?</h3>
+            <h3 id="h3">Qu'est-ce que Playce ?</h3>
             <p>&Agrave; l'heure o&ugrave; les tournois de jeux s'organisent essentiellement en ligne, Playce se propose
                 comme la premi&egrave;re plateforme communautaire pour participer mais aussi organiser des soir&eacute;es
                 gaming pr&egrave;s de chez soi.</p>
@@ -92,7 +92,7 @@
             <img src="#" alt="Canape Gaming" width="50%">
         </div>
         <div class="col-lg-6 col-ls-6 col-xs-12 text-left">
-            <h4>Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
+            <h4 id="h4">Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
             <p>Que vous soyez imbattable &agrave; FIFA, as du volant &agrave; Mario Kart ou encore incollable sur les
                 cartes Magic, Playce vous permet d'organiser des tournois et soir&eacute;es &agrave;
                 th&egrave;me &agrave; votre domicile, pour y affronter ou tout simplement &eacute;changer avec les
@@ -100,7 +100,7 @@
         </div>
         <div class="col-lg-12 separator"></div>
         <div class="col-lg-6 col-ls-6 col-xs-12 text-right">
-            <h4>Participez aux soir&eacute;es et renforcez votre réseau !</h4>
+            <h4 id="h4">Participez aux soir&eacute;es et renforcez votre réseau !</h4>
             <p>Si vous n'&ecirc;tes pas en mesure d'accueillir vos futures adversaires, aucun probl&egrave;me : eux le
                 peuvent ! Il ne vous reste qu'&agrave; les d&eacute;couvrir en parcourant les nombreuses annonces que
                 Playce met en ligne. Et comme il y en a pour tous les go&ucirc;ts, vous pouvez les trier &agrave; l'aide
