@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-<section class="container content-section text-center">
+<section class="container-fluid content-section text-center">
     <div class="row">
         <div class="col-lg-12 col-ls-12 col-xs-12 parallax" id="trans1">
             <h1 id="maintitle">The Playce to be</h1>
@@ -116,7 +116,7 @@
         <div class="col-lg-6 col-ls-6 col-xs-12 col-lg-offset-3 col-ls-offset-3">
             <h3 class="glowingtext">Maintenant,<br/>Choisissez votre camp !</h3>
         </div>
-        <div class="col-lg-8 col-ls-8 col-xs-12 col-lg-offset-3 col-ls-offset-3">
+        <div class="col-lg-8 col-ls-8 col-xs-12 col-lg-offset-2 col-ls-offset-2">
             <a href="#">
                 <div class="col-lg-5 col-ls-5 col-xs-5 text-right" id="hote">Hote</div>
             </a>
