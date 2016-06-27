@@ -20,6 +20,7 @@ include("config.php");
                 <p>&agrave; <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a></p>
                 <p><?php echo $donnees['adresse']; ?></p>
                 <p><?php echo $donnees['prix']; ?></p>
+                <img src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
                 <p><?php echo $donnees['typedesoiree']; ?></p>
                 <p><?php echo $donnees['console']; ?></p>
                 <p><?php echo $donnees['typedejeu']; ?></p>

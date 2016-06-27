@@ -1,4 +1,5 @@
-<?php include('header.php'); ?>
+<?php include('header.php');
+  header( 'content-type: text/html; charset=ISO-8859-1' );?>
 <section class="container content-section text-center">
     <?php include("function.php");?>
 <?php
@@ -33,7 +34,7 @@ if(isset($_POST['submit']))
 
 <form action="search.php" method="POST">
                       <select name="search">
-                        <option value="" disabled selected>Où vas-tu jouer ?</option>
+                        <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>
                         <option value="antony">Antony (92)</option>
                         <option value="argenteuil">Argenteuil (95)</option>
                         <option value="aubervilliers">Aubervilliers (93)</option>

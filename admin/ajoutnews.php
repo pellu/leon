@@ -33,6 +33,97 @@ $result = $conn->query($sql);
 $req = $mysql->prepare("SELECT * FROM news");
 $req->execute() or die(print_r($req->errorInfo())); 
 
+// SCRIPT ENVOI PHOTO
+define('TARGET', '../website/photos/');    // Repertoire cible
+define('MAX_SIZE', 100000);    // Taille max en octets du fichier
+define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
+define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
+ 
+// Tableaux de donnees
+$tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
+$infosImg = array();
+ 
+// Variables
+$extension = '';
+$message = '';
+$nomImage = '';
+ 
+/************************************************************
+ * Creation du repertoire cible si inexistant
+ *************************************************************/
+ if( !is_dir(TARGET) ) {
+   if( !mkdir(TARGET, 0755) ) {
+     exit('Erreur : le répertoire cible ne peut-être créé ! Vérifiez que vous diposiez des droits suffisants pour le faire ou créez le manuellement !');
+  }
+ }
+
+    if(!empty($_POST)){
+  // On verifie si le champ est rempli
+  if( !empty($_FILES['photo']['name']) )
+  {
+    // Recuperation de l'extension du fichier
+    $extension  = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
+ 
+    // On verifie l'extension du fichier
+    if(in_array(strtolower($extension),$tabExt))
+    {
+      // On recupere les dimensions du fichier
+      $infosImg = getimagesize($_FILES['photo']['tmp_name']);
+ 
+      // On verifie le type de l'image
+      if($infosImg[2] >= 1 && $infosImg[2] <= 14)
+      {
+        // On verifie les dimensions et taille de l'image
+        if(($infosImg[0] <= WIDTH_MAX) && ($infosImg[1] <= HEIGHT_MAX) && (filesize($_FILES['photo']['tmp_name']) <= MAX_SIZE))
+        {
+          // Parcours du tableau d'erreurs
+          if(isset($_FILES['photo']['error']) 
+            && UPLOAD_ERR_OK === $_FILES['photo']['error'])
+          {
+            // On renomme le fichier
+            $nomImage = md5(uniqid()) .'.'. $extension;
+ 
+            // Si c'est OK, on teste l'upload
+            if(move_uploaded_file($_FILES['photo']['tmp_name'], TARGET.$nomImage))
+            {
+              $message = 'Upload réussi !';
+            }
+            else
+            {
+              // Sinon on affiche une erreur systeme
+              $message = 'Problème lors de l\'upload !';
+            }
+          }
+          else
+          {
+            $message = 'Une erreur interne a empêché l\'uplaod de l\'image';
+          }
+        }
+        else
+        {
+          // Sinon erreur sur les dimensions et taille de l'image
+          $message = 'Erreur dans les dimensions de l\'image !';
+        }
+      }
+      else
+      {
+        // Sinon erreur sur le type de l'image
+        $message = 'Le fichier à uploader n\'est pas une image !';
+      }
+    }
+    else
+    {
+      // Sinon on affiche une erreur pour l'extension
+      $message = 'L\'extension du fichier est incorrecte !';
+    }
+  }
+  else
+  {
+    // Sinon on affiche une erreur pour le champ vide
+    $message = 'Veuillez remplir le formulaire svp !';
+  }
+}
+
 if(isset($_POST['pseudo'])){
   $pseudo_news= $_POST['pseudo'];
 }else{$pseudo_news="";}
@@ -48,6 +139,9 @@ if(isset($_POST['adresse'])){
 if(isset($_POST['prix'])){
   $prix=$_POST['prix'];
 }else{$prix="";}
+if(isset($nomImage)){
+  $photo=$nomImage;
+}else{$photo="";}
 if(isset($_POST['typedesoiree'])){
   $typedesoiree=$_POST['typedesoiree'];
 }else{$typedesoiree="";}
@@ -65,14 +159,15 @@ if(isset($_POST['contenu_news'])){
 }else{$contenu_news="";}
 if(isset($_POST['datedejeu'])){
   $datedejeu=$_POST['datedejeu'];
-}else{$datedejeu="";}
+}else{$datedejeu=date("Y-m-d");}
 if(isset($_POST['heuredejeu'])){
   $heuredejeu=$_POST['heuredejeu'];
-}else{$heuredejeu="";}
+}else{$heuredejeu=date("H:i");}
 if(isset($_POST['url_news'])){
   $url_news=Slug($titre_news);
 }else{$url_news="";}
-$date_news=date("Y-m-d");
+$date_news=date("d-m-Y");
+$heuredejeu=date("H:i");
 
 if(!isset($_POST['submit']))
 {
@@ -84,12 +179,13 @@ if(!isset($_POST['submit']))
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      
     {
-    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
+    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, photo, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$photo','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
     $stmt->bindParam(':pseudo_news', $pseudo_news);
     $stmt->bindParam(':ville_news', $ville_news);
     $stmt->bindParam(':titre_news', $titre_news);
     $stmt->bindParam(':adresse', $adresse);
     $stmt->bindParam(':prix', $prix);
+    $stmt->bindParam(':photo', $photo);
     $stmt->bindParam(':typedesoiree', $typedesoiree);
     $stmt->bindParam(':console', $console);
     $stmt->bindParam(':typedejeu', $typedejeu);
@@ -105,7 +201,7 @@ else
       echo '';
     }
 ?>
-    <form method="post" action="">
+    <form method="post" action="" enctype="multipart/form-data">
 <?php //Affichage du pseudo / id de l'utilisateur 
   if ($result->num_rows > 0) {
     echo "<label>Pseudo: <select name='pseudo'>";
@@ -192,13 +288,39 @@ $conn->close();?><br>
     </label><br>
     <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
     <label>Photo <a title="Photo carré">*</a>: <input name="photo" type="file" id="fichier_a_uploader" /></label>
-    <label>Type de soir&eacute;e:<input type="text" name="typedesoiree" value="<?php echo $typedesoiree ?>"/></label>
+    <label>Type de soir&eacute;e:
+      <select name="typedesoiree">
+        <option value="" disabled selected>Choisir</option>
+        <option value="Casual">Casual</option>
+        <option value="Tournoi">Tournoi</option>
+        <option value="Formation">Formation</option>
+      </select>
+    </label>
     <label>Type de jeu:<input type="text" name="typedejeu" value="<?php echo $typedejeu ?>"/></label>
-    <label>Console:<input type="text" name="console" value="<?php echo $console ?>"/></label>
-    <label>Nombre de participants:<input type="text" name="nb_participants" value="<?php echo $nb_participants ?>"/></label>
+    <label>Console:
+      <select name="console">
+        <option value="" disabled selected>Choisir</option>
+        <option value="Atari">Atari</option>
+        <option value="Microsoft">Microsoft</option>
+        <option value="Nintendo">Nintendo</option>
+        <option value="Sega">Sega</option>
+        <option value="Sony">Sony</option>
+      </select>
+    </label><br>
+    <label>Nombre de participants:
+      <select name="nb_participants">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+      </select>
+    </label><br>
     <label>Description:<input type="text" name="contenu_news" value="<?php echo $contenu_news ?>"/></label>
-    <label>Date de la soir&eacute;e:<input type="text" name="datedejeu" value="<?php echo $datedejeu ?>"/></label>
-    <label>Heure de la soir&eacute;e:<input type="text" name="heuredejeu" value="<?php echo $heuredejeu ?>"/></label>
+    <label>Date de la soir&eacute;e:<input type="date" name="datedejeu" value="<?php echo $datedejeu ?>"/></label>
+    <label>Heure de la soir&eacute;e:<input type="time" name="heuredejeu" value="<?php echo $heuredejeu ?>"/></label><br>
     <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
     <input type="submit" value="ENVOYER"/>
     </form>
