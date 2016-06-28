@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include('header.php'); ?>
 <section class="container-fluid content-section text-center">
     <div class="row">

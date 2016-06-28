@@ -51,9 +51,16 @@
                 <li>
                     <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
                 </li>
+                <?php if(isset($_SESSION['email'])){?>
+                <li>
+                    <a class="menu" href="http://localhost/leon/website/monprofil.php">Mon profil</a>
+                </li>
+                <?php }else{?>
                 <li>
                     <a class="menu" href="http://localhost/leon/website/connexion.php">Connexion</a>
                 </li>
+                <?php }?>
+                
             </ul>
         </div>
     </div>

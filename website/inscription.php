@@ -1,9 +1,12 @@
+<?php session_start();
+if(isset($_SESSION['email'])){ header("Location:monprofil.php");}else{ ?>
 <?php 
 include('header.php');
 include('config.php');?>
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
+    <br><br><br><br><br><br>
 <?php
 
 // SCRIPT ENVOI PHOTO
@@ -233,6 +236,9 @@ if($form)
     </div>
     </form>
 </div>
+<?php
+}
+?>
 <?php
 }
 ?>

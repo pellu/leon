@@ -3,6 +3,7 @@
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
+    <br><br><br><br><br>
 <?php
 //On verifie si lutilisateur est connecte
 if(isset($_SESSION['email']))
@@ -127,14 +128,17 @@ if(isset($_SESSION['email']))
         Vous pouvez modifier vos informations:<br />
         <div class="center">
             <label for="pseudo">Nom d'utilisateur</label><input type="text" name="pseudo" id="pseudo" value="<?php echo $pseudo; ?>" /><br />
-            <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="pass" name="pass" id="pass" value="<?php echo $pass; ?>" /><br />
-            <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="pass" name="passverif" id="passverif" value="<?php echo $pass; ?>" /><br />
+            <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="password" name="pass" id="pass" value="<?php echo $pass; ?>" /><br />
+            <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="password" name="passverif" id="passverif" value="<?php echo $pass; ?>" /><br />
             <label for="email">Email</label><input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br />
             <label for="avatar">Image perso<span class="small">(facultatif)</span></label><input type="text" name="avatar" id="avatar" value="<?php echo $avatar; ?>" /><br />
             <input type="submit" value="Envoyer" />
         </div>
     </form>
 </div>
+
+<a href="deconnexion.php">Je me déconnecte</a> (Vous serez déconnecté à la fermeture de votre navigateur)
+
 <?php
 	}
 }

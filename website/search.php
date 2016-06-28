@@ -1,6 +1,9 @@
 <?php include('header.php');
   header( 'content-type: text/html; charset=ISO-8859-1' );?>
-<section class="container content-section text-center">
+  <section class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-12 col-ls-12 col-xs-12">
+<br><br><br><br><br>
     <?php include("function.php");?>
 <?php
 if(isset($_POST['search'])){
@@ -30,8 +33,6 @@ if(isset($_POST['submit']))
   }
 }
 ?>
-
-
 <form action="search.php" method="POST">
                       <select name="search">
                         <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>

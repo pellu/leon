@@ -6,11 +6,8 @@ require ('steamauth/steamauth.php');
 //Si lutilisateur est connecte, on le deconecte
 if(isset($_SESSION['email']))
 {
-  //On le deconecte en supprimant simplement les sessions email et userid
-  unset($_SESSION['email'], $_SESSION['userid']);
+  header("Location:monprofil.php");
 ?>
-<div class="message">Vous avez bien &eacute;t&eacute; d&eacute;connect&eacute;.<br />
-<a href="<?php echo $url_home; ?>">Accueil</a></div>
 <?php
 }
 else
@@ -42,9 +39,8 @@ else
       //On enregistre son email dans la session email et son identifiant dans la session userid
       $_SESSION['email'] = $_POST['email'];
       $_SESSION['userid'] = $dn['id'];
+      header("location:monprofil.php");
 ?>
-<div class="message">Vous avez bien &eacute;t&eacute; connect&eacute;. Vous pouvez acc&eacute;der &agrave; votre espace membre.<br />
-<a href="<?php echo $url_home; ?>">Accueil</a></div>
 <?php
     }
     else
@@ -68,11 +64,11 @@ else
   //On affiche le formulaire
 ?>
 <div class="content">
-    <form action="connexion.php" method="post">
+    <form action="" method="post">
         Veuillez entrer vos identifiants pour vous connecter:<br />
         <div class="center">
             <label for="email">Nom d'utilisateur</label><input type="text" name="email" id="email" value="<?php echo htmlentities($oemail, ENT_QUOTES, 'UTF-8'); ?>" /><br />
-            <label for="pass">Mot de passe</label><input type="pass" name="pass" id="pass" /><br />
+            <label for="pass">Mot de passe</label><input type="password" name="pass" id="pass" /><br />
             <input type="submit" value="Connection" />
     </div>
     </form>

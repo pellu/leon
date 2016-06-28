@@ -2,7 +2,7 @@
 require ('steamauth/steamauth.php');
 if(!isset($_SESSION['steamid'])) {
     echo "<div style='margin: 30px auto; text-align: center;'>Vous pouvez vous connecter via steam<br>";
-    loginbutton();
+    loginbutton('');
   echo "</div>";
   }  else {
     include ('steamauth/userInfo.php');
@@ -12,6 +12,7 @@ if(!isset($_SESSION['steamid'])) {
   <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
+    <br><br><br><br><br><br>
   <div style="display:none;" style='float:left;'>
       <a href='https://github.com/SmItH197/SteamAuthentication'>
         <button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
@@ -23,7 +24,7 @@ if(!isset($_SESSION['steamid'])) {
     <br>
     <br>
 <?php if(isset($_SESSION['steamid'])) {?>
-    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4><span style='float:right;'><?php logoutbutton(); ?></span>
+    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4><span style='float:right;'>Je me d&eacute;connecte<br> de steam<?php logoutbutton(); ?></span>
     <?php
     }
 
