@@ -1,8 +1,5 @@
 <?php session_start();?>
-<?php
-include('header.php');
-include('config.php');
-?>
+<?php include('header.php'); include('config.php');?>
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
@@ -68,35 +65,51 @@ else
 {
 //On affiche la liste des messages
 ?>
-<div class="content">
-<table class="messages_table">
-	<tr>
-    	<th class="author">Utilisateur</th>
-        <th>Date d'envoi</th>
-        <th>Message</th>
-    </tr>
+<div class="row">
+	<div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
+	</div>
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+		Utilisateur
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+		Date d'envoi
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+		Message
+	</div>
+	<div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
+	</div>
+</div>
+<br>
 <?php
 while($dn2 = mysql_fetch_array($req2))
 {
 ?>
-
-	<tr>
-    	<td><?php
-if($dn2['avatar']!='')
-{
-	echo '<img src="http://localhost/leon/website/photos/'.htmlentities($dn2['avatar']).'" alt="Image Perso" style="max-width:100px;max-height:100px;" />';
-}
-?><br>
-<a target="_blank" href="http://localhost/leon/website/profil/<?php echo $dn2['pseudo']?>-<?php echo $dn2['userid']?>"><?php echo $dn2['pseudo']; ?></a></td>
-
-    	<td><?php echo date('d/m/Y', $dn2['timestamp']); ?><br><?php echo date('H:i:s', $dn2['timestamp']); ?></td>
-    	<td><?php echo $dn2['message']; ?></td>
-    </tr>
+<div class="row">
+	<div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
+	</div>
+    <div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
+		<?php
+			if($dn2['avatar']!='')
+			{
+				echo '<img src="http://localhost/leon/website/photos/'.htmlentities($dn2['avatar']).'" alt="Image Perso" style="max-width:100px;max-height:100px;" />';
+			}
+		?>
+		<br><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $dn2['pseudo']?>-<?php echo $dn2['userid']?>"><?php echo $dn2['pseudo']; ?></a>
+	</div>
+	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+		<?php echo date('d/m/Y', $dn2['timestamp']); ?><br><?php echo date('H:i:s', $dn2['timestamp']); ?>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+		<?php echo $dn2['message']; ?>
+	</div>
+	<div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
+	</div>
+</div>
 <?php
 }
 //On affiche le formulaire de reponse
 ?>
-</table><br />
 <h2>R&eacute;pondre</h2>
 <div class="center">
     <form action="read_pm.php?id=<?php echo $id; ?>" method="post">
