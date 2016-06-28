@@ -26,7 +26,7 @@ else
     else
     {
       $email = mysql_real_escape_string($_POST['email']);
-      $pass = $_POST['pass'];
+      $pass = sha1($_POST['pass']);
     }
     //On recupere le mot de passe de lutilisateur
     $req = mysql_query('SELECT pass,id from profil where email="'.$email.'"');
