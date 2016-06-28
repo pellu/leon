@@ -1,4 +1,3 @@
-
 <br><br><br><br><br>
 <?php
 include('../admin/config.php');
@@ -14,10 +13,8 @@ if ($conn->connect_error) {
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
 <?php
-
 $reqaa = $mysql->prepare("SELECT * FROM comments");
 $reqaa->execute() or die(print_r($req->errorInfo())); 
-
 if(isset($_POST['pseudo'])){
   $pseudo_comments= $_SESSION["userid"];
 }else{$pseudo_comments=$_SESSION["userid"];}
@@ -29,12 +26,11 @@ if(isset($_POST['comments'])){
 }else{$comments="";}
 $date_comments=date("d-m-Y");
 $heure_comments=date("H:i");
-
 if(!isset($_POST['submit']))
 {
   if(empty($comments)) 
     {
-    echo 'Seul le champs contenu peut etre vide'; 
+    echo ''; 
     }
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      

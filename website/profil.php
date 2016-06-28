@@ -7,12 +7,12 @@ $mysql = "SELECT * FROM profil WHERE id='$id' LIMIT 1";
 $req = mysql_query($mysql) or die( mysql_error()." ERROR");
 $data = mysql_fetch_assoc($req);
 if(isset($data['url'])) {
-	if($data['url'] !=$_GET['url']){
-		header("Location: /leon/website/profil/".$data["url"]."-".$data["id"]);
-	}
+  if($data['url'] !=$_GET['url']){
+    header("Location: /leon/website/profil/".$data["url"]."-".$data["id"]);
+  }
 }
  else{
- 	header("Location: /leon/test/404.php");
+  header("Location: /leon/test/404.php");
 }
 ?>
 <?php include('header.php');?>
@@ -21,9 +21,9 @@ if(isset($data['url'])) {
             <div class="col-lg-8 col-lg-offset-2">
             <br><br><br><br><br>
                 <p><img src="http://localhost/leon/website/photos/<?php echo $data['avatar'];?>"></p>
-				<h2>Pseudo : <?php echo $data['pseudo'];?></h2>
-				<h3>Utilisateur inscrit le : <?php echo $data['date_inscription']; ?></h3>
-				<p>Description : <?php echo $data['description']; ?></p>
+        <h2>Pseudo : <?php echo $data['pseudo'];?></h2>
+        <h3>Utilisateur inscrit le : <?php echo $data['date_inscription']; ?></h3>
+        <p>Description : <?php echo $data['description']; ?></p>
             </div>
         </div>
     </section>

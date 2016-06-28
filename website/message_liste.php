@@ -11,6 +11,7 @@ include('config.php');
 //On verifie que lutilisateur est connecte
 if(isset($_SESSION['email']))
 {
+    include('headerprofil.php');
 //On affiche la liste des messages de l'utilisateur sous la forme dun tableau
 //Deux requettes sont executees, une pour recuperer les messages non-lus et une pour les messages lus
 $req1 = mysql_query('SELECT m1.id, m1.title, m1.timestamp, count(m2.id) as reps, profil.id as userid, profil.pseudo from pm as m1, pm as m2,profil where ((m1.user1="'.$_SESSION['userid'].'" and m1.user1read="no" and profil.id=m1.user2) or (m1.user2="'.$_SESSION['userid'].'" and m1.user2read="no" and profil.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');

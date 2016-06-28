@@ -8,9 +8,8 @@ include('config.php');
     <div class="col-lg-12 col-ls-12 col-xs-12">
     <br><br><br><br><br>
 <?php
-//On verifie si lutilisateur est connecte
-if(isset($_SESSION['email']))
-{
+if(isset($_SESSION['email'])){
+include('headerprofil.php');
 $form = true;
 $otitle = '';
 $orecip = '';

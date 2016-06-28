@@ -9,8 +9,8 @@ include('config.php');
     <br><br><br><br><br>
 <?php
 //On verifie si lutilisateur est connecte
-if(isset($_SESSION['email']))
-{
+if(isset($_SESSION['email'])){
+	include('headerprofil.php');
 //On verifie que lidentifiant de la discution est defini
 if(isset($_GET['id']))
 {
@@ -69,26 +69,28 @@ else
 //On affiche la liste des messages
 ?>
 <div class="content">
-<h1><?php echo $dn1['title']; ?></h1>
 <table class="messages_table">
 	<tr>
     	<th class="author">Utilisateur</th>
+        <th>Date d'envoi</th>
         <th>Message</th>
     </tr>
 <?php
 while($dn2 = mysql_fetch_array($req2))
 {
 ?>
+
 	<tr>
-    	<td class="author center"><?php
+    	<td><?php
 if($dn2['avatar']!='')
 {
 	echo '<img src="http://localhost/leon/website/photos/'.htmlentities($dn2['avatar']).'" alt="Image Perso" style="max-width:100px;max-height:100px;" />';
 }
-?><br />
+?><br>
 <a target="_blank" href="http://localhost/leon/website/profil/<?php echo $dn2['pseudo']?>-<?php echo $dn2['userid']?>"><?php echo $dn2['pseudo']; ?></a></td>
-    	<td class="left"><div class="date">Date d'envoi: <?php echo date('d/m/Y H:i:s' ,$dn2['timestamp']); ?></div>
-    	<?php echo $dn2['message']; ?></td>
+
+    	<td><?php echo date('d/m/Y', $dn2['timestamp']); ?><br><?php echo date('H:i:s', $dn2['timestamp']); ?></td>
+    	<td><?php echo $dn2['message']; ?></td>
     </tr>
 <?php
 }
