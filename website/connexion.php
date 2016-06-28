@@ -67,7 +67,7 @@ else
     <form action="" method="post">
         Veuillez entrer vos identifiants pour vous connecter:<br />
         <div class="center">
-            <label for="email">Nom d'utilisateur</label><input type="text" name="email" id="email" value="<?php echo htmlentities($oemail, ENT_QUOTES, 'UTF-8'); ?>" /><br />
+            <label for="email">Email</label><input type="text" name="email" id="email" value="<?php echo htmlentities($oemail, ENT_QUOTES, 'UTF-8'); ?>" /><br />
             <label for="pass">Mot de passe</label><input type="password" name="pass" id="pass" /><br />
             <input type="submit" value="Connection" />
     </div>

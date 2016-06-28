@@ -225,8 +225,8 @@ if($form)
         Veuillez remplir ce formulaire pour vous inscrire:<br />
         <div class="center">
             <label for="pseudo">Nom d'utilisateur</label><input type="text" name="pseudo" value="<?php if(isset($_POST['pseudo'])){echo htmlentities($_POST['pseudo'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-            <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="pass" name="pass" /><br />
-            <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="pass" name="passverif" /><br />
+            <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="password" name="pass" /><br />
+            <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="password" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
             <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
           <label>Avatar: <input name="avatar" type="file" id="fichier_a_uploader" /></label><br>
