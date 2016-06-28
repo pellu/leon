@@ -1,40 +1,35 @@
 <?php include('header.php');
-  header( 'content-type: text/html; charset=ISO-8859-1' );?>
-  <section class="container content-section text-center">
-    <div class="row">
-        <div class="col-lg-12 col-ls-12 col-xs-12">
-<br><br><br><br><br>
-    <?php include("function.php");?>
-<?php
-if(isset($_POST['search'])){
-  $search=$_POST['search'];
-}else{$search="";
-$_POST['search']="";
-}
-if(isset($_POST['submit']))
-{
-  $search=mysql_real_escape_string(htmlentities(trim($_POST['search'])));
-  if(empty($search))
-    {
-      $error[]="Veuillez saisir une recherche";
-    }
-    else if(!empty($error))
-    {
-      $error[]="Veuillez saisir au moins deux caract&egraveres";
-    }
-    if(empty($error))
-    {
-      resultat_recherche($search);
-    }
-    else
-    {
-      foreach($error as $errors){echo $errors."<br/>";
-    }
-  }
-}
-?>
-<form action="search.php" method="POST">
-                      <select name="search">
+header('content-type: text/html; charset=ISO-8859-1'); ?>
+    <section class="container-fluid content-section text-center">
+        <div class="row">
+            <div class="col-lg-12 col-ls-12 col-xs-12">
+                <br><br><br><br><br>
+                <?php include("function.php"); ?>
+                <?php
+                if (isset($_POST['search'])) {
+                    $search = $_POST['search'];
+                } else {
+                    $search = "";
+                    $_POST['search'] = "";
+                }
+                if (isset($_POST['submit'])) {
+                    $search = mysql_real_escape_string(htmlentities(trim($_POST['search'])));
+                    if (empty($search)) {
+                        $error[] = "Veuillez saisir une recherche";
+                    } else if (!empty($error)) {
+                        $error[] = "Veuillez saisir au moins deux caract&egraveres";
+                    }
+                    if (empty($error)) {
+                        resultat_recherche($search);
+                    } else {
+                        foreach ($error as $errors) {
+                            echo $errors . "<br/>";
+                        }
+                    }
+                }
+                ?>
+                <form action="search.php" method="POST">
+                    <select name="search" id="homesearch">
                         <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>
                         <option value="antony">Antony (92)</option>
                         <option value="argenteuil">Argenteuil (95)</option>
@@ -95,8 +90,30 @@ if(isset($_POST['submit']))
                         <option value="versailles">Versailles (78)</option>
                         <option value="villejuif">Villejuif (94)</option>
                         <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
-                      </select>
-                    <input type="submit" value="Recherche" name="submit">
-                  </form>
-</div></div></section>
+                    </select>
+                    <input type="submit" value="Recherche" name="submit" id="rechercher">
+                </form>
+            </div>
+        </div>
+        <div id="rest-search" class="col-lg-12">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="col-lg-6" id="result" width="50%">
+                    <div class="result-photo"><img src="img/event.jpg" alt="" width="485" height="320"></div>
+                    <div class="result-price">15&euro;</div>
+                    <div class="result-square">
+                        <div class="result-title text-left">TOURNOI CARTES POK&Eacute;MON / 20h-23h</div>
+                        <div class="result-user">Post&eacute;e par YOHANITO</div>
+                        <div class="result-user-avatar"><img src="img/avatar.jpg" alt="" height="70" width="70"
+                                                             class="img-circle"></div>
+                        <div class="result-description text-left"
+                        <p>Tournoi cartes Pok&eacute;mon pour joueurs d&eacute;butants &agrave; confirm&eacute;s.
+                            &#8232;Sur place : 2 jeux de cartes + tapis de jeu. Boissons et en-cas sur place (plus de d&eacute;tails
+                            via message priv&eacute;), pr&eacute;voir des car&#8230;</p>
+                    </div>
+                    <a href="#"><p class="regarder-annonce">Voir l'annonce</p></a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
 <?php include('footer.php'); ?>
