@@ -37,13 +37,13 @@ if(!isset($_POST['submit']))
 {
   if(empty($comments)) 
     {
-    echo 'Aucun champs doit &ecirc;tre vide'; 
+    echo 'Seul le champs contenu peut etre vide'; 
     }
 
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      
     {
-    $stmt = $mysql->prepare("INSERT INTO comments(id_comments, date_comments, pseudo_comments, profil_comments, comments) VALUES ('','$date_comments', '$pseudo_comments','$profil_comments','$comments','$url_comments')");
+    $stmt = $mysql->prepare("INSERT INTO comments(id_comments, date_comments, pseudo_comments, profil_comments, comments) VALUES ('','$date_comments', '$pseudo_comments','$profil_comments','$comments')");
     $stmt->bindParam(':pseudo_comments', $pseudo_comments);
     $stmt->bindParam(':profil_comments', $profil_comments);
     $stmt->bindParam(':comments', $comments);
@@ -54,30 +54,32 @@ else
     else{
       echo '';
     }
+
+
+
 ?>
-    <form method="post" action="">
-<?php //Affichage du pseudo / id de l'utilisateur 
-  if ($result->num_rows > 0) {
-    echo "<label>Pseudo: <select name='pseudo'>";
-    while($row = $result->fetch_assoc()) {
-      echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
-      }
-      echo "</select></label>";
-  } else {
-    echo "Pas de profil dans la base<br />";
-}
- //Affichage du pseudo / id de l'utilisateur 
-  if ($test->num_rows > 0) {
-    echo "<label>Sur le profil: <select name='profil'>";
-    while($row = $test->fetch_assoc()) {
-      echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
-      }
-      echo "</select></label>";
-  } else {
-    echo "Pas de profil dans la base<br />";
-}
-$conn->close();?>
-      <label>Commentaire: <textarea name="contenu"/><?php echo $comments ?></textarea></label><br/>
+    <form method="POST" action="">
+      <?php //Affichage du pseudo / id de l'utilisateur 
+        if ($result->num_rows > 0) {
+          echo "<label>Pseudo: <select name='pseudo'>";
+          while($row = $result->fetch_assoc()) {
+            echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
+            }
+            echo "</select></label>";
+        } else {
+          echo "Pas de profil dans la base<br />";
+      }?>
+      <?php //Affichage du pseudo / id de l'utilisateur 
+        if ($test->num_rows > 0) {
+          echo "<label>Sur le profil: <select name='profil'>";
+          while($row = $test->fetch_assoc()) {
+            echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
+            }
+            echo "</select></label>";
+        } else {
+          echo "Pas de profil dans la base<br />";
+      }?>
+      <label>Commentaire: <textarea name="comments"/><?php echo $comments ?></textarea></label><br/>
       <input type="submit" value="ENVOYER"/>
     </form>
     </div>

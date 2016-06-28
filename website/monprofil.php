@@ -5,9 +5,11 @@
     <div class="col-lg-12 col-ls-12 col-xs-12">
     <br><br><br><br><br>
 <?php
+
 //On verifie si lutilisateur est connecte
 if(isset($_SESSION['email']))
 {
+	echo $_SESSION['email'];
 	//On verifie si le formulaire a ete envoye
 	if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'], $_POST['avatar']))
 	{
