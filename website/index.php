@@ -1,14 +1,14 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <?php include('header.php'); ?>
 <section class="container-fluid content-section text-center">
     <div class="row">
-        <div class="col-lg-12 col-ls-12 col-xs-12 parallax" id="trans1">
+        <div class="col-lg-12 col-md-12 col-xs-12 parallax" id="trans1">
             <h1 id="maintitle">The Playce to be</h1>
             <h2 id="baseline">Trouvez votre soir&eacute;e sans plus attendre !</h2>
-            <div id="opacitysquare" class="col-lg-12 col-ls-12 col-xs-12">
-                <div class="col-lg-8 col-ls-12 col-xs-12 col-lg-offset-2" id="homesearch">
+            <div id="opacitysquare" class="col-lg-12 col-md-12 col-xs-12">
+                <div class="col-lg-8 col-md-12 col-xs-12 col-lg-offset-2" >
                     <form action="search.php" method="POST">
-                        <select name="search">
+                        <select name="search"  id="homesearch">
                             <option value="" disabled selected>Où vas-tu jouer ?</option>
                             <option value="antony">Antony (92)</option>
                             <option value="argenteuil">Argenteuil (95)</option>
@@ -70,113 +70,122 @@
                             <option value="villejuif">Villejuif (94)</option>
                             <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
                         </select>
-                        <input type="submit" value="Recherche" name="submit">
+                        <input type="submit" value="Recherche" name="submit" id="rechercher">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <div id="rest" class="col-lg-12 col-ls-12 col-xs-12">
-        <div class="col-lg-8 col-ls-12 col-xs-12 col-lg-offset-2" id="forcescroll">
-            <h3>Decouvrir Playce</h3>
+    <div id="rest" class="col-lg-12 col-md-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-xs-12 col-lg-offset-2 col-md-offset-2">
+            <div class="col-lg-8 col-md-12 col-xs-12 col-lg-offset-2">
+                <h3 id="decouvrez">Decouvrir Playce</h3>
                 <span class="scroll-btn glowing-btn">
                     <a href="#">
                         <span class="mouse"><span></span></span>
                     </a>
                 </span>
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 col-lg-offset-3 col-ls-offset-3">
-            <h3 id="h3">Qu'est-ce que Playce ?</h3>
-            <p>&Agrave; l'heure o&ugrave; les tournois de jeux s'organisent essentiellement en ligne, Playce se propose
-                comme la premi&egrave;re plateforme communautaire pour participer mais aussi organiser des soir&eacute;es
-                gaming pr&egrave;s de chez soi.</p>
-            <p>C'est un syst&egrave;me innovant pour trouver de nouveaux partenaires de jeu qui se correspondent.</p>
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12">
-            <img src="#" alt="Canape Gaming" width="50%">
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 text-left">
-            <h4 id="h4">Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
-            <p>Que vous soyez imbattable &agrave; FIFA, as du volant &agrave; Mario Kart ou encore incollable sur les
-                cartes Magic, Playce vous permet d'organiser des tournois et soir&eacute;es &agrave;
-                th&egrave;me &agrave; votre domicile, pour y affronter ou tout simplement &eacute;changer avec les
-                gamers de votre quartier !</p>
-        </div>
-        <div class="col-lg-12 separator"></div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 text-right">
-            <h4 id="h4">Participez aux soir&eacute;es et renforcez votre réseau !</h4>
-            <p>Si vous n'&ecirc;tes pas en mesure d'accueillir vos futures adversaires, aucun probl&egrave;me : eux le
-                peuvent ! Il ne vous reste qu'&agrave; les d&eacute;couvrir en parcourant les nombreuses annonces que
-                Playce met en ligne. Et comme il y en a pour tous les go&ucirc;ts, vous pouvez les trier &agrave; l'aide
-                des filtres personnalisés !</p>
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12">
-            <img src="#" alt="Controller Gaming" width="50%">
-        </div>
-        <div class="col-lg-12 separator"></div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 col-lg-offset-3 col-ls-offset-3">
-            <h3 class="glowingtext">Maintenant,<br/>Choisissez votre camp !</h3>
-        </div>
-        <div class="col-lg-8 col-ls-8 col-xs-12 col-lg-offset-2 col-ls-offset-2">
-            <a href="#">
-                <div class="col-lg-5 col-ls-5 col-xs-5 text-right" id="hote">Hote</div>
-            </a>
-            <a href="#">
-                <div class="col-lg-7 col-ls-7 col-xs-7 text-left" id="participant">Participant</div>
-            </a>
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 col-lg-offset-3 col-ls-offset-3">
-            <h3 class="glowingtext">Ils ont testé Playce</h3>
-        </div>
-        <div class="comment-right col-lg-6 col-ls-6 col-xs-12 col-lg-offset-6 col-ls-offset-6">
-            <div class="user-avatar col-lg-4 col-ls-4 col-xs-4">
-                <img src="#" alt="Photo de profil">
             </div>
-            <div class="comment col-lg-8 col-ls-8 col-xs-8 text-left">
-                <p class="user-name">Lucas Bedouin, hôte</p>
-                <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas avec
-                    de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
-                    chaleureuse.</p>
+            <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
+                <h3 id="h3">Qu'est-ce que Playce ?</h3>
+                <p>&Agrave; l'heure o&ugrave; les tournois de jeux s'organisent essentiellement en ligne, Playce se
+                    propose
+                    comme la premi&egrave;re plateforme communautaire pour participer mais aussi organiser des soir&eacute;es
+                    gaming pr&egrave;s de chez soi.</p>
+                <p>C'est un syst&egrave;me innovant pour trouver de nouveaux partenaires de jeu qui se
+                    correspondent.</p>
             </div>
-        </div>
-        <div class="comment-left col-lg-6 col-ls-6 col-xs-12">
-            <div class="comment col-lg-8 col-ls-8 col-xs-8 text-right">
-                <p class="user-name">Lucas Bedouin, hôte</p>
-                <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas avec
-                    de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
-                    chaleureuse.</p>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <img src="img/canap.png" alt="Canape Gaming" id="canape" width="100%">
             </div>
-            <div class="user-avatar col-lg-4 col-ls-4 col-xs-4">
-                <img src="#" alt="Photo de profil">
+            <div class="col-lg-4 col-md-4 col-xs-12 text-left">
+                <h4 id="h4" style="margin-top: 90px;">Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
+                <p>Que vous soyez imbattable &agrave; FIFA, as du volant &agrave; Mario Kart ou encore incollable sur
+                    les
+                    cartes Magic, Playce vous permet d'organiser des tournois et soir&eacute;es &agrave;
+                    th&egrave;me &agrave; votre domicile, pour y affronter ou tout simplement &eacute;changer avec les
+                    gamers de votre quartier !</p>
             </div>
-        </div>
-        <div class="comment-right col-lg-6 col-ls-6 col-xs-12 col-lg-offset-6 col-ls-offset-6">
-            <div class="user-avatar col-lg-4 col-ls-4 col-xs-4">
-                <img src="#" alt="Photo de profil">
+            <div class="col-lg-12 separator"></div>
+            <div class="col-lg-4 col-md-4  col-lg-offset-2 col-md-offset-2 col-xs-12 text-right">
+                <h4 id="h4" style="margin-top: 90px;">Participez aux soir&eacute;es et renforcez votre réseau !</h4>
+                <p>Si vous n'&ecirc;tes pas en mesure d'accueillir vos futures adversaires, aucun probl&egrave;me : eux
+                    le
+                    peuvent ! Il ne vous reste qu'&agrave; les d&eacute;couvrir en parcourant les nombreuses annonces
+                    que
+                    Playce met en ligne. Et comme il y en a pour tous les go&ucirc;ts, vous pouvez les trier &agrave;
+                    l'aide
+                    des filtres personnalisés !</p>
             </div>
-            <div class="comment col-lg-8 col-ls-8 col-xs-8 text-left">
-                <p class="user-name">Lucas Bedouin, hôte</p>
-                <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas avec
-                    de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
-                    chaleureuse.</p>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <img src="img/PS.png" alt="Controller Gaming" id="controller" width="100%">
             </div>
-        </div>
-        <div class="comment-left col-lg-6 col-ls-6 col-xs-12">
-            <div class="comment col-lg-8 col-ls-8 col-xs-8 text-right">
-                <p class="user-name">Lucas Bedouin, hôte</p>
-                <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas avec
-                    de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
-                    chaleureuse.</p>
+            <div class="col-lg-4 col-md-4 col-xs-12" id="gauche">
             </div>
-            <div class="user-avatar col-lg-4 col-ls-4 col-xs-4">
-                <img src="#" alt="Photo de profil">
+            <div class="col-lg-4 col-md-4 col-xs-12">
+                <h3 class="glowingtext">Maintenant,<br/>Choisissez votre camp !</h3>
             </div>
-        </div>
-        <div class="col-lg-6 col-ls-6 col-xs-12 partagez-votre-experience">
+            <div class="col-lg-4 col-md-4 col-xs-12" id="droite">
+            </div>
+            <div class="col-lg-7 col-md-7 col-xs-12 col-lg-offset-3 col-md-offset-3" id="switch">
+                <a href="#">
+                    <div class="col-lg-5 col-md-5 col-xs-5 text-right" id="hote">Hote</div>
+                </a>
+                <a href="#">
+                    <div class="col-lg-7 col-md-7 col-xs-7 text-left" id="participant">Participant</div>
+                </a>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
+                <h3 class="glowingtext">Ils ont testé Playce</h3>
+            </div>
+            <div class="comment-right col-lg-6 col-md-6 col-xs-12 col-lg-offset-6 col-md-offset-6" id="user-avatar-1">
+                <div class="comment col-lg-7 col-md-7 col-xs-7 col-lg-offset-3 col-md-offset-3 text-left">
+                    <p class="user-name">Stéphanie Mandiano, hôte</p>
+                    <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
+                        avec
+                        de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
+                        chaleureuse.</p>
+                </div>
+            </div>
+            <div class="comment-right col-lg-7 col-md-7 col-xs-12" id="user-avatar-2">
+                <div class="comment col-lg-6 col-md-6 col-xs-6 col-lg-offset-2 col-md-offset-1 text-right">
+                    <p class="user-name">Stéphanie Mandiano, hôte</p>
+                    <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
+                        avec
+                        de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
+                        chaleureuse.</p>
+                </div>
+            </div>
+            <div class="comment-right col-lg-6 col-md-6 col-xs-12 col-lg-offset-6 col-md-offset-6" id="user-avatar-1">
+                <div class="comment col-lg-7 col-md-7 col-xs-7 col-lg-offset-3 col-md-offset-3 text-left">
+                    <p class="user-name">Stéphanie Mandiano, hôte</p>
+                    <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
+                        avec
+                        de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
+                        chaleureuse.</p>
+                </div>
+            </div>
+            <div class="comment-right col-lg-7 col-md-7 col-xs-12" id="user-avatar-2">
+                <div class="comment col-lg-6 col-md-6 col-xs-6 col-lg-offset-2 col-md-offset-1 text-right">
+                    <p class="user-name">Stéphanie Mandiano, hôte</p>
+                    <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
+                        avec
+                        de "vraies" personnes. Le gros plus de Playce est sans conteste sa dimension humaine et
+                        chaleureuse.</p>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-lg-5 col-md-5 col-xs-12 partagez-votre-experience">
             <span class="input-group-btn text-center">
                         <input type="submit" name="comment" id="shareexp" id="check"
                                value="Partagez votre expérience">
                     </span>
+            </div>
         </div>
     </div>
 </section>
@@ -224,4 +233,22 @@
     $('.bg-1').parallax({
         speed: 0.15
     });
+</script>
+<script type="text/javascript">
+    function scrollNav() {
+        $('.nav a').click(function(){
+            //Toggle Class
+            $(".active").removeClass("active");
+            $(this).closest('li').addClass("active");
+            var theClass = $(this).attr("class");
+            $('.'+theClass).parent('li').addClass('active');
+            //Animate
+            $('html, body').stop().animate({
+                scrollTop: $( $(this).attr('href') ).offset().top - 160
+            }, 400);
+            return false;
+        });
+        $('.scrollTop a').scrollTop();
+    }
+    scrollNav();
 </script>
