@@ -29,6 +29,7 @@ if(isset($_POST['delete'])){
 <tr style="color:white;">
 <th bgcolor="#3498db">N&deg;</th>
 <th bgcolor="#3498db">Organisateur</th>
+<th bgcolor="#3498db">Ville</th>
 <th bgcolor="#3498db">Contenu</th>
 <th bgcolor="#3498db">Date</th>
 <th bgcolor="#3498db">URL</th>
@@ -43,6 +44,7 @@ while($result=mysql_fetch_array($resnews))
     <tr>
     <td bgcolor="#CCCCCC"><?php echo $result['id_news']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $result['url']; ?>-<?php echo $result['id']; ?>"><?php echo $result['pseudo']; ?></td>
+    <td bgcolor="#CCCCCC"><?php echo $result['ville_news']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['contenu_news']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['date_news']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/news/<?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?>"><?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?></a></td>

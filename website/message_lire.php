@@ -50,14 +50,14 @@ if(isset($_POST['message']) and $_POST['message']!='')
 	{
 ?>
 <div class="message">Votre message a bien &eacute;t&eacute; envoy&eacute;.<br />
-<a href="read_pm.php?id=<?php echo $id; ?>">Retour &agrave; la discussion</a></div>
+<a href="message_lire.php?id=<?php echo $id; ?>">Retour &agrave; la discussion</a></div>
 <?php
 	}
 	else
 	{
 ?>
 <div class="message">Une erreur c'est produite lors de l'envoi du message.<br />
-<a href="read_pm.php?id=<?php echo $id; ?>">Retour &agrave; la discussion</a></div>
+<a href="message_lire.php?id=<?php echo $id; ?>">Retour &agrave; la discussion</a></div>
 <?php
 	}
 }
@@ -112,7 +112,7 @@ while($dn2 = mysql_fetch_array($req2))
 ?>
 <h2>R&eacute;pondre</h2>
 <div class="center">
-    <form action="read_pm.php?id=<?php echo $id; ?>" method="post">
+    <form action="message_lire.php?id=<?php echo $id; ?>" method="post">
     	<label for="message" class="center">Message</label><br />
         <textarea cols="40" rows="5" name="message" id="message"></textarea><br />
         <input type="submit" value="Envoyer" />

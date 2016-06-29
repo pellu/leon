@@ -1,16 +1,15 @@
 <?php session_start();?>
 <?php
-  header( 'content-type: text/html; charset=ISO-8859-1' );
-include('header.php');
 if(isset($_SESSION['email'])){
+include('header.php');
 include('config.php');
+  header( 'content-type: text/html; charset=ISO-8859-1' );
 ?>
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <br><br><br><br><br>
-<?php
-include('headerprofil.php');
+<?php include('headerprofil.php');
 /* Remplace caractères accentués d'une chaine */
 function remove_accent($str)
 {
@@ -31,12 +30,38 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "SELECT * FROM profil";
-$result = $conn->query($sql);
 ?>
-<div class="container">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-4">
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <h2>Je participe &agrave;</h2><br>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+      <h2>Mes annonces</h2>
+      <a href="http://localhost/leon/website/mesannonces.php">J'actualise mes annonces</a><br><br>
+      <?php
+      $id_annonce=$_SESSION["userid"];
+
+      $sql = "SELECT * FROM profil WHERE id=$id_annonce";
+      $resultsql = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+      $resultsql = mysql_fetch_array($resultsql);
+
+      $sqla = "SELECT COUNT(pseudo_news) AS total FROM news WHERE pseudo_news=$id_annonce";
+      $resultz = mysql_query($sqla);
+      $rowz = mysql_fetch_row($resultz);
+      $resu = $rowz[0];
+      $nombre=$resu;
+      $resnews=mysql_query("SELECT * FROM news WHERE pseudo_news=$id_annonce ORDER BY datedejeu DESC LIMIT $nombre");
+      while($resultnews=mysql_fetch_array($resnews))
+      {
+       ?>
+          <?php echo $resultnews['datedejeu']; ?><br>
+          <a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultnews['url_news']; ?>-<?php echo $resultnews['id_news']; ?>"><?php echo $resultnews['titre_news']; ?></a><br><br>
+          <?php
+      }
+      ?>
+    </div>
 <?php
 $req = $mysql->prepare("SELECT * FROM news");
 $req->execute() or die(print_r($req->errorInfo())); 
@@ -134,10 +159,10 @@ $nomImage = '';
 
 if(isset($_POST['pseudo'])){
   $pseudo_news= $_POST['pseudo'];
-}else{$pseudo_news="";}
+}else{$pseudo_news=$_SESSION["userid"];}
 if(isset($_POST['ville_news'])){
   $ville_news=$_POST['ville_news'];
-}else{$ville_news="";}
+}else{$ville_news=$resultsql['city'];}
 if(isset($_POST['titre_news'])){
   $titre_news=$_POST['titre_news'];
 }else{$titre_news="";}
@@ -167,7 +192,7 @@ if(isset($_POST['contenu_news'])){
 }else{$contenu_news="";}
 if(isset($_POST['datedejeu'])){
   $datedejeu=$_POST['datedejeu'];
-}else{$datedejeu=date("Y-m-d");}
+}else{$datedejeu=date("d-m-Y");}
 if(isset($_POST['heuredejeu'])){
   $heuredejeu=$_POST['heuredejeu'];
 }else{$heuredejeu=date("H:i");}
@@ -175,18 +200,12 @@ if(isset($_POST['url_news'])){
   $url_news=Slug($titre_news);
 }else{$url_news="";}
 $date_news=date("d-m-Y");
-$heuredejeu=date("H:i");
+$champspasremplis="<br><br>";
 
-if(!isset($_POST['submit']))
-{
-  if(empty($titre_news)) 
-    {
-    echo 'Seul le champs contenu peut etre vide'; 
-    }
-
-// Aucun champ n'est vide, on peut enregistrer dans la table 
-else      
-    {
+if(isset($_POST['submit'])){
+  if(empty($ville_news) OR empty($titre_news) OR empty($adresse) OR empty($prix) OR empty($typedesoiree) OR empty($console) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu)){
+    $champspasremplis='Tous les champs doivent &ecirc;tre remplis<br><br>';
+  }else{
     $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, photo, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$photo','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
     $stmt->bindParam(':pseudo_news', $pseudo_news);
     $stmt->bindParam(':ville_news', $ville_news);
@@ -202,100 +221,37 @@ else
     $stmt->bindParam(':datedejeu', $datedejeu);
     $stmt->bindParam(':heuredejeu', $heuredejeu);
     $stmt->execute();
-    header('location:http://localhost/leon/admin/news.php');
-    }
+    $titre_news='';
+    $typedejeu='';
+    $adresse='';
+    $contenu_news='';
+    $titre_news='';
+    $datedejeu='';
+    $heuredejeu='';
+    $champspasremplis='L\'anonce est bien envoy&eacute;e<br><br>';
+  }
 }
-    else{
-      echo '';
-    }
 ?>
+
+<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+<h2>Ajouter une annonce</h2>
+<?php echo $champspasremplis;?>
     <form method="post" action="" enctype="multipart/form-data">
-<?php //Affichage du pseudo / id de l'utilisateur 
-  if ($result->num_rows > 0) {
-    echo "<label>Pseudo: <select name='pseudo'>";
-    while($row = $result->fetch_assoc()) {
-      echo '<option value=' . $row["id"].'>' . $row["pseudo"]. ' - '.$row["id"]. '</option>';
-      }
-      echo "</select></label>";
-  } else {
-    echo "Pas de profil dans la base<br />";
-}
-$conn->close();?><br>
-      <label>Titre:<input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label>
-      <label>Ville:
-        <select name="ville_news">
-        <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>
-        <option value="antony">Antony (92)</option>
-        <option value="argenteuil">Argenteuil (95)</option>
-        <option value="aubervilliers">Aubervilliers (93)</option>
-        <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
-        <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
-        <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
-        <option value="bondy">Bondy (93)</option>
-        <option value="cergy">Cergy (95)</option>
-        <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
-        <option value="chelles">Chelles (77)</option>
-        <option value="clamart">Clamart (92)</option>
-        <option value="clichy">Clichy (92)</option>
-        <option value="colombes">Colombes (92)</option>
-        <option value="courbevoie">Courbevoie (92)</option>
-        <option value="creteil">Cr&eacute;teil (94)</option>
-        <option value="drancy">Drancy (93)</option>
-        <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
-        <option value="evry">&Eacute;vry (91)</option>
-        <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
-        <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
-        <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
-        <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
-        <option value="levallois-perret">Levallois-Perret (92)</option>
-        <option value="maisons-alfort">Maisons-Alfort (94)</option>
-        <option value="meaux">Meaux (77)</option>
-        <option value="montreuil">Montreuil (93)</option>
-        <option value="nanterre">Nanterre (92)</option>
-        <option value="paris1">Neuilly-sur-Seine (92)</option>
-        <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
-        <option value="pantin">Pantin (93)</option>
-        <option value="paris1">Paris (75 001)</option>
-        <option value="paris1">Paris (75 002)</option>
-        <option value="paris3">Paris (75 003)</option>
-        <option value="paris4">Paris (75 004)</option>
-        <option value="paris5">Paris (75 005)</option>
-        <option value="paris6">Paris (75 006)</option>
-        <option value="paris7">Paris (75 007)</option>
-        <option value="paris8">Paris (75 008)</option>
-        <option value="paris9">Paris (75 009)</option>
-        <option value="paris10">Paris (75 010)</option>
-        <option value="paris11">Paris (75 011)</option>
-        <option value="paris12">Paris (75 012)</option>
-        <option value="paris13">Paris (75 013)</option>
-        <option value="paris14">Paris (75 014)</option>
-        <option value="paris15">Paris (75 015)</option>
-        <option value="paris16">Paris (75 016)</option>
-        <option value="paris17">Paris (75 017)</option>
-        <option value="paris18">Paris (75 018)</option>
-        <option value="paris19">Paris (75 019)</option>
-        <option value="paris20">Paris (75 020)</option>
-        <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
-        <option value="saint-denis">Saint-Denis (93)</option>
-        <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
-        <option value="sarcelles">Sarcelles (95)</option>
-        <option value="sartrouville">Sartrouville (78)</option>
-        <option value="sevran">Sevran (93)</option>
-        <option value="versailles">Versailles</option>
-        <option value="villejuif">Villejuif (94)</option>
-        <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
-      </select>
-    </label><br>
+      <label><input type="hidden" name="pseudo" value="<?php echo $id_annonce ?>"/></label>
+      <label><input type="hidden" name="ville_news" value="<?php echo $ville_news ?>"/>
+    <label>Votre ville: <?php echo $ville_news ?>, <a href="http://localhost/leon/website/modifiermonprofil.php">pour la changer cliquer ici</a></label>
+      <label>Titre:<input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label><br>
     <label>Adresse:<input type="text" name="adresse" value="<?php echo $adresse ?>"/></label><br>
     <label>Prix:
       <select name="prix">
+        <option value="" disabled selected>Choisir</option>
         <option value="5">5 &euro;</option>
-        <option value="10" selected>10 &euro;</option>
+        <option value="10">10 &euro;</option>
         <option value="15">15 &euro;</option>
       </select>
     </label><br>
     <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
-    <label>Photo <a title="Photo carré">*</a>: <input name="photo" type="file" id="fichier_a_uploader" /></label>
+    <label>Photo <a title="Photo carré">*</a>: <input name="photo" type="file" id="fichier_a_uploader" /></label><br>
     <label>Type de soir&eacute;e:
       <select name="typedesoiree">
         <option value="" disabled selected>Choisir</option>
@@ -303,8 +259,8 @@ $conn->close();?><br>
         <option value="Tournoi">Tournoi</option>
         <option value="Formation">Formation</option>
       </select>
-    </label>
-    <label>Type de jeu:<input type="text" name="typedejeu" value="<?php echo $typedejeu ?>"/></label>
+    </label><br>
+    <label>Type de jeu:<input type="text" name="typedejeu" value="<?php echo $typedejeu ?>"/></label><br>
     <label>Console:
       <select name="console">
         <option value="" disabled selected>Choisir</option>
@@ -326,16 +282,16 @@ $conn->close();?><br>
         <option value="7">7</option>
       </select>
     </label><br>
-    <label>Description:<input type="text" name="contenu_news" value="<?php echo $contenu_news ?>"/></label>
-    <label>Date de la soir&eacute;e:<input type="date" name="datedejeu" value="<?php echo $datedejeu ?>"/></label>
+    <label>Description:<input type="text" name="contenu_news" value="<?php echo $contenu_news ?>"/></label><br>
+    <label>Date de la soir&eacute;e:<input type="date" name="datedejeu" value="<?php echo $datedejeu ?>"/></label><br>
     <label>Heure de la soir&eacute;e:<input type="time" name="heuredejeu" value="<?php echo $heuredejeu ?>"/></label><br>
     <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
-    <input type="submit" value="ENVOYER"/>
+    <input type="submit" name="submit" value="ENVOYER"/>
     </form>
-    </div>
   </div>
-</div>
-</div></div></section>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+    </div>
+</div></div></div></section>
 <?php
 }else{?>
 <br><br><br><br><br>
@@ -348,5 +304,4 @@ $conn->close();?><br>
 <?php
 }
 ?>
-
 <?php include('footer.php');?>
