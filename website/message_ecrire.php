@@ -9,6 +9,8 @@ include('config.php');
     <br><br><br><br><br>
 <?php
 if(isset($_SESSION['email'])){
+
+$searchprofil = $mysql->query('SELECT * FROM profil ORDER BY id DESC');
 include('headerprofil.php');
 $form = true;
 $otitle = '';
@@ -94,7 +96,17 @@ if(isset($error))
     <form action="message_ecrire.php" method="post">
 		Veuillez remplir ce formulaire pour envoyer le MP.<br />
         <label for="title">Titre</label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
-        <label for="recip">Destinataire<span class="small">(Nom d'utilisateur)</span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
+        <label for="recip">Destinataire
+      		<select name="recip">
+		        <?php
+					while ($donnees = $searchprofil->fetch())
+					{
+        				echo '<option value="'.$donnees["pseudo"].'">'.$donnees["pseudo"].'</option>';
+					}
+        		?>
+        	</select>
+        </label><br>
+        <?php //<label for="recip">Destinataire<span class="small">(Nom d'utilisateur)</span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8');" id="recip" name="recip" /><br /> ?>
         <label for="message">Message</label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
         <input type="submit" value="Envoyer" />
     </form>
