@@ -14,7 +14,7 @@
 		        	</ul>
 		        </div>
 		        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
-		        	<p>Contact</p>
+		        	<p><a href="http://localhost/leon/website/contact.php">Contact</a></p>
 		        	<ul>
 		        		<li>FAQ</li>
 		        		<li>Aide</li>
@@ -23,8 +23,9 @@
 		        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
 		        	<p>Suivez-nous</p>
 		            <ul>
-		        		<li>FAQ</li>
-		        		<li>Aide</li>
+		        		<li>Facebook</li>
+		        		<li>Twitter</li>
+		        		<li>Instagram</li>
 		        	</ul>	
 		        </div>
 		        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
