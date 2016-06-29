@@ -45,10 +45,11 @@ if(!isset($_GET["id"])){
                         echo 'Modification effective';
 
                     }else{echo'';}
-                ?>
+                ?><br>
+                    Titre: <?php echo $donnees['titre_news']; ?><br>
                     <h2>Pseudo : <a target="_blank" href="http://localhost/leon/website/profil/<?php echo $donnees['url']; ?>-<?php echo $donnees['id']; ?>"/><?php echo $donnees['pseudo'];?></a></h2>
                     <h3>Annonce du : <?php echo $donnees['date_news']; ?></h3>
-                    <p>contenu : <?php echo $contenu_news; ?></p>
+                    contenu : <?php echo $contenu_news; ?>
                     <form method="post" action="">
                         <label>contenu: <textarea name="contenu_news"/><?php echo $contenu_news; ?></textarea></label><br/>
                         <input type="submit" name="submit" value="Modifier l'annonce"/>

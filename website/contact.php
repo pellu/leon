@@ -121,7 +121,7 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 				<input type="hidden" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" />
 				';?><?php }else{
 				echo'
-				<label for="pseudo">Pseudo :<input type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /></label><br>
+				<label for="pseudo">Nom :<input type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /></label><br>
 				<label for="email">Email :<input type="text" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" /></label><br>
 				';
 				}echo'

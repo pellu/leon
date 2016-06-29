@@ -1,7 +1,7 @@
 <?php session_start();?>
+<?php include('header.php');?>
 <?php
 if(isset($_SESSION['email'])){
-include('header.php');
 include('config.php');
   header( 'content-type: text/html; charset=ISO-8859-1' );
 ?>
@@ -57,7 +57,7 @@ if ($conn->connect_error) {
       {
        ?>
           <?php echo $resultnews['datedejeu']; ?><br>
-          <a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultnews['url_news']; ?>-<?php echo $resultnews['id_news']; ?>"><?php echo $resultnews['titre_news']; ?></a>
+          <a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultnews['url_news']; ?>-<?php echo $resultnews['id_news']; ?>"><?php echo $resultnews['titre_news']; ?></a><br>
           <a href="http://localhost/leon/website/modifierannonce.php?id=<?php echo $resultnews['id_news']; ?>">Je modifier mon annonce</a><br><br>
           <?php
       }
@@ -233,13 +233,12 @@ if(isset($_POST['submit'])){
   }
 }
 ?>
-
 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 <h2>Ajouter une annonce</h2>
 <?php echo $champspasremplis;?>
     <form method="post" action="" enctype="multipart/form-data">
       <label><input type="hidden" name="pseudo" value="<?php echo $id_annonce ?>"/></label>
-      <label><input type="hidden" name="ville_news" value="<?php echo $ville_news ?>"/>
+      <label><input type="hidden" name="ville_news" value="<?php echo $ville_news ?>"/></label>
     <label>Votre ville: <?php echo $ville_news ?>, <a href="http://localhost/leon/website/modifiermonprofil.php">pour la changer cliquer ici</a></label>
       <label>Titre:<input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label><br>
     <label>Adresse:<input type="text" name="adresse" value="<?php echo $adresse ?>"/></label><br>
