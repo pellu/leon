@@ -76,9 +76,9 @@
             </div>
         </div>
     </div>
-    <div id="rest" class="col-lg-12 col-md-12 col-xs-12">
-        <div class="col-lg-8 col-md-8 col-xs-12 col-lg-offset-2 col-md-offset-2">
-            <div class="col-lg-8 col-md-12 col-xs-12 col-lg-offset-2">
+    <div id="rest" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
                 <h3 id="decouvrez">Decouvrir Playce</h3>
                 <span class="scroll-btn glowing-btn">
                     <a href="#">
@@ -86,7 +86,7 @@
                     </a>
                 </span>
             </div>
-            <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
                 <h3 id="h3">Qu'est-ce que Playce ?</h3>
                 <p>&Agrave; l'heure o&ugrave; les tournois de jeux s'organisent essentiellement en ligne, Playce se
                     propose
@@ -95,51 +95,52 @@
                 <p>C'est un syst&egrave;me innovant pour trouver de nouveaux partenaires de jeu qui se
                     correspondent.</p>
             </div>
-            <div class="col-lg-6 col-md-6 col-xs-12">
-                <img src="img/canap.png" alt="Canape Gaming" id="canape" width="100%">
+<div class="row">            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <img src="img/canap.png" alt="Canape Gaming" id="canape" width="100%">
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 text-left">
+        <h4 id="h4" style="margin-top: 90px;">Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
+        <p>Que vous soyez imbattable &agrave; FIFA, as du volant &agrave; Mario Kart ou encore incollable sur
+            les
+            cartes Magic, Playce vous permet d'organiser des tournois et soir&eacute;es &agrave;
+            th&egrave;me &agrave; votre domicile, pour y affronter ou tout simplement &eacute;changer avec les
+            gamers de votre quartier !</p>
+    </div></div>
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-lg-offset-2 col-md-offset-2 col-xs-12 text-right">
+        <h4 id="h4" style="margin-top: 90px;">Participez aux soir&eacute;es et renforcez votre réseau !</h4>
+        <p>Si vous n'&ecirc;tes pas en mesure d'accueillir vos futures adversaires, aucun probl&egrave;me : eux
+            le
+            peuvent ! Il ne vous reste qu'&agrave; les d&eacute;couvrir en parcourant les nombreuses annonces
+            que
+            Playce met en ligne. Et comme il y en a pour tous les go&ucirc;ts, vous pouvez les trier &agrave;
+            l'aide
+            des filtres personnalisés !</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <img src="img/PS.png" alt="Controller Gaming" id="controller" width="100%">
+    </div>
+</div>
+            <div class="col-lg-4 col-md-4 hidden-sm hidden-xs" id="gauche">
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12 text-left">
-                <h4 id="h4" style="margin-top: 90px;">Devenez h&ocirc;te et rencontrez de nouveaux adversaires</h4>
-                <p>Que vous soyez imbattable &agrave; FIFA, as du volant &agrave; Mario Kart ou encore incollable sur
-                    les
-                    cartes Magic, Playce vous permet d'organiser des tournois et soir&eacute;es &agrave;
-                    th&egrave;me &agrave; votre domicile, pour y affronter ou tout simplement &eacute;changer avec les
-                    gamers de votre quartier !</p>
-            </div>
-            <div class="col-lg-12 separator"></div>
-            <div class="col-lg-4 col-md-4  col-lg-offset-2 col-md-offset-2 col-xs-12 text-right">
-                <h4 id="h4" style="margin-top: 90px;">Participez aux soir&eacute;es et renforcez votre réseau !</h4>
-                <p>Si vous n'&ecirc;tes pas en mesure d'accueillir vos futures adversaires, aucun probl&egrave;me : eux
-                    le
-                    peuvent ! Il ne vous reste qu'&agrave; les d&eacute;couvrir en parcourant les nombreuses annonces
-                    que
-                    Playce met en ligne. Et comme il y en a pour tous les go&ucirc;ts, vous pouvez les trier &agrave;
-                    l'aide
-                    des filtres personnalisés !</p>
-            </div>
-            <div class="col-lg-6 col-md-6 col-xs-12">
-                <img src="img/PS.png" alt="Controller Gaming" id="controller" width="100%">
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-12" id="gauche">
-            </div>
-            <div class="col-lg-4 col-md-4 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <h3 class="glowingtext">Maintenant,<br/>Choisissez votre camp !</h3>
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12" id="droite">
+            <div class="col-lg-4 col-md-4 hidden-sm hidden-xs" id="droite">
             </div>
-            <div class="col-lg-7 col-md-7 col-xs-12 col-lg-offset-3 col-md-offset-3" id="switch">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2" id="switch">
                 <a href="#">
-                    <div class="col-lg-5 col-md-5 col-xs-5 text-right" id="hote">Hote</div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right" id="hote">Hote</div>
                 </a>
                 <a href="#">
-                    <div class="col-lg-7 col-md-7 col-xs-7 text-left" id="participant">Participant</div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" id="participant">Participant</div>
                 </a>
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
                 <h3 class="glowingtext">Ils ont testé Playce</h3>
             </div>
-            <div class="comment-right col-lg-6 col-md-6 col-xs-12 col-lg-offset-6 col-md-offset-6" id="user-avatar-1">
-                <div class="comment col-lg-7 col-md-7 col-xs-7 col-lg-offset-3 col-md-offset-3 text-left">
+            <div class="comment-right col-lg-6 col-md-8 col-sm-7 col-xs-12 col-lg-offset-6 col-md-offset-4 col-sm-offset-5" id="user-avatar-1">
+                <div class="comment col-lg-7 col-md-7 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-3 col-sm-offset-4 col-xs-offset-4 text-left">
                     <p class="user-name">Stéphanie Mandiano, hôte</p>
                     <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
                         avec
@@ -147,8 +148,8 @@
                         chaleureuse.</p>
                 </div>
             </div>
-            <div class="comment-right col-lg-7 col-md-7 col-xs-12" id="user-avatar-2">
-                <div class="comment col-lg-6 col-md-6 col-xs-6 col-lg-offset-2 col-md-offset-1 text-right">
+            <div class="comment-left col-lg-7 col-md-7 col-sm-7 col-xs-12" id="user-avatar-2">
+                <div class="comment col-lg-7 col-md-7 col-xs-8 col-lg-offset-2 col-md-offset-1 text-right">
                     <p class="user-name">Stéphanie Mandiano, hôte</p>
                     <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
                         avec
@@ -156,8 +157,8 @@
                         chaleureuse.</p>
                 </div>
             </div>
-            <div class="comment-right col-lg-6 col-md-6 col-xs-12 col-lg-offset-6 col-md-offset-6" id="user-avatar-1">
-                <div class="comment col-lg-7 col-md-7 col-xs-7 col-lg-offset-3 col-md-offset-3 text-left">
+            <div class="comment-right col-lg-6 col-md-8 col-sm-7 col-xs-12 col-lg-offset-6 col-md-offset-4 col-sm-offset-5" id="user-avatar-1">
+                <div class="comment col-lg-7 col-md-7 col-sm-8 col-xs-8 col-lg-offset-4 col-md-offset-3 col-sm-offset-4 col-xs-offset-4 text-left">
                     <p class="user-name">Stéphanie Mandiano, hôte</p>
                     <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
                         avec
@@ -165,8 +166,8 @@
                         chaleureuse.</p>
                 </div>
             </div>
-            <div class="comment-right col-lg-7 col-md-7 col-xs-12" id="user-avatar-2">
-                <div class="comment col-lg-6 col-md-6 col-xs-6 col-lg-offset-2 col-md-offset-1 text-right">
+            <div class="comment-left col-lg-7 col-md-7 col-sm-7 col-xs-12" id="user-avatar-2">
+                <div class="comment col-lg-7 col-md-7 col-xs-8 col-lg-offset-2 col-md-offset-1 text-right">
                     <p class="user-name">Stéphanie Mandiano, hôte</p>
                     <p class="user-comment">En ligne j'avais l'impression de jouer avec des robots, ou en tout cas pas
                         avec
