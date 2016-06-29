@@ -6,26 +6,26 @@
 		        	<img src="http://localhost/leon/website/img/logo-final.png">
 		        </div>
 		        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
-		        	<p>Playce</p>
+		        	<p><a href="http://localhost/leon/website/">Playce</a></p>
 		        	<ul>
-		        		<li>Concept</li>
-		        		<li>Recherche</li>
-		        		<li>Mentions l&eacute;gales</li>
+		        		<li><a href="http://localhost/leon/website/">Concept</a></li>
+		        		<li><a href="http://localhost/leon/website/search.php">Recherche</a></li>
+		        		<li><a href="http://localhost/leon/website/mentionslegales.php">Mentions l&eacute;gales</a></li>
 		        	</ul>
 		        </div>
 		        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
 		        	<p><a href="http://localhost/leon/website/contact.php">Contact</a></p>
 		        	<ul>
-		        		<li>FAQ</li>
-		        		<li>Aide</li>
+		        		<li><a href="http://localhost/leon/website/faq.php">FAQ</a></li>
+		        		<li><a href="http://localhost/leon/website/aide.php">Aide</a></li>
 		        	</ul>
 		        </div>
 		        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
 		        	<p>Suivez-nous</p>
 		            <ul>
-		        		<li>Facebook</li>
-		        		<li>Twitter</li>
-		        		<li>Instagram</li>
+		        		<li><a target="_blank" href="https://www.facebook.com/letsplayce">Facebook</a></li>
+		        		<li><a target="_blank" href="https://twitter.com/letsplayce">Twitter</a></li>
+		        		<li><a target="_blank" href="https://www.instagram.com/letsplayce/">Instagram</a></li>
 		        	</ul>	
 		        </div>
 		        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -37,7 +37,7 @@
 				            $heure = date("H:i:s");
 				            require_once('config.php');
 				            $mysql->query("INSERT INTO newsletter (id, date, heure, email)VALUES ('', '$date', '$heure', '$email')");
-				            $ok = "<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien été pris en compte,<br/>vous serez averti(e) lors du lancement du site.</p>";
+				            $ok = "<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien été pris en compte,<br/>vous recevrez nos prochaines newsletter.</p>";
 				            $email = '';
 				        }
 			        ?>

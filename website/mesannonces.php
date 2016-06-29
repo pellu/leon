@@ -57,7 +57,8 @@ if ($conn->connect_error) {
       {
        ?>
           <?php echo $resultnews['datedejeu']; ?><br>
-          <a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultnews['url_news']; ?>-<?php echo $resultnews['id_news']; ?>"><?php echo $resultnews['titre_news']; ?></a><br><br>
+          <a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultnews['url_news']; ?>-<?php echo $resultnews['id_news']; ?>"><?php echo $resultnews['titre_news']; ?></a>
+          <a href="http://localhost/leon/website/modifierannonce.php?id=<?php echo $resultnews['id_news']; ?>">Je modifier mon annonce</a><br><br>
           <?php
       }
       ?>
@@ -203,7 +204,7 @@ $date_news=date("d-m-Y");
 $champspasremplis="<br><br>";
 
 if(isset($_POST['submit'])){
-  if(empty($ville_news) OR empty($titre_news) OR empty($adresse) OR empty($prix) OR empty($typedesoiree) OR empty($console) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu)){
+  if(empty($ville_news) OR empty($titre_news) OR empty($adresse) OR empty($prix) OR empty($typedesoiree) OR empty($console) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])){
     $champspasremplis='Tous les champs doivent &ecirc;tre remplis<br><br>';
   }else{
     $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, photo, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$photo','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
@@ -286,6 +287,7 @@ if(isset($_POST['submit'])){
     <label>Date de la soir&eacute;e:<input type="date" name="datedejeu" value="<?php echo $datedejeu ?>"/></label><br>
     <label>Heure de la soir&eacute;e:<input type="time" name="heuredejeu" value="<?php echo $heuredejeu ?>"/></label><br>
     <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
+    <input type="checkbox" name="choix[]" value="1"> <a target="_blank" href="conditions.php">J'accepte les conditions g&eacute;n&eacute;rales d'utilisation</a><br>
     <input type="submit" name="submit" value="ENVOYER"/>
     </form>
   </div>
