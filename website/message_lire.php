@@ -66,6 +66,9 @@ else
 //On affiche la liste des messages
 ?>
 <div class="row">
+	<div class="col-lg-12 col-ms-12 col-sm-12 col-xs-12">
+	<h3><?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></h3><br/>
+	</div>
 	<div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
 	</div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">

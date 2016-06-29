@@ -22,6 +22,8 @@ if(isset($_COOKIE['admin'])){ ?>
                     <li><a href="/leon/admin/index.php">Accueil</a></li>
                     <li><a href="/leon/admin/profil.php">Liste des profils</a>
                     </li>
+                    <li><a href="/leon/admin/messagerie.php">Messagerie</a>
+                    </li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/leon/admin/news.php">Liste des news<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/leon/admin/ajoutnews.php">Ajouter une news</a></li>
