@@ -4,15 +4,15 @@
 -- JORDAN PELLUARD
 */
 
-body {
-    width: 100%;
-    height: 100%;
-    font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #fff;
-    background-color: #000;
-    margin: 0;
-    padding: 0;
-}
+/*body {*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*font-family: Lora, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+    /*color: #fff;*/
+    /*background-color: #000;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+/*}*/
 
 html {
     width: 100%;
@@ -443,6 +443,11 @@ footer p a {
     font-size: 14px;
     font-weight: normal;
     color: #ffffff;
+    margin:8px !important;
+}
+
+footer p {
+    margin:0px;
 }
 
 footer .footer-title {
@@ -450,6 +455,61 @@ footer .footer-title {
     font-size: 14px;
     font-weight: bold;
     color: #ffffff;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+footer .facebook {
+    display: inline-block;
+    height:21px;
+    width:10px;
+    background: url("../img/facebook.png") center no-repeat;
+    color: transparent;
+    margin-right: 5px;
+
+}
+footer .twitter {
+    display: inline-block;
+    padding-top:1px;
+    height:21px;
+    width:21px;
+    background: url("../img/twitter.png") center no-repeat;
+    color: transparent;
+    margin-right: 5px;
+}
+footer .insta {
+    display: inline-block;
+    height:21px;
+    width:22px;
+    background: url("../img/insta.png") center no-repeat;
+    color: transparent;
+    margin-right: 5px;
+
+}
+
+footer .facebook:hover {
+    display: inline-block;
+    height:21px;
+    width:10px;
+    background: url("../img/facebook.png") center no-repeat;
+    color: transparent;
+
+}
+footer .twitter:hover {
+    display: inline-block;
+    padding-top:1px;
+    height:21px;
+    width:21px;
+    background: url("../img/twitter.png") center no-repeat;
+    color: transparent;
+}
+footer .insta:hover {
+    display: inline-block;
+    height:21px;
+    width:22px;
+    background: url("../img/insta.png") center no-repeat;
+    color: transparent;
+
 }
 
 footer form.input-group {
@@ -479,7 +539,8 @@ footer form .input-group-btn:last-child > .btn:hover {
     background-color: #292929;
 }
 
-footer img {
+footer #playce {
+    margin-top: 25px;
     width: 137px;
 }
 
