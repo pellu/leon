@@ -130,10 +130,10 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2" id="switch">
                 <a href="#">
-                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right" id="hote">Hote</div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right" id="hote"><img src="http://localhost/leon/website/img/hote.png">Hote</div>
                 </a>
                 <a href="#">
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" id="participant">Participant</div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" id="participant"><img src="http://localhost/leon/website/img/participant.png">Participant</div>
                 </a>
             </div>
             <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">

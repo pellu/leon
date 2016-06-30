@@ -43,9 +43,6 @@
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="menu" href="http://localhost/leon/website/">Decouvrir</a>
-                </li>
-                <li>
                     <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>
                 </li>
                 <li>
