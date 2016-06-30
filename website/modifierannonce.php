@@ -1,13 +1,7 @@
 <?php session_start();?>
-<?php
+<?php include('menu.php');
 if(isset($_SESSION['email'])){
-?>
-<?php
 header( 'content-type: text/html; charset=ISO-8859-1' );
-include("config.php");
-include('header.php');
-?>
-<?php 
 if(!isset($_GET["id"])){
     header("Location:http://localhost/leon/website/mesannonces.php");
 }
@@ -61,9 +55,16 @@ if(!isset($_GET["id"])){
         </div>
     </section>
 <br><br>
-    <?php include('footer.php');?>
 <?php
-}else{
-    header("Location:index.php");
+}else{?>
+<br><br><br><br><br>
+<section class="container content-section text-center">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="message">Pour acc&eacute;der &agrave; cette page, vous devez &ecirc;tre connect&eacute;.<br />
+<a href="connexion.php">Se connecter</a></div>
+</div></div></section>
+<?php
 }
 ?>
+<?php include('footer.php');?>

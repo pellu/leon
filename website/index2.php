@@ -1,5 +1,5 @@
 <?php session_start();?>
-<?php include('header.php'); ?>
+<?php include('menu.php');?>
 <section class="container content-section text-center">
     <div class="row">
         <!--            <!--parallax 1 -->

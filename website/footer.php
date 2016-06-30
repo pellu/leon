@@ -1,9 +1,6 @@
 <br><br>
 <footer>
     <div class="row">
-
-    </div>
-    <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-lg-offset-1 centered">
                 <img id="playce" src="http://localhost/leon/website/img/logo-final.png">
@@ -14,7 +11,7 @@
                 <p><a href="http://localhost/leon/website/">Concept</a></p>
                 <p><a href="http://localhost/leon/website/search.php">Recherche</a></p>
                 <p><a href="http://localhost/leon/website/mentionslegales.php">Mentions l&eacute;gales</a></p>
-                <p><a href="http://localhost/leon/website/mentionslegales.php">Conditions d'utilisation</a></p>
+                <p><a href="http://localhost/leon/website/mentionslegales.php">CGU</a></p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title"><a href="http://localhost/leon/website/contact.php"
@@ -24,7 +21,7 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title">Suivez-nous</p>
-                <a target="_blank" href="https://www.facebook.com/letsplayce" class="facebook">Facebook
+                <a target="_blank" href="https://www.facebook.com/letsplayce" class="facebook">Facebook<i class="fa fa-facebook" aria-hidden="true"></i>
 <!--                    <img src="img/facebook.png" height="21" width="10" alt="Suivez-vous sur Facebook" class="facebook">-->
                 </a>
                 <a target="_blank" href="https://twitter.com/letsplayce" class="twitter">Twitter

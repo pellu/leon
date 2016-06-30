@@ -20,47 +20,6 @@
           href="http://localhost/leon/website/css/style.css"/>
     <link rel="stylesheet" media="screen" type="text/css" title="style"
           href="http://localhost/leon/website/css/bootstrap.min.css"/>
-
-    <!-- Pas encore mis en place -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
-          type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-<!-- Navigation -->
-<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <i class="fa fa-bars">Menu</i>
-            </button>
-            <a class="navbar-brand" href="http://localhost/leon/website/">
-                <img src="http://localhost/leon/website/img/logo-final.png">
-            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>
-                </li>
-                <li>
-                    <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
-                </li>
-                <?php if(isset($_SESSION['email'])){?>
-                <li>
-                    <a class="menu" href="http://localhost/leon/website/monprofil.php">Mon profil</a>
-                </li>
-                <?php }else{?>
-                <li>
-                    <a class="menu" href="http://localhost/leon/website/connexion.php">Connexion</a>
-                </li>
-                <?php }?>
-                
-            </ul>
-        </div>
-    </div>
-    <div class="blueray">
-    </div>
-</nav>

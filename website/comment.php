@@ -1,6 +1,6 @@
+<?php include('menu.php');?>
 <br><br><br><br><br>
 <?php
-include('../admin/config.php');
 if(isset($_SESSION['email'])){
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

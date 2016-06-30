@@ -1,5 +1,5 @@
-<?php session_start(); ?>
-<?php include('header.php'); ?>
+<?php session_start();?>
+<?php include('menu.php');?>
 <section class="container-fluid content-section text-center">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12 parallax" id="trans1">

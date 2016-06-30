@@ -1,4 +1,5 @@
-<?php include('header.php');
+<?php session_start();?>
+<?php include('menu.php');
 header('content-type: text/html; charset=ISO-8859-1'); ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12 parallax" id="trans1">

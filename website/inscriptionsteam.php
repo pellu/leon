@@ -1,4 +1,4 @@
-<?php include('header.php');
+<?php include('menu.php');
 require ('steamauth/steamauth.php');
 if(!isset($_SESSION['steamid'])) {
     echo "<div style='margin: 30px auto; text-align: center;'>Vous pouvez vous connecter via steam<br>";

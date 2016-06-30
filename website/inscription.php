@@ -1,7 +1,7 @@
-<?php session_start();
+<?php session_start();?>
+<?php include('menu.php');
 if(isset($_SESSION['email'])){ header("Location:monprofil.php");}else{ ?>
 <?php 
-include('header.php');
 include('config.php');?>
 <section class="container content-section text-center">
   <div class="row">

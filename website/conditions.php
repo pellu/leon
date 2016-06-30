@@ -1,6 +1,5 @@
 <?php session_start();?>
-<?php include('header.php');
-include('config.php');
+<?php include('menu.php');
   header( 'content-type: text/html; charset=ISO-8859-1' );
 ?>
     <section class="container text-center">

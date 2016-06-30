@@ -1,7 +1,5 @@
 <?php session_start();?>
-<?php
-include('header.php');
-include('config.php');
+<?php include('menu.php');
 ?>
 <section class="container content-section text-center">
   <div class="row">
@@ -84,11 +82,17 @@ if(intval(mysql_num_rows($req2))==0)
 }
 ?>
 </table>
+
 <?php
-}
-else
-{
-	echo 'Vous devez &ecirc;tre connect&eacute; pour acc&eacute;der &agrave; cette page.';
+}else{?>
+<br><br><br><br><br>
+<section class="container content-section text-center">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="message">Pour acc&eacute;der &agrave; cette page, vous devez &ecirc;tre connect&eacute;.<br />
+<a href="connexion.php">Se connecter</a></div>
+</div></div></section>
+<?php
 }
 ?>
 </div></div></section>

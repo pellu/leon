@@ -1,9 +1,8 @@
 <?php session_start();?>
+<?php include('menu.php');?>
 <?php
 header( 'content-type: text/html; charset=ISO-8859-1' );
-include("config.php");
 ?>
-<?php include('header.php');?>
     <section id="about" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">

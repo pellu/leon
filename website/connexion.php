@@ -1,5 +1,5 @@
 <?php session_start();?>
-<?php include('header.php'); include('config.php');
+<?php include('menu.php');
 require ('steamauth/steamauth.php');
 ?><br><br><br><br><br><br><br><br>
 <?php

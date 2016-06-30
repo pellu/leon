@@ -1,8 +1,6 @@
 <?php session_start();?>
-<?php include('header.php');?>
-<?php
+<?php include('menu.php');
 if(isset($_SESSION['email'])){
-include('config.php');
   header( 'content-type: text/html; charset=ISO-8859-1' );
 ?>
 <section class="container content-section text-center">

@@ -1,4 +1,4 @@
-<?php include('config.php');
+<?php
 if(isset($_POST['search'])){
 	$search=$_POST['search'];
 }else{$search="";
