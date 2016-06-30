@@ -20,8 +20,9 @@ if(isset($data['url'])) {
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
             <br><br><br><br><br>
-                <p><img src="http://localhost/leon/website/photos/<?php echo $data['avatar'];?>"></p>
-        <h2>Pseudo : <?php echo $data['pseudo'];?></h2>
+                <p><img src="http://localhost/leon/website/photos/<?php echo $data['avatar'];?>" height="250" width="250"></p>
+        <h2 id="hello">Bonjour, je m'appelle <?php echo $data['pseudo'];?></h2>
+                <p id="adresse"><?php echo $data['city'];?></p>
         <h3>Utilisateur inscrit le : <?php echo $data['date_inscription']; ?></h3>
         <p>Description : <?php echo $data['description']; ?></p>
             </div>
