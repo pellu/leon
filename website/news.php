@@ -18,11 +18,11 @@ header( 'content-type: text/html; charset=ISO-8859-1' );
 				<h3>News &eacute;crite le : <?php echo $donnees['date_news']; ?></h3>
                 <p><?php echo $donnees['titre_news']; ?></p>
                 <p>&agrave; <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a></p>
-                <p><?php echo $donnees['adresse']; ?></p>
+                <p><?php echo $donnees['adresse_news']; ?></p>
                 <p><?php echo $donnees['prix']; ?></p>
                 <img src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
                 <p><?php echo $donnees['typedesoiree']; ?></p>
-                <p><?php echo $donnees['console']; ?></p>
+                <p><?php echo $donnees['jeu']; ?></p>
                 <p><?php echo $donnees['typedejeu']; ?></p>
                 <p><?php echo $donnees['nb_participants']; ?></p>
                 <p><?php echo $donnees['datedejeu']; ?></p>

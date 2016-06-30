@@ -17,7 +17,7 @@ include('header.php');?>
 <?php
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `profil`");
-  $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, date_inscription text NOT NULL, email text NOT NULL, city text NOT NULL, avatar text NOT NULL, pass text NOT NULL, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, id_steam text NOT NULL, hosted_event text NOT NULL, participated_event text NOT NULL, PRIMARY KEY (id));");
+  $mysql->query("CREATE TABLE profil (id int(11) NOT NULL AUTO_INCREMENT, date_inscription text NOT NULL, email text NOT NULL, adresse text NOT NULL, city text NOT NULL, avatar text NOT NULL, pass text NOT NULL, pseudo text NOT NULL, description text NOT NULL, url text NOT NULL, date text NOT NULL, id_steam text NOT NULL, hosted_event text NOT NULL, participated_event text NOT NULL, PRIMARY KEY (id));");
 }
 ?>
 <center><form action="" method="post">

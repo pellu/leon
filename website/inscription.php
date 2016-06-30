@@ -1,117 +1,24 @@
 <?php session_start();?>
 <?php include('menu.php');
 if(isset($_SESSION['email'])){ header("Location:monprofil.php");}else{ ?>
-<?php 
-include('config.php');?>
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-ls-12 col-xs-12">
     <br><br><br><br><br><br>
 <?php
 
-// SCRIPT ENVOI PHOTO
-define('TARGET', 'photos/');    // Repertoire cible
-define('MAX_SIZE', 100000);    // Taille max en octets du fichier
-define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
-define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
- 
-// Tableaux de donnees
-$tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-$infosImg = array();
- 
-// Variables
-$extension = '';
-$message = '';
-$nomImage = '';
- 
-/************************************************************
- * Creation du repertoire cible si inexistant
- *************************************************************/
- if( !is_dir(TARGET) ) {
-   if( !mkdir(TARGET, 0755) ) {
-     exit('Erreur : le répertoire cible ne peut-être créé ! Vérifiez que vous diposiez des droits suffisants pour le faire ou créez le manuellement !');
-  }
- }
-
-    if(!empty($_POST)){
-  // On verifie si le champ est rempli
-  if( !empty($_FILES['avatar']['name']) )
-  {
-    // Recuperation de l'extension du fichier
-    $extension  = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
- 
-    // On verifie l'extension du fichier
-    if(in_array(strtolower($extension),$tabExt))
-    {
-      // On recupere les dimensions du fichier
-      $infosImg = getimagesize($_FILES['avatar']['tmp_name']);
- 
-      // On verifie le type de l'image
-      if($infosImg[2] >= 1 && $infosImg[2] <= 14)
-      {
-        // On verifie les dimensions et taille de l'image
-        if(($infosImg[0] <= WIDTH_MAX) && ($infosImg[1] <= HEIGHT_MAX) && (filesize($_FILES['avatar']['tmp_name']) <= MAX_SIZE))
-        {
-          // Parcours du tableau d'erreurs
-          if(isset($_FILES['avatar']['error']) 
-            && UPLOAD_ERR_OK === $_FILES['avatar']['error'])
-          {
-            // On renomme le fichier
-            $nomImage = md5(uniqid()) .'.'. $extension;
- 
-            // Si c'est OK, on teste l'upload
-            if(move_uploaded_file($_FILES['avatar']['tmp_name'], TARGET.$nomImage))
-            {
-              $message = 'Upload réussi !';
-            }
-            else
-            {
-              // Sinon on affiche une erreur systeme
-              $message = 'Problème lors de l\'upload !';
-            }
-          }
-          else
-          {
-            $message = 'Une erreur interne a empêché l\'uplaod de l\'image';
-          }
-        }
-        else
-        {
-          // Sinon erreur sur les dimensions et taille de l'image
-          $message = 'Erreur dans les dimensions de l\'image !';
-        }
-      }
-      else
-      {
-        // Sinon erreur sur le type de l'image
-        $message = 'Le fichier à uploader n\'est pas une image !';
-      }
-    }
-    else
-    {
-      // Sinon on affiche une erreur pour l'extension
-      $message = 'L\'extension du fichier est incorrecte !';
-    }
-  }
-  else
-  {
-    // Sinon on affiche une erreur pour le champ vide
-    $message = 'Veuillez remplir le formulaire svp !';
-  }
-}
-
-if(isset($_POST['description'])){
-  $description=$_POST['description'];
-}else{$description="";}
 if(isset($_POST['city'])){
   $city=$_POST['city'];
 }else{$city="";}
+if(isset($_POST['adresse'])){
+  $adresse=$_POST['adresse'];
+}else{$adresse="";}
 if(isset($nomImage)){
   $avatar=$nomImage;
 }else{$avatar="";}
 
 //On verifie que le formulaire a ete envoye
-if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email']) and $_POST['pseudo']!='')
+if(isset($_POST['pseudo'], $_POST['pass'],  $_POST['passverif'], $_POST['email'], $_POST['city'],  $_POST['adresse']) and $_POST['pseudo']!='')
 {
   
   //On enleve lechappement si get_magic_quotes_gpc est active
@@ -123,7 +30,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
     $_POST['pass'] = stripslashes($_POST['pass']);
     $_POST['passverif'] = stripslashes($_POST['passverif']);
     $_POST['city'] = stripslashes($_POST['city']);
-    $_POST['description'] = stripslashes($_POST['description']);
+    $_POST['adresse'] = stripslashes($_POST['adresse']);
   }
   //On verifie si le mot de passe et celui de la verification sont identiques
   if($_POST['pass']==$_POST['passverif'])
@@ -151,7 +58,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
         $email = mysql_real_escape_string($_POST['email']);
         $pass = mysql_real_escape_string(sha1($_POST['passverif']));
         $city = mysql_real_escape_string($_POST['city']);
-        $description = mysql_real_escape_string($_POST['description']);
+        $adresse = mysql_real_escape_string($_POST['adresse']);
 
         if(empty($_POST['choix'])){
         }else{
@@ -170,7 +77,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
           $url=Slug($pseudo);
           $date_inscription=date("d-m-Y");
           //On enregistre les informations dans la base de donnee
-          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, description, pass, email, city, avatar, url) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$description.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$avatar.'", "'.$url.'")'))
+          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, url) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$url.'")'))
           {
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
@@ -235,8 +142,6 @@ if($form)
             <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="password" name="pass" /><br />
             <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="password" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-            <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
-          <label>Avatar: <input name="avatar" type="file" id="fichier_a_uploader" /></label><br>
           <label>Votre ville:
             <select name="city">
               <option value="" disabled selected>Quelle est ta ville ?</option>
@@ -301,7 +206,7 @@ if($form)
               <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
             </select>
           </label><br>
-          <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label><br>
+          <label for="adresse">Adresse</label><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
           <input type="checkbox" name="choix[]" value="1" checked> Je m'inscris &agrave; la newsletter<br>
           <input type="submit" value="Envoyer" />
     </div>

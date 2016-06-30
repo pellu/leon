@@ -162,12 +162,12 @@ if(isset($_POST['pseudo'])){
 if(isset($_POST['ville_news'])){
   $ville_news=$_POST['ville_news'];
 }else{$ville_news=$resultsql['city'];}
+if(isset($_POST['adresse_news'])){
+  $adresse_news=$_POST['adresse_news'];
+}else{$adresse_news=$resultsql['adresse'];}
 if(isset($_POST['titre_news'])){
   $titre_news=$_POST['titre_news'];
 }else{$titre_news="";}
-if(isset($_POST['adresse'])){
-  $adresse=$_POST['adresse'];
-}else{$adresse="";}
 if(isset($_POST['prix'])){
   $prix=$_POST['prix'];
 }else{$prix="";}
@@ -177,15 +177,21 @@ if(isset($nomImage)){
 if(isset($_POST['typedesoiree'])){
   $typedesoiree=$_POST['typedesoiree'];
 }else{$typedesoiree="";}
-if(isset($_POST['console'])){
-  $console=$_POST['console'];
-}else{$console="";}
+if(isset($_POST['jeu'])){
+  $jeu=$_POST['jeu'];
+}else{$jeu="";}
 if(isset($_POST['typedejeu'])){
   $typedejeu=$_POST['typedejeu'];
 }else{$typedejeu="";}
 if(isset($_POST['nb_participants'])){
   $nb_participants=$_POST['nb_participants'];
 }else{$nb_participants="";}
+if(isset($_POST['fumeur'])){
+  $fumeur=$_POST['fumeur'];
+}else{$fumeur="";}
+if(isset($_POST['animaux'])){
+  $animaux=$_POST['animaux'];
+}else{$animaux="";}
 if(isset($_POST['contenu_news'])){
   $contenu_news=$_POST['contenu_news'];
 }else{$contenu_news="";}
@@ -202,27 +208,30 @@ $date_news=date("d-m-Y");
 $champspasremplis="<br><br>";
 
 if(isset($_POST['submit'])){
-  if(empty($ville_news) OR empty($titre_news) OR empty($adresse) OR empty($prix) OR empty($typedesoiree) OR empty($console) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])){
+  if(empty($ville_news) OR empty($titre_news) OR empty($adresse_news) OR empty($prix) OR empty($typedesoiree) OR empty($jeu) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])){
     $champspasremplis='Tous les champs doivent &ecirc;tre remplis<br><br>';
   }else{
-    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse, prix, photo, typedesoiree, console, typedejeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse','$prix','$photo','$typedesoiree','$console','$typedejeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
+    $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse_news, fumeur, animaux, prix, photo, typedesoiree, typedejeu, jeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse_news','$fumeur','$animaux','$prix','$photo','$typedesoiree','$typedejeu','$jeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
     $stmt->bindParam(':pseudo_news', $pseudo_news);
     $stmt->bindParam(':ville_news', $ville_news);
+    $stmt->bindParam(':adresse_news', $adresse_news);
     $stmt->bindParam(':titre_news', $titre_news);
-    $stmt->bindParam(':adresse', $adresse);
+    $stmt->bindParam(':fumeur', $fumeur);
+    $stmt->bindParam(':animaux', $animaux);
     $stmt->bindParam(':prix', $prix);
     $stmt->bindParam(':photo', $photo);
     $stmt->bindParam(':typedesoiree', $typedesoiree);
-    $stmt->bindParam(':console', $console);
+    $stmt->bindParam(':jeu', $jeu);
     $stmt->bindParam(':typedejeu', $typedejeu);
     $stmt->bindParam(':nb_participants', $nb_participants);
     $stmt->bindParam(':contenu_news', $contenu_news);
+    $stmt->bindParam(':date_news', $date_news);
     $stmt->bindParam(':datedejeu', $datedejeu);
     $stmt->bindParam(':heuredejeu', $heuredejeu);
     $stmt->execute();
     $titre_news='';
     $typedejeu='';
-    $adresse='';
+    $adresse_news='';
     $contenu_news='';
     $titre_news='';
     $datedejeu='';
@@ -234,18 +243,22 @@ if(isset($_POST['submit'])){
 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
 <h2>Ajouter une annonce</h2>
 <?php echo $champspasremplis;?>
-    <form method="post" action="" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data">
       <label><input type="hidden" name="pseudo" value="<?php echo $id_annonce ?>"/></label>
       <label><input type="hidden" name="ville_news" value="<?php echo $ville_news ?>"/></label>
+      <label><input type="hidden" name="adresse_news" value="<?php echo $adresse_news ?>"/></label>
     <label>Votre ville: <?php echo $ville_news ?>, <a href="http://localhost/leon/website/modifiermonprofil.php">pour la changer cliquer ici</a></label>
+    <label>Votre adresse: <?php echo $adresse_news ?>, <a href="http://localhost/leon/website/modifiermonprofil.php">pour la changer cliquer ici</a></label>
       <label>Titre:<input type="text" name="titre_news" value="<?php echo $titre_news ?>"/></label><br>
-    <label>Adresse:<input type="text" name="adresse" value="<?php echo $adresse ?>"/></label><br>
     <label>Prix:
       <select name="prix">
         <option value="" disabled selected>Choisir</option>
         <option value="5">5 &euro;</option>
         <option value="10">10 &euro;</option>
         <option value="15">15 &euro;</option>
+        <option value="20">20 &euro;</option>
+        <option value="25">25 &euro;</option>
+        <option value="30">30 &euro;</option>
       </select>
     </label><br>
     <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
@@ -258,15 +271,15 @@ if(isset($_POST['submit'])){
         <option value="Formation">Formation</option>
       </select>
     </label><br>
-    <label>Type de jeu:<input type="text" name="typedejeu" value="<?php echo $typedejeu ?>"/></label><br>
-    <label>Console:
-      <select name="console">
+    <label>Type de jeu:
+      <select name="typedejeu" id="gameType">
         <option value="" disabled selected>Choisir</option>
-        <option value="Atari">Atari</option>
-        <option value="Microsoft">Microsoft</option>
-        <option value="Nintendo">Nintendo</option>
-        <option value="Sega">Sega</option>
-        <option value="Sony">Sony</option>
+        <option data-val="console" value="Consoles">Consoles</option>
+        <option data-val="carte" value="Cartes">Cartes</option>
+        <option data-val="plateau" value="Jeux de plateau">Jeux de plateau</option>
+    </select><br>
+    <label>Jeu:
+      <select name="jeu" id="gamePlay">
       </select>
     </label><br>
     <label>Nombre de participants:
@@ -278,6 +291,21 @@ if(isset($_POST['submit'])){
         <option value="5">5</option>
         <option value="6">6</option>
         <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </label><br>
+    <label>Animaux:
+      <select name="animaux">
+        <option value="" disabled selected>Choisir</option>
+        <option value="oui">Oui</option>
+        <option value="non">Non</option>
+      </select>
+    </label><br>
+    <label>Fumeur:
+      <select name="fumeur">
+        <option value="" disabled selected>Choisir</option>
+        <option value="oui">Oui</option>
+        <option value="non">Non</option>
       </select>
     </label><br>
     <label>Description:<input type="text" name="contenu_news" value="<?php echo $contenu_news ?>"/></label><br>

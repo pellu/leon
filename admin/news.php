@@ -17,7 +17,7 @@ include('header.php');?>
 <?php
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `news`");
-  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, ville_news text NOT NULL, titre_news text NOT NULL, adresse text NOT NULL, prix text NOT NULL, photo text NOT NULL, typedesoiree text NOT NULL, console text NOT NULL, typedejeu text NOT NULL, nb_participants text NOT NULL, contenu_news text NOT NULL, datedejeu text NOT NULL, heuredejeu text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
+  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, ville_news text NOT NULL, titre_news text NOT NULL, adresse_news text NOT NULL, prix text NOT NULL, photo text NOT NULL, typedesoiree text NOT NULL, typedejeu text NOT NULL, jeu text NOT NULL, nb_participants text NOT NULL, fumeur text NOT NULL, animaux text NOT NULL, contenu_news text NOT NULL, datedejeu text NOT NULL, heuredejeu text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
 }
 ?>
 <center><form action="" method="post">

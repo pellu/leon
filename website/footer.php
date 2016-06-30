@@ -60,5 +60,9 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/grayscale.js"></script>
+
+<?php if(isset($_SESSION['email'])){
+echo'<script src="js/main.js"></script>';
+}else{}?>
 </body>
 </html>

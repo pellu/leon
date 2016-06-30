@@ -6,8 +6,6 @@ if(!isset($_SESSION['steamid'])) {
   echo "</div>";
   }  else {
     include ('steamauth/userInfo.php');
-    include('header.php');
-    include('config.php');
   ?>
   <section class="container content-section text-center">
   <div class="row">
@@ -28,130 +26,30 @@ if(!isset($_SESSION['steamid'])) {
     <?php
     }
 
-// SCRIPT ENVOI PHOTO
-define('TARGET', 'photos/');    // Repertoire cible
-define('MAX_SIZE', 100000);    // Taille max en octets du fichier
-define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
-define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
- 
-// Tableaux de donnees
-$tabExt = array('jpg','gif','png','jpeg');    // Extensions autorisees
-$infosImg = array();
- 
-// Variables
-$extension = '';
-$message = '';
-$nomImage = '';
- 
-/************************************************************
- * Creation du repertoire cible si inexistant
- *************************************************************/
- if( !is_dir(TARGET) ) {
-   if( !mkdir(TARGET, 0755) ) {
-     exit('Erreur : le répertoire cible ne peut-être créé ! Vérifiez que vous diposiez des droits suffisants pour le faire ou créez le manuellement !');
-  }
- }
-
-    if(!empty($_POST)){
-  // On verifie si le champ est rempli
-  if( !empty($_FILES['avatar']['name']) )
-  {
-    // Recuperation de l'extension du fichier
-    $extension  = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
- 
-    // On verifie l'extension du fichier
-    if(in_array(strtolower($extension),$tabExt))
-    {
-      // On recupere les dimensions du fichier
-      $infosImg = getimagesize($_FILES['avatar']['tmp_name']);
- 
-      // On verifie le type de l'image
-      if($infosImg[2] >= 1 && $infosImg[2] <= 14)
-      {
-        // On verifie les dimensions et taille de l'image
-        if(($infosImg[0] <= WIDTH_MAX) && ($infosImg[1] <= HEIGHT_MAX) && (filesize($_FILES['avatar']['tmp_name']) <= MAX_SIZE))
-        {
-          // Parcours du tableau d'erreurs
-          if(isset($_FILES['avatar']['error']) 
-            && UPLOAD_ERR_OK === $_FILES['avatar']['error'])
-          {
-            // On renomme le fichier
-            $nomImage = md5(uniqid()) .'.'. $extension;
- 
-            // Si c'est OK, on teste l'upload
-            if(move_uploaded_file($_FILES['avatar']['tmp_name'], TARGET.$nomImage))
-            {
-              $message = 'Upload réussi !';
-            }
-            else
-            {
-              // Sinon on affiche une erreur systeme
-              $message = 'Problème lors de l\'upload !';
-            }
-          }
-          else
-          {
-            $message = 'Une erreur interne a empêché l\'uplaod de l\'image';
-          }
-        }
-        else
-        {
-          // Sinon erreur sur les dimensions et taille de l'image
-          $message = 'Erreur dans les dimensions de l\'image !';
-        }
-      }
-      else
-      {
-        // Sinon erreur sur le type de l'image
-        $message = 'Le fichier à uploader n\'est pas une image !';
-      }
-    }
-    else
-    {
-      // Sinon on affiche une erreur pour l'extension
-      $message = 'L\'extension du fichier est incorrecte !';
-    }
-  }
-  else
-  {
-    // Sinon on affiche une erreur pour le champ vide
-    $message = 'Veuillez remplir le formulaire svp !';
-  }
-}
-
 $pseudo_steam=$steamprofile['personaname'];
 $id_steam=$steamprofile['steamid'];
 
-if(isset($_POST['description'])){
-  $description=$_POST['description'];
-}else{$description="";}
-if(isset($pseudo_steam)){
-  $pseudo=$pseudo_steam;
-}else{$pseudo="";}
 if(isset($pseudo_steam)){
   $pseudo=$pseudo_steam;
 }else{$pseudo="";}
 if(isset($_POST['city'])){
   $city=$_POST['city'];
 }else{$city="";}
-if(isset($nomImage)){
-  $avatar=$nomImage;
-}else{$avatar="";}
+if(isset($_POST['adresse'])){
+  $adresse=$_POST['adresse'];
+}else{$adresse="";}
 
 //On verifie que le formulaire a ete envoye
-if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email']) and $_POST['pseudo']!='')
+if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'], $_POST['city'], $_POST['adresse']) and $_POST['pseudo']!='')
 {
-
   //On enleve lechappement si get_magic_quotes_gpc est active
   if(get_magic_quotes_gpc())
   {
-
-    $_POST['pseudo'] = stripslashes($_POST['pseudo']);
-    $_POST['email'] = stripslashes($_POST['email']);
-    $_POST['pass'] = stripslashes($_POST['pass']);
-    $_POST['passverif'] = stripslashes($_POST['passverif']);
-    $_POST['city'] = stripslashes($_POST['city']);
-    $_POST['description'] = stripslashes($_POST['description']);
+    $pseudo = mysql_real_escape_string($_POST['pseudo']);
+    $email = mysql_real_escape_string($_POST['email']);
+    $pass = mysql_real_escape_string(sha1($_POST['passverif']));
+    $city = mysql_real_escape_string($_POST['city']);
+    $adresse = mysql_real_escape_string($_POST['adresse']);
   }
   //On verifie si le mot de passe et celui de la verification sont identiques
   if($_POST['pass']==$_POST['passverif'])
@@ -179,7 +77,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
         $email = mysql_real_escape_string($_POST['email']);
         $pass = mysql_real_escape_string(sha1($_POST['passverif']));
         $city = mysql_real_escape_string($_POST['city']);
-        $description = mysql_real_escape_string($_POST['description']);
+        $adresse = mysql_real_escape_string($_POST['adresse']);
 
         if(empty($_POST['choix'])){
         }else{
@@ -198,7 +96,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'])
           $url=Slug($pseudo);
           $date_inscription=date("d-m-Y");
           //On enregistre les informations dans la base de donnee
-          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, description, pass, email, city, avatar, url, id_steam) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$description.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$avatar.'", "'.$url.'", "'.$id_steam.'")'))
+          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, url, id_steam) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'",  "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$url.'", "'.$id_steam.'")'))
           {
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
@@ -256,86 +154,83 @@ if($form)
   //On affiche le formulaire
 ?>
 <div class="content">
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST">
         Veuillez remplir ce formulaire pour vous inscrire:<br />
         <div class="center">
             <label for="pseudo" style="display:none;">Votre pseudo: <input type="text" name="pseudo" value="<?php echo $pseudo;?>"/></label><br/>
             <label>Votre pseudo est <a title="Vous pourrez changer votre pseudo une fois inscrit">*</a>: <?php echo $pseudo_steam ?></label><br/>
-            <!--<label for="pseudo">Nom d'utilisateur</label><input type="text" name="pseudo" value="<?php //if(isset($_POST['pseudo'])){echo htmlentities($_POST['pseudo'], ENT_QUOTES, 'UTF-8');} ?><!--" /><br />-->
             <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="password" name="pass" /><br />
             <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="password" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-            <label><input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" /></label>
-          <label>Avatar: <input name="avatar" type="file" id="fichier_a_uploader" /></label><br>
-                    <label>Votre ville:
-            <select name="city">
-              <option value="" disabled selected>Quelle est ta ville ?</option>
-              <option value="antony">Antony (92)</option>
-              <option value="argenteuil">Argenteuil (95)</option>
-              <option value="aubervilliers">Aubervilliers (93)</option>
-              <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
-              <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
-              <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
-              <option value="bondy">Bondy (93)</option>
-              <option value="cergy">Cergy (95)</option>
-              <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
-              <option value="chelles">Chelles (77)</option>
-              <option value="clamart">Clamart (92)</option>
-              <option value="clichy">Clichy (92)</option>
-              <option value="colombes">Colombes (92)</option>
-              <option value="courbevoie">Courbevoie (92)</option>
-              <option value="creteil">Cr&eacute;teil (94)</option>
-              <option value="drancy">Drancy (93)</option>
-              <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
-              <option value="evry">&Eacute;vry (91)</option>
-              <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
-              <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
-              <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
-              <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
-              <option value="levallois-perret">Levallois-Perret (92)</option>
-              <option value="maisons-alfort">Maisons-Alfort (94)</option>
-              <option value="meaux">Meaux (77)</option>
-              <option value="montreuil">Montreuil (93)</option>
-              <option value="nanterre">Nanterre (92)</option>
-              <option value="paris1">Neuilly-sur-Seine (92)</option>
-              <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
-              <option value="pantin">Pantin (93)</option>
-              <option value="paris1">Paris (75 001)</option>
-              <option value="paris1">Paris (75 002)</option>
-              <option value="paris3">Paris (75 003)</option>
-              <option value="paris4">Paris (75 004)</option>
-              <option value="paris5">Paris (75 005)</option>
-              <option value="paris6">Paris (75 006)</option>
-              <option value="paris7">Paris (75 007)</option>
-              <option value="paris8">Paris (75 008)</option>
-              <option value="paris9">Paris (75 009)</option>
-              <option value="paris10">Paris (75 010)</option>
-              <option value="paris11">Paris (75 011)</option>
-              <option value="paris12">Paris (75 012)</option>
-              <option value="paris13">Paris (75 013)</option>
-              <option value="paris14">Paris (75 014)</option>
-              <option value="paris15">Paris (75 015)</option>
-              <option value="paris16">Paris (75 016)</option>
-              <option value="paris17">Paris (75 017)</option>
-              <option value="paris18">Paris (75 018)</option>
-              <option value="paris19">Paris (75 019)</option>
-              <option value="paris20">Paris (75 020)</option>
-              <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
-              <option value="saint-denis">Saint-Denis (93)</option>
-              <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
-              <option value="sarcelles">Sarcelles (95)</option>
-              <option value="sartrouville">Sartrouville (78)</option>
-              <option value="sevran">Sevran (93)</option>
-              <option value="versailles">Versailles (78)</option>
-              <option value="villejuif">Villejuif (94)</option>
-              <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
-            </select>
-          </label><br>
-          <label>Description <a title="Les utilisateurs veront votre description">*</a>: <textarea name="description"/><?php echo $description ?></textarea></label>
-          <label for="id_steam" style="display:none;"><input type="text" name="id_steam" value="<?php echo $id_steam;?>"/></label><br/>
-          <input type="checkbox" name="choix[]" value="1" checked> Je m'inscris &agrave; la newsletter<br>
-          <input type="submit" value="Envoyer" />
-      </div>
+            <label>Votre ville:
+              <select name="city">
+                <option value="" disabled selected>Quelle est ta ville ?</option>
+                <option value="antony">Antony (92)</option>
+                <option value="argenteuil">Argenteuil (95)</option>
+                <option value="aubervilliers">Aubervilliers (93)</option>
+                <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
+                <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
+                <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
+                <option value="bondy">Bondy (93)</option>
+                <option value="cergy">Cergy (95)</option>
+                <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
+                <option value="chelles">Chelles (77)</option>
+                <option value="clamart">Clamart (92)</option>
+                <option value="clichy">Clichy (92)</option>
+                <option value="colombes">Colombes (92)</option>
+                <option value="courbevoie">Courbevoie (92)</option>
+                <option value="creteil">Cr&eacute;teil (94)</option>
+                <option value="drancy">Drancy (93)</option>
+                <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
+                <option value="evry">&Eacute;vry (91)</option>
+                <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
+                <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
+                <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
+                <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
+                <option value="levallois-perret">Levallois-Perret (92)</option>
+                <option value="maisons-alfort">Maisons-Alfort (94)</option>
+                <option value="meaux">Meaux (77)</option>
+                <option value="montreuil">Montreuil (93)</option>
+                <option value="nanterre">Nanterre (92)</option>
+                <option value="paris1">Neuilly-sur-Seine (92)</option>
+                <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
+                <option value="pantin">Pantin (93)</option>
+                <option value="paris1">Paris (75 001)</option>
+                <option value="paris1">Paris (75 002)</option>
+                <option value="paris3">Paris (75 003)</option>
+                <option value="paris4">Paris (75 004)</option>
+                <option value="paris5">Paris (75 005)</option>
+                <option value="paris6">Paris (75 006)</option>
+                <option value="paris7">Paris (75 007)</option>
+                <option value="paris8">Paris (75 008)</option>
+                <option value="paris9">Paris (75 009)</option>
+                <option value="paris10">Paris (75 010)</option>
+                <option value="paris11">Paris (75 011)</option>
+                <option value="paris12">Paris (75 012)</option>
+                <option value="paris13">Paris (75 013)</option>
+                <option value="paris14">Paris (75 014)</option>
+                <option value="paris15">Paris (75 015)</option>
+                <option value="paris16">Paris (75 016)</option>
+                <option value="paris17">Paris (75 017)</option>
+                <option value="paris18">Paris (75 018)</option>
+                <option value="paris19">Paris (75 019)</option>
+                <option value="paris20">Paris (75 020)</option>
+                <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
+                <option value="saint-denis">Saint-Denis (93)</option>
+                <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
+                <option value="sarcelles">Sarcelles (95)</option>
+                <option value="sartrouville">Sartrouville (78)</option>
+                <option value="sevran">Sevran (93)</option>
+                <option value="versailles">Versailles (78)</option>
+                <option value="villejuif">Villejuif (94)</option>
+                <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
+              </select>
+            </label><br>
+            <label for="adresse">Adresse</label><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
+            <label for="id_steam" style="display:none;"><input type="text" name="id_steam" value="<?php echo $id_steam;?>"/></label><br/>
+            <input type="checkbox" name="choix[]" value="1" checked> Je m'inscris &agrave; la newsletter<br>
+            <input type="submit" value="Envoyer" />
+        </div>
     </form>
 </div>
 <?php
