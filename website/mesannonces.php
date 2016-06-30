@@ -20,14 +20,6 @@ function Slug($str){
   return mb_strtolower(preg_replace(array('/[^a-zA-Z0-9 \'-]/', '/[ -\']+/', '/^-|-$/'),
   array('', '-', ''), remove_accent($str)));
 }
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
 ?>
   <div class="row">
     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
