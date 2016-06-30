@@ -283,10 +283,22 @@ body {
     background-color: #fff
 }
 
+/*input, button, select, textarea {*/
+    /*font-family: inherit;*/
+    /*font-size: inherit;*/
+    /*line-height: inherit*/
+/*}*/
 input, button, select, textarea {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit
+    display: block;
+    height: 34px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px 2px #7ae3f9;
+    border: solid 1px #7ae3f9;
+    background-color: transparent;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
 }
 
 a {
