@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <?php include('menu.php');
 header('content-type: text/html; charset=ISO-8859-1'); ?>
     <div class="row">
@@ -6,9 +6,9 @@ header('content-type: text/html; charset=ISO-8859-1'); ?>
             <h1 id="maintitle">The Playce to be</h1>
             <h2 id="baseline">Trouvez votre soir&eacute;e sans plus attendre !</h2>
             <div id="opacitysquare" class="col-lg-12 col-md-12 col-xs-12">
-                <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-4" >
+                <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-4">
                     <form action="search.php" method="POST">
-                        <select name="search"  id="homesearch">
+                        <select name="search" id="homesearch">
                             <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>
                             <option value="antony">Antony (92)</option>
                             <option value="argenteuil">Argenteuil (95)</option>
@@ -77,7 +77,6 @@ header('content-type: text/html; charset=ISO-8859-1'); ?>
         </div>
     </div>
 
-
 <?php include("function.php"); ?>
 <?php
 if (isset($_POST['search'])) {
@@ -97,38 +96,15 @@ if (isset($_POST['submit'])) {
         resultat_recherche($search);
     } else {
         foreach ($error as $errors) {
-            echo $errors . "<br/>";
+            echo $errors . "";
         }
     }
 }
 ?>
 
+    </div>
 
-
-
-        <div id="rest-search" class="col-lg-12">
-            <div class="col-lg-8 col-lg-offset-2">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
-                    <h3 id="h3">R&eacute;sultats de votre recherche</h3>
-                </div>
-
-                <div class="col-lg-6" id="result">
-                    <div class="result-photo"><img src="img/event.jpg" alt="" width="485" height="320"></div>
-                    <div class="result-price">15&euro;</div>
-                    <div class="result-square">
-                        <div class="result-title text-left">TOURNOI CARTES POK&Eacute;MON / 20h-23h</div>
-                        <div class="result-user">Post&eacute;e par YOHANITO</div>
-                        <div class="result-user-avatar"><img src="img/avatar.jpg" alt="" height="70" width="70"
-                                                             class="img-circle"></div>
-                        <div class="result-description text-left"
-                        <p>Tournoi cartes Pok&eacute;mon pour joueurs d&eacute;butants &agrave; confirm&eacute;s.
-                            &#8232;Sur place : 2 jeux de cartes + tapis de jeu. Boissons et en-cas sur place (plus de d&eacute;tails
-                            via message priv&eacute;), pr&eacute;voir des car&#8230;</p>
-                    </div>
-                    <a href="#"><p class="regarder-annonce">Voir l'annonce</p></a>
-                </div>
-            </div>
-        </div>
-        </div>
+    </div>
+    </div>
     </section>
 <?php include('footer.php'); ?>

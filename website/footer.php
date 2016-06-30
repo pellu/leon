@@ -1,11 +1,10 @@
-<br><br>
 <footer>
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 col-lg-offset-1 centered">
                 <img id="playce" src="http://localhost/leon/website/img/logo-final.png">
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
+            <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left separator">
                 <p class="footer-title"><a href="http://localhost/leon/website/" class="footer-title">2016 &copy;
                         Playce</a></p>
                 <p><a href="http://localhost/leon/website/">Concept</a></p>
@@ -21,20 +20,14 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title">Suivez-nous</p>
-                <a target="_blank" href="https://www.facebook.com/letsplayce" class="facebook">Facebook<i class="fa fa-facebook" aria-hidden="true"></i>
-<!--                    <img src="img/facebook.png" height="21" width="10" alt="Suivez-vous sur Facebook" class="facebook">-->
+                <a target="_blank" href="https://www.facebook.com/letsplayce" ><i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
-                <a target="_blank" href="https://twitter.com/letsplayce" class="twitter">Twitter
-<!--                    <img src="img/twitter.png" height="18" width="21" alt="Suivez-vous sur Twitter" class="twitter">-->
+                <a target="_blank" href="https://twitter.com/letsplayce" ><i class="fa fa-twitter" aria-hidden="true"></i>
+
                 </a>
-                <a target="_blank" href="https://www.instagram.com/letsplayce/" class="insta">Instagram
-<!--                    <img src="img/insta.png" height="21" width="22" alt="Suivez-vous sur Instagram" class="insta">-->
+                <a target="_blank" href="https://www.instagram.com/letsplayce/" ><i class="fa fa-instagram" aria-hidden="true"></i>
+
                 </a>
-<!--                <ul>-->
-<!--                    <li><a target="_blank" href="https://www.facebook.com/letsplayce" class="facebook">Facebook</a></li>-->
-<!--                    <li><a target="_blank" href="https://twitter.com/letsplayce" class="twitter">Twitter</a></li>-->
-<!--                    <li><a target="_blank" href="https://www.instagram.com/letsplayce/" class="insta">Instagram</a></li>-->
-<!--                </ul>-->
             </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <?php

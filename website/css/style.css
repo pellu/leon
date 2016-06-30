@@ -459,57 +459,23 @@ footer .footer-title {
     margin-bottom: 10px;
 }
 
-footer .facebook {
+footer .fa-facebook {
     display: inline-block;
-    height:21px;
-    width:10px;
-    background: url("../img/facebook.png") center no-repeat;
-    color: transparent;
-    margin-right: 5px;
+    color: #ffffff;
+    margin-right: 25px;
+    font-size: 18px;
 
 }
-footer .twitter {
+footer .fa-twitter {
     display: inline-block;
-    padding-top:1px;
-    height:21px;
-    width:21px;
-    background: url("../img/twitter.png") center no-repeat;
-    color: transparent;
-    margin-right: 5px;
+    color: #ffffff;
+    margin-right: 25px;
+    font-size: 18px;
 }
-footer .insta {
+footer .fa-instagram {
     display: inline-block;
-    height:21px;
-    width:22px;
-    background: url("../img/insta.png") center no-repeat;
-    color: transparent;
-    margin-right: 5px;
-
-}
-
-footer .facebook:hover {
-    display: inline-block;
-    height:21px;
-    width:10px;
-    background: url("../img/facebook.png") center no-repeat;
-    color: transparent;
-
-}
-footer .twitter:hover {
-    display: inline-block;
-    padding-top:1px;
-    height:21px;
-    width:21px;
-    background: url("../img/twitter.png") center no-repeat;
-    color: transparent;
-}
-footer .insta:hover {
-    display: inline-block;
-    height:21px;
-    width:22px;
-    background: url("../img/insta.png") center no-repeat;
-    color: transparent;
-
+    color: #ffffff;
+    font-size: 18px;
 }
 
 footer form.input-group {
@@ -524,6 +490,7 @@ footer .row {
 footer form {
     border: 1px solid #fff;
     border-radius: 4px;
+    margin-bottom: 25px;
 }
 
 footer form .input-group-btn:last-child > .btn, .input-group .form-control:first-child {
@@ -542,6 +509,10 @@ footer form .input-group-btn:last-child > .btn:hover {
 footer #playce {
     margin-top: 25px;
     width: 137px;
+}
+
+footer .separator {
+    margin-bottom: 25px;
 }
 
 ::-moz-selection {
@@ -764,6 +735,7 @@ table {
     footer {
         width: 101%;
     }
+
 }
 
 @media screen and (min-width: 290px) and (max-width: 399px) {
@@ -917,7 +889,6 @@ table {
     }
 
     #h3 {
-        height: 35px;
         font-family: Neon;
         font-size: 34px;
         font-weight: normal;
@@ -1135,7 +1106,6 @@ table {
     }
 
     #h3 {
-        height: 35px;
         font-family: Neon;
         font-size: 30px;
         font-weight: normal;
@@ -1345,7 +1315,6 @@ table {
     }
 
     #h3 {
-        height: 35px;
         font-family: Neon;
         font-size: 28px;
         font-weight: normal;
@@ -1506,6 +1475,10 @@ table {
     height: 170px;
     background-color: #ffffff;
 }
+.result-square p {
+    color: #000000;
+}
+
 
 .result-title {
     font-family: Lato;
@@ -1530,12 +1503,30 @@ table {
 
 .regarder-annonce {
     position: relative;
+    background-color: #292929;
     bottom: 38px;
     font-family: Lato;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    color: #ffffff;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    padding-top: 10px;;
+    width: 485px;
+    height: 55px;
+    box-shadow: 0 0 10px 2px #7ae3f9;
+    border: solid 2px #7ae3f9;
+}
+
+.regarder-annonce a {
+    position: relative;
+    background-color: #292929;
+    bottom: 38px;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff ;
     text-transform: uppercase;
     padding-top: 10px;;
     width: 485px;
