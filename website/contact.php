@@ -1,10 +1,13 @@
 <?php session_start();?>
 <?php include('menu.php');?>
-<section class="container content-section text-center">
+<section class="container-fluid content-section text-center">
   <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div id="rest" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <br><br><br><br><br>
-	<h1>Contact</h1>
+		<div class="col-lg-4 col-md-4 hidden-sm hidden-xs" id="gauche">
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	<h1 id="h4">Nous contacter</h1>
 <br/>
 <?php
 // destinataire est votre adresse mail. Pour envoyer à plusieurs à la fois, séparez-les par une virgule
@@ -117,23 +120,26 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 				<input type="hidden" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" />
 				<input type="hidden" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" />
 				';?><?php }else{
-				echo'
-				<label for="pseudo">Nom :<input type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /></label><br>
-				<label for="email">Email :<input type="text" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" /></label><br>
+				echo'<div class="input-group col-lg-12">
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pseudo">Nom :</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /><br>
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="email">Email :</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" /><br></div>
 				';
-				}echo'
-				<label>Objet:
-	      			<select name="objet">
-	        			<option value="Contact support technique">Contact support technique</option>
-				        <option value="Dénonciation de profil">Dénonciation de profil</option>
-				        <option value="Rapport de mauvaise rencontres">Rapport de mauvaise rencontres</option>
-				        <option value="J\'ai trouvé un bug sur le site">J\'ai trouvé un bug sur le site</option>
+				}echo'<div class="input-group col-lg-12">
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Objet:</label>
+	      			<select class="col-lg-8 col-md-8 col-sm-8 col-xs-8" name="objet">
+	        			<option style="color: #000;" value="Contact support technique">Contact support technique</option>
+				        <option style="color: #000;" value="Dénonciation de profil">Dénonciation de profil</option>
+				        <option style="color: #000;" value="Rapport de mauvaise rencontres">Rapport de mauvaise rencontres</option>
+				        <option style="color: #000;" value="J\'ai trouvé un bug sur le site">J\'ai trouvé un bug sur le site</option>
 				    </select>
-				</label><br>
-				<label>Mon message:
-				<textarea type="text" for="message" id="message" name="message">'.stripslashes($message).'</textarea></label><br>
-				<input type="submit" name="envoi" value="Envoyer le formulaire" />
+				<br><br>
+				<label class="col-lg-4">Mon message:</label>
+				<textarea rows="8" cols="50" class="col-lg-8" type="text" for="message" id="message" name="message">'.stripslashes($message).'</textarea><br><br>
+				<input class="col-lg-4 col-lg-offset-8 col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 col-xs-6 right" type="submit" name="envoi" value="Envoyer le formulaire" /><br/><br/><br/><br/></div>
 		</form>
+					</div>
+		<div class="col-lg-4 col-md-4 hidden-sm hidden-xs" id="droite">
+		</div>
 	';
 }
 ?>
