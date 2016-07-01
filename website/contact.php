@@ -144,4 +144,12 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 }
 ?>
 </div></div></section>
+
 <?php include('footer.php');?>
+<style> label {
+		font-family: Lato;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: right;
+	}
+</style>

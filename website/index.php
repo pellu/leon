@@ -6,7 +6,7 @@
             <h1 id="maintitle">The Playce to be</h1>
             <h2 id="baseline">Trouvez votre soir&eacute;e sans plus attendre !</h2>
             <div id="opacitysquare" class="col-lg-12 col-md-12 col-xs-12">
-                <div class="col-lg-8 col-md-12 col-xs-12 col-lg-offset-2" >
+                <div class="col-lg-8 col-md-12 col-xs-12 col-lg-offset-4" >
                     <form action="search.php" method="POST">
                         <select name="search"  id="homesearch">
                             <option value="" disabled selected>Où vas-tu jouer ?</option>
