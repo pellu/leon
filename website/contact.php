@@ -120,20 +120,20 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 				<input type="hidden" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" />
 				<input type="hidden" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" />
 				';?><?php }else{
-				echo'<div class="input-group col-lg-12">
-				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pseudo">Nom :</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /><br>
-				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="email">Email :</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" /><br></div>
+				echo'<div class="input-group col-lg-12 contact-form">
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pseudo">Nom</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="pseudo" name="pseudo" value="'.stripslashes($pseudo).'" tabindex="1" /><br>
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4" for="email">Email</label><input class="col-lg-8 col-md-8 col-sm-8 col-xs-8" type="text" id="email" name="email" value="'.stripslashes($email).'" tabindex="2" /><br></div>
 				';
-				}echo'<div class="input-group col-lg-12">
-				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Objet:</label>
+				}echo'<div class="input-group col-lg-12 contact-form">
+				<label class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Objet</label>
 	      			<select class="col-lg-8 col-md-8 col-sm-8 col-xs-8" name="objet">
-	        			<option style="color: #000;" value="Contact support technique">Contact support technique</option>
-				        <option style="color: #000;" value="Dénonciation de profil">Dénonciation de profil</option>
-				        <option style="color: #000;" value="Rapport de mauvaise rencontres">Rapport de mauvaise rencontres</option>
-				        <option style="color: #000;" value="J\'ai trouvé un bug sur le site">J\'ai trouvé un bug sur le site</option>
+	        			<option style="color: #fff;" value="Contact support technique">Contact support technique</option>
+				        <option style="color: #fff;" value="Dénonciation de profil">Dénonciation de profil</option>
+				        <option style="color: #fff;" value="Rapport de mauvaise rencontres">Rapport de mauvaise rencontres</option>
+				        <option style="color: #fff;" value="J\'ai trouvé un bug sur le site">J\'ai trouvé un bug sur le site</option>
 				    </select>
 				<br><br>
-				<label class="col-lg-4">Mon message:</label>
+				<label class="col-lg-4">Mon message</label>
 				<textarea rows="8" cols="50" class="col-lg-8" type="text" for="message" id="message" name="message">'.stripslashes($message).'</textarea><br><br>
 				<input class="col-lg-4 col-lg-offset-8 col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6 col-xs-6 right" type="submit" name="envoi" value="Envoyer le formulaire" /><br/><br/><br/><br/></div>
 		</form>
@@ -151,5 +151,9 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 		font-size: 16px;
 		font-weight: bold;
 		text-align: right;
+		color: #ffffff;;
+	}
+	textarea {
+		resize: 8;
 	}
 </style>
