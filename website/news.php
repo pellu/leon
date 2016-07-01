@@ -14,7 +14,17 @@ header( 'content-type: text/html; charset=ISO-8859-1' );
                 while ($donnees = $req->fetch())
                 {?>
 				<h2>Cr&eacute;ateur de la news: <a target="_blank" href="http://localhost/leon/website/profil/<?php echo $donnees['url']; ?>-<?php echo $donnees['id']; ?>"/><?php echo $donnees['pseudo'];?></a></h2>
-                <p><img src="http://localhost/leon/website/photos/<?php echo $donnees['avatar']; ?>"></p>
+                <p>
+                    <?php switch ($donnees['avatar']) {
+                      case '' :
+                      echo '<img src="http://localhost/leon/website/img/avatar.png">';
+                      break;
+                      default :
+                      echo '<img src="http://localhost/leon/website/photos/' .$donnees['avatar']. '" height="250" width="250">';
+                      break;
+                       }
+                    ?>
+                </p>
 				<h3>News &eacute;crite le : <?php echo $donnees['date_news']; ?></h3>
                 <p><?php echo $donnees['titre_news']; ?></p>
                 <p>&agrave; <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a></p>

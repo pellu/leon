@@ -18,6 +18,9 @@ if(isset($_POST['profil'])){
 if(isset($_POST['comments'])){
   $comments=$_POST['comments'];
 }else{$comments="";}
+if(isset($_POST['etoiles'])){
+  $etoiles=$_POST['etoiles'];
+}else{$etoiles="";}
 $date_comments=date("d-m-Y");
 $heure_comments=date("H:i");
 if(!isset($_POST['submit']))
@@ -29,12 +32,15 @@ if(!isset($_POST['submit']))
 // Aucun champ n'est vide, on peut enregistrer dans la table 
 else      
     {
-    $stmt = $mysql->prepare("INSERT INTO comments(id_comments, date_comments, heure_comments, pseudo_comments, profil_comments, comments) VALUES ('','$date_comments','$heure_comments', '$pseudo_comments','$profil_comments','$comments')");
+    $stmt = $mysql->prepare("INSERT INTO comments(id_comments, date_comments, heure_comments, pseudo_comments, profil_comments, comments, etoiles) VALUES ('','$date_comments','$heure_comments', '$pseudo_comments','$profil_comments','$comments','$etoiles')");
     $stmt->bindParam(':pseudo_comments', $pseudo_comments);
     $stmt->bindParam(':profil_comments', $profil_comments);
     $stmt->bindParam(':comments', $comments);
+    $stmt->bindParam(':etoiles', $etoiles);
     $stmt->execute();
     $comments='';
+    $etoiles='';
+    header("Refresh:0.01");
     }
 }
     else{

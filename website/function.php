@@ -37,10 +37,24 @@ function resultat_recherche($search)
                     <div class="result-user">Post&eacute;e par <a
                             href="http://localhost/leon/website/profil/<?php echo $row['pseudo']; ?>-<?php echo $row['id']; ?>"><?php echo $row['pseudo']; ?></a>
                     </div>
-                    <div class="result-user-avatar"><img
-                            src="http://localhost/leon/website/photos/<?php echo $row['avatar']; ?>" alt="" height="70"
+                    <div class="result-user-avatar">
+                        <?php
+                            switch ($row['avatar']) {
+                            case '' :
+                            echo '<img src="http://localhost/leon/website/img/avatar.png" alt="" height="70"
                             width="70"
-                            class="img-circle"></div>
+                            class="img-circle" alt="Image Perso">';
+                            break;
+                            default :
+                            echo '<img src="http://localhost/leon/website/photos/'.htmlentities($row['avatar']).'" alt="" height="70"
+                            width="70"
+                            class="img-circle" alt="Image Perso">';
+                            break;
+                            }
+                        ?>
+
+
+                    </div>
                     <div class="result-description text-left"><p><?php echo $row['contenu_news']; ?></p>
                 </div>
                 <a href="http://localhost/leon/website/news/<?php echo $row['url_news']; ?>-<?php echo $row['id_news']; ?>">

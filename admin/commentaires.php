@@ -17,7 +17,7 @@ include('header.php');?>
 <?php
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `comments`");
-  $mysql->query("CREATE TABLE comments (id_comments int(11) NOT NULL AUTO_INCREMENT, date_comments text NOT NULL, heure_comments text NOT NULL, pseudo_comments text NOT NULL, profil_comments text NOT NULL, comments text NOT NULL, PRIMARY KEY (id_comments));");
+  $mysql->query("CREATE TABLE comments (id_comments int(11) NOT NULL AUTO_INCREMENT, date_comments text NOT NULL, heure_comments text NOT NULL, pseudo_comments text NOT NULL, profil_comments text NOT NULL, comments text NOT NULL, etoiles text NOT NULL, PRIMARY KEY (id_comments));");
 }
 ?>
 <center><form action="" method="post">
@@ -32,6 +32,7 @@ if(isset($_POST['delete'])){
 <td bgcolor="#3498db"><b>Pseudo</b></td>
 <td bgcolor="#3498db"><b>Sur le profil</b></td>
 <td bgcolor="#3498db"><b>Commentaires</b></td>
+<td bgcolor="#3498db"><b>Etoiles</b></td>
 <td bgcolor="#3498db"><b>Action</b></td>
 </tr>
 <?php
@@ -47,6 +48,7 @@ while($result=mysql_fetch_array($resnews))
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $result['url']; ?>-<?php echo $result['id']; ?>"><?php echo $result['pseudo']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/url-<?php echo $result['profil_comments']; ?>"><?php echo $result['profil_comments']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['comments']; ?></td>
+    <td bgcolor="#CCCCCC"><?php echo $result['etoiles']; ?></td>
     <td bgcolor="#CCCCCC"><a href="http://localhost/leon/admin/modifiercommentaires.php?id=<?php echo $result['id_comments']; ?>">Modifier</a> / <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer le commentaire ?');" href="http://localhost/leon/admin/supprimercommentaires.php?id=<?php echo $result['id_comments']; ?>">Supprimer</a></td>
     </tr>
     <?php

@@ -11,9 +11,17 @@
 	$sqluser="SELECT * FROM profil WHERE email='".$email."'";
 	$requser = mysql_query($sqluser) or die('Erreur SQL !<br />'.$sqluser.'<br />'.mysql_error());
 	$datauser=mysql_fetch_assoc($requser);
-    echo '<div id="hellomonprofil">
-<img src="http://localhost/leon/website/photos/' .$datauser['avatar']. '" height="250" width="250">
-<p>Bonjour ' .$datauser['pseudo']. '!<br/>
+    echo '<div id="hellomonprofil">';?>
+    <?php switch ($dataprofil['avatar']) {
+      case '' :
+      echo '<img height="250" width="250" src="http://localhost/leon/website/img/avatar.png">';
+      break;
+      default :
+      echo '<img height="250" width="250" src="http://localhost/leon/website/photos/' .$datauser['avatar']. '">';
+      break;
+       }
+      ?>
+<?php echo'<p>Bonjour ' .$datauser['pseudo']. '!<br/>
 Que voulez-vous faire ?</p>
 
 </div>';

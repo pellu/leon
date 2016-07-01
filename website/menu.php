@@ -34,8 +34,18 @@ include('config.php');?>
                     $reqprofil = mysql_query($sqlprofil) or die('Erreur SQL !<br />'.$sqlprofil.'<br />'.mysql_error());
                     $dataprofil=mysql_fetch_assoc($reqprofil);
                     echo ''?>
-                    <a class="menu" href="http://localhost/leon/website/monprofil.php"><?php echo $dataprofil['pseudo'];?><img style="height:20px;" src="http://localhost/leon/website/photos/<?php echo $dataprofil['avatar'];?>"></a>
-                </li>
+                    <li>
+                    <a class="menu" href="http://localhost/leon/website/monprofil.php"><?php echo $dataprofil['pseudo'];?>
+                    <?php switch ($dataprofil['avatar']) {
+                      case '' :
+                      echo '<img style="height:20px;" src="http://localhost/leon/website/img/avatar.png">';
+                      break;
+                      default :
+                      echo '<img style="height:20px;" src="http://localhost/leon/website/photos/' .$dataprofil['avatar']. '"></li>';
+                      break;
+                       }
+                    ?>
+                    </a></li>
                 <?php }else{ ?>
                     <li>
                         <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>

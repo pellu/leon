@@ -93,10 +93,14 @@ while($dn2 = mysql_fetch_array($req2))
 	</div>
     <div class="col-lg-2 col-ms-2 col-sm-2 col-xs-12">
 		<?php
-			if($dn2['avatar']!='')
-			{
-				echo '<img src="http://localhost/leon/website/photos/'.htmlentities($dn2['avatar']).'" alt="Image Perso" style="max-width:100px;max-height:100px;" />';
-			}
+            switch ($dn2['avatar']) {
+            case '' :
+            echo '<img src="http://localhost/leon/website/img/avatar.png" style="max-width:100px;max-height:100px;"" alt="Image Perso">';
+            break;
+            default :
+            echo '<img src="http://localhost/leon/website/photos/'.htmlentities($dn2['avatar']).'" style="max-width:100px;max-height:100px;"" alt="Image Perso">';
+            break;
+            }
 		?>
 		<br><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $dn2['pseudo']?>-<?php echo $dn2['userid']?>"><?php echo $dn2['pseudo']; ?></a>
 	</div>

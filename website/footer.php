@@ -36,10 +36,21 @@
                 if (isset($_POST['ajout'])) {
                     $date = date("d-m-Y");
                     $heure = date("H:i:s");
-                    require_once('config.php');
-                    $mysql->query("INSERT INTO newsletter (id, date, heure, email)VALUES ('', '$date', '$heure', '$email')");
-                    $ok = "<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien été pris en compte,<br/>vous recevrez nos prochaines newsletter.</p>";
-                    $email = '';
+                    // Create connection
+                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    } 
+
+                    $sql = "INSERT INTO newsletter (id, date, heure, email) VALUES ('', '$date', '$heure', '$email')";
+
+                    if ($conn->query($sql) === TRUE) {
+                        $ok="<p style='font-size: 14px; color: #7ae3f9; font-weight: bold;'>Votre mail a bien &eacute;t&eacute; pris en compte,<br/>vous recevrez nos prochaines newsletter.</p>";
+                    } else {
+                        echo "Error: " . $sql . "<br>" . $conn->error;
+                    }
+                    $conn->close();
                 }
                 ?>
                 <?php echo $ok; ?>
@@ -51,7 +62,7 @@
 						<span class="input-group-btn">
 							<button class="btn btn-primary" type="submit" name="ajout" id="check">></button>
 						</span>
-                    </div><!-- fin input-group -->
+                    </div>
                 </form>
             </div>
         </div>
