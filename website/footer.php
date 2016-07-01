@@ -10,13 +10,12 @@
                 <p><a href="http://localhost/leon/website/">Concept</a></p>
                 <p><a href="http://localhost/leon/website/search.php">Recherche</a></p>
                 <p><a href="http://localhost/leon/website/mentionslegales.php">Mentions l&eacute;gales</a></p>
-                <p><a href="http://localhost/leon/website/mentionslegales.php">CGU</a></p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title"><a href="http://localhost/leon/website/contact.php"
                                            class="footer-title">Contact</a></p>
                 <p><a href="http://localhost/leon/website/faq.php">FAQ</a></p>
-                <p><a href="http://localhost/leon/website/aide.php">Aide</a></p>
+                <p><a href="http://localhost/leon/website/mentionslegales.php">CGU</a></p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title">Suivez-nous</p>

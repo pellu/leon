@@ -31,7 +31,7 @@ Que voulez-vous faire ?</p>
 <section class="container content-section text-center">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<div class="message">Pour acc&eacute;der &agrave; cette page, vous devez &ecirc;tre connect&eacute;.<br />
+<div class="message"><p>Pour acc&eacute;der &agrave; cette page, vous devez &ecirc;tre connect&eacute;.</p><br />
 <a href="connexion.php">Se connecter</a></div>
 </div></div></section>
 <?php

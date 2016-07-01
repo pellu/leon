@@ -76,7 +76,7 @@ else
 <?php
   }
 }
-?>
+?>  <a href="motdepasseoublie.php">J'ai oubli&eacute; mon mot de passe</a>
     <a href="inscription.php">Je souhaite m'inscrire avec un mail</a>
     <?php
 if(!isset($_SESSION['steamid'])) {
