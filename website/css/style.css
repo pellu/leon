@@ -944,7 +944,6 @@ table {
     }
 
     #h4 {
-        height: 72px;
         font-family: Neon;
         font-size: 24px;
         font-weight: normal;
@@ -953,8 +952,17 @@ table {
         text-transform: uppercase;
     }
 
+    #h5 {
+        margin-top: 25px;
+        font-family: Neon;
+        font-size: 18px;
+        font-weight: normal;
+        line-height: 1.5;
+        color: #7ae3f9;
+        text-transform: uppercase;
+    }
+
     .glowingtext {
-        height: 70px;
         font-family: Neon;
         font-size: 34px;
         font-weight: normal;
@@ -965,7 +973,6 @@ table {
     }
 
     .user-name {
-        height: 19px;
         font-family: Neon;
         font-size: 18px;
         font-weight: normal;
@@ -974,7 +981,6 @@ table {
     }
 
     .user-comment {
-        height: 57px;
         font-family: Lato;
         font-size: 16px;
         color: #cfcfcf;
@@ -1624,17 +1630,50 @@ table {
     font-family: Lato;
     font-size: 24px;
     font-weight: bold;
-    text-align: center;
     color: #7ae3f9;
     text-transform: uppercase;
 }
 
-#adresse {
+.linkmodal {
     font-family: Lato;
-    font-size: 16px;
-    font-weight: 500;
-    color: #000000 !important;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7ae3f9;
+    text-shadow: 0 0 4px #7ae3f9;
     text-transform: uppercase;
+}
+
+.med-event-img {
+    display: block;
+    width:100%;
+}
+
+.med-squared-title {
+    width: 251px;
+    height: 42px;
+    background-image: linear-gradient(to bottom, #565656, #2e2e2e);
+    font-family: Lato;
+    font-size: 14px;
+    padding: 10px 0;
+    margin:0 auto;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.squared-title {
+    width: 251px;
+    height: 42px;
+    background-image: linear-gradient(to bottom, #565656, #2e2e2e);
+    font-family: Lato;
+    font-size: 14px;
+    padding: 10px 0;
+    margin:0 auto;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 /*END PROFIL*/
@@ -1672,8 +1711,8 @@ table {
     font-family: Lato;
     font-size: 16px;
     font-weight: 500;
-    color: #000000 !important;
-    text-transform: uppercase;
+    color: #ffffff;
+    text-transform: capitalize;
 }
 
 /*END MON PROFIL*/
@@ -1747,8 +1786,7 @@ table {
     height:158px;
     width: 251px;
 }
-
-.events-bg-black .squared-title {
+.squared-title {
     width: 251px;
     height: 42px;
     background-image: linear-gradient(to bottom, #565656, #2e2e2e);
@@ -1761,8 +1799,7 @@ table {
     color: #ffffff;
     margin-bottom: 10px;
 }
-
-.events-bg-black .squared-title a {
+.squared-title a {
     color: #ffffff;
 }
 
