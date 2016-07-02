@@ -136,6 +136,7 @@ if(isset($_SESSION['email']))
         </div>
     </form>
 </div>
+<a onclick="return confirm('&Ecirc;tes-vous sur de vouloir vous d&eacute;sinscrire ? Vous ne pourrez plus jamais retrouver votre compte et vos informations !');" href="http://localhost/leon/website/desinscription.php?id=<?php echo $_SESSION['userid'];?>">Je souhaite me désinscrire</a>
 <?php
 	}
 }

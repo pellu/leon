@@ -79,7 +79,11 @@ header('content-type: text/html; charset=UTF-8');
                                 </div>
 
                             </div>
-                            <div class="event-reserver">Réserver</div>
+                            <?php if (isset($_SESSION['email'])) {?>
+                            <div class="event-reserver"><a href="http://localhost/leon/website/paypal.php">Réserver</a></div>
+                            <?php }else{?>
+                                <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a></div>
+                            <?php }?>
                         </div>
 
                         <!--                        <p>--><?php //echo $donnees['adresse_news']; ?><!--</p>-->
