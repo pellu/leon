@@ -13,8 +13,8 @@ header('content-type: text/html; charset=UTF-8');
                     $req->execute(array($_GET['id']));
 
                     while ($donnees = $req->fetch()) {
-                        ?><br/><br/><br/><br/><br/><br/>
-                        <div class="row">
+                    ?><br/><br/><br/><br/>
+                    <div class="row">
                         <p>
                             <?php switch ($donnees['avatar']) {
                                 case '' :
@@ -26,7 +26,8 @@ header('content-type: text/html; charset=UTF-8');
                             }
                             ?>
                         </p>
-                        <!--                        <h3>Evenement &eacute;crite le : --><?php //echo $donnees['date_news']; ?><!--</h3>-->
+                        <!--                        <h3>Evenement &eacute;crite le : -->
+                        <?php //echo $donnees['date_news']; ?><!--</h3>-->
                         <div class="col-lg-11">
                             <p class="event-title text-left"><?php echo $donnees['titre_news']; ?>
                                 / <?php echo $donnees['heuredejeu']; ?></p>
@@ -37,73 +38,146 @@ header('content-type: text/html; charset=UTF-8');
                             </p>
                         </div>
 
-                        </div>
-                        <div class="col-lg-8">
-                            <img class="event-photo"
-                                 src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
-                        </div>
-                        <div class="col-lg-4">
-                            <p class="event-att-number"><i class="fa fa-user" aria-hidden="true"></i><i
-                                    class="fa fa-user"
-                                    aria-hidden="true"></i><i
-                                    class="fa fa-user" aria-hidden="true"></i> Plus
-                                que <?php echo $donnees['nb_participants']; ?> places !</p>
-                            <div class="event-date-price"><p
-                                    class="event-price"><?php echo $donnees['prix']; ?> &euro;</p>
-                                <p class="event-date"><?php echo $donnees['datedejeu']; ?></p>
-                            </div>
-                            <div class="event-info">
-                                <div class="col-lg-12 event-section">
-                                    <div class="col-lg-6 text-left"><p>Arrivée</p></div>
-                                    <div class="col-lg-6 text-right"><p>Joueurs</p></div>
-                                    <div class="col-lg-6 text-left"><p
-                                            class="data"><?php echo $donnees['heuredejeu']; ?></p>
-                                    </div>
-                                    <div class="col-lg-6 text-right"><p class="data">1 Joueur</p><br/><br/></div>
-                                    <div class="col-lg-8 text-left"><p><?php echo $donnees['prix']; ?> &euro; x 1
-                                            joueur</p></div>
-                                    <div class="col-lg-4 text-right"><p>= <?php echo $donnees['prix']; ?> &euro;</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 event-section">
-
-                                    <div class="col-lg-8 text-left"><p>Frais de Service <i class="fa fa-question-circle"
-                                                                                           aria-hidden="true"></i></p>
-                                    </div>
-                                    <div class="col-lg-4 text-right"><p>0,50 &euro;</p></div>
-                                </div>
-                                <div class="col-lg-12 event-section">
-                                    <div class="col-lg-8 text-left"><p>Total <i class="fa fa-question-circle"
-                                                                                aria-hidden="true"></i></p></div>
-                                    <div class="col-lg-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p></div>
-                                </div>
-
-                            </div>
-                            <?php if (isset($_SESSION['email'])) {?>
-                            <div class="event-reserver"><a href="http://localhost/leon/website/paypal.php">Réserver</a></div>
-                            <?php }else{?>
-                                <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a></div>
-                            <?php }?>
-                        </div>
-
-                        <!--                        <p>--><?php //echo $donnees['adresse_news']; ?><!--</p>-->
-                        <p><?php echo $donnees['nb_participants']; ?> Playcers</p>
-                        <p><?php echo $donnees['typedejeu']; ?></p>
-                        <p><?php echo $donnees['jeu']; ?></p>
-                        <p><?php echo $donnees['typedesoiree']; ?></p>
-                        <p class="event-att-number"><i class="fa fa-user" aria-hidden="true"></i><i class="fa fa-user"
-                                                                                                    aria-hidden="true"></i><i
+                    </div>
+                    <div class="col-lg-8">
+                        <img class="event-photo"
+                             src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
+                    </div>
+                    <div class="col-lg-4">
+                        <p class="event-att-number"><i class="fa fa-user" aria-hidden="true"></i><i
+                                class="fa fa-user"
+                                aria-hidden="true"></i><i
                                 class="fa fa-user" aria-hidden="true"></i> Plus
                             que <?php echo $donnees['nb_participants']; ?> places !</p>
-                        <p><?php echo $donnees['datedejeu']; ?></p>
-                        <p></p>
-                        <p>Contenu : <?php echo $donnees['contenu_news']; ?></p>
-                        <?php
-                    }
-                    $req->closeCursor();
-                    ?>
+                        <div class="event-date-price"><p
+                                class="event-price"><?php echo $donnees['prix']; ?> &euro;</p>
+                            <p class="event-date"><?php echo $donnees['datedejeu']; ?></p>
+                        </div>
+                        <div class="event-info">
+                            <div class="col-lg-12 event-section">
+                                <div class="col-lg-6 text-left"><p>Arrivée</p></div>
+                                <div class="col-lg-6 text-right"><p>Joueurs</p></div>
+                                <div class="col-lg-6 text-left"><p
+                                        class="data"><?php echo $donnees['heuredejeu']; ?></p>
+                                </div>
+                                <div class="col-lg-6 text-right"><p class="data">1 Joueur</p><br/><br/></div>
+                                <div class="col-lg-8 text-left"><p><?php echo $donnees['prix']; ?> &euro; x 1
+                                        joueur</p></div>
+                                <div class="col-lg-4 text-right"><p>= <?php echo $donnees['prix']; ?> &euro;</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 event-section">
+
+                                <div class="col-lg-8 text-left"><p>Frais de Service <i class="fa fa-question-circle"
+                                                                                       aria-hidden="true"></i></p>
+                                </div>
+                                <div class="col-lg-4 text-right"><p>0,50 &euro;</p></div>
+                            </div>
+                            <div class="col-lg-12 event-section">
+                                <div class="col-lg-8 text-left"><p>Total <i class="fa fa-question-circle"
+                                                                            aria-hidden="true"></i></p></div>
+                                <div class="col-lg-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p></div>
+                            </div>
+
+                        </div>
+                        <?php if (isset($_SESSION['email'])) { ?>
+                            <div class="event-reserver"><a href="http://localhost/leon/website/paypal.php">Réserver</a>
+                            </div>
+                        <?php } else { ?>
+                            <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                    <!--                        <p>--><?php //echo $donnees['adresse_news']; ?><!--</p>-->
+                    <div id="inline-img">
+                        <div class="col-lg-8">
+                            <div class="news-playcers"><p
+                                    class="playcers-nb"><?php echo $donnees['nb_participants']; ?></p>
+                                <p class="playcers">Playcers</p></div>
+                            <div class="news-games"><p class="type"><?php echo $donnees['typedejeu']; ?></p></div>
+                            <div class="news-game"><p class="type"><?php echo $donnees['jeu']; ?></p></div>
+                            <div class="news-shield"><p class="type"><?php echo $donnees['typedesoiree']; ?></p></div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="event-points"><p>La participation à l’évènement  vous rapporte</p>
+                                <h4>50 points</h4></div>
+                            <div class="event-share col-lg-12"><p>Partager cette annonce</p>
+                                <div class="col-lg-4 text-left"><a href="http://www.facebook.com">Facebook</a></div>
+                                <div class="col-lg-4 text-Center"><a href="http://www.twitter.com">Twitter</a></div>
+                                <div class="col-lg-4 text-right"><a href="http://www.google.com">Google +</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div id="opacitysquare-news" class="col-lg-12 col-md-12 col-xs-12">
+                    <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
+                        <div class="col-lg-8 text-left">
+                            <h2>&Agrave; propos de cette annonce</h2>
+                            <p>Avis à tous les fans de Star Wars !</p>
+
+                            <p>Tournoi Battlefront Star Wars sur PS4 (exploration des différentes maps…) Sur place : 1
+                                console PS4, 1 jeu, 2 manettes seulement. Penser à apporter sa manette. Jus de fruits,
+                                sodas, et autres ravitaillements seront prévus sur place (chips, gâteaux, bonbons…)</p>
+
+                            <p>Pour les débutants : une initiation peut être prévue la première demi-heure de la soirée,
+                                pour expliquer le fonctionnement du jeu
+                                et effectuer quelques simulations d’entraînement avant de commencer les parties sur les
+                                maps.</p>
+
+                            <p>Plus d’infos en MP possibles après réservation.</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="opacitysquare-news-2" class="col-lg-12 col-md-12 col-xs-12">
+                    <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
+                        <div class="col-lg-7 text-left">
+                            <h2>Votre hébergeur</h2>
+                            <div class="row">
+                                <p>
+                                    <?php switch ($donnees['avatar']) {
+                                        case '' :
+                                            echo '<div class="col-lg-2"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/img/avatar.png"></div>';
+                                            break;
+                                        default :
+                                            echo '<div class="col-lg-2"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/photos/' . $donnees['avatar'] . '"></div>';
+                                            break;
+                                    }
+                                    ?>
+                                </p>
+                                <!--                        <h3>Evenement &eacute;crite le : -->
+                                <?php //echo $donnees['date_news']; ?><!--</h3>-->
+                                <div class="col-lg-10">
+                                    <p class="event-pseudo text-left" id="event-pseudo-2"><?php echo $donnees['pseudo']; ?></p>
+                                    <p class="event-city text-left"><a target="_blank"
+                                                                       href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a>,
+                                        Ile-de-France, France / </p>
+                                    <p class="event-city text-left">Membre depuis le <?php echo $donnees['date_inscription']; ?>
+                                    </p><br/>
+                                    <p class="event-city text-left"><?php echo $donnees['description']; ?>
+                                    </p>
+                                    <p class="event-city text-left" id="news-contacter">Contacter
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <img id="city-map" src="http://localhost/leon/website/img/asnieres.png" alt="<?php echo $donnees['ville_news']; ?>">
+                        </div>
+                    </div>
+                </div>
+
+
+                <p><?php echo $donnees['datedejeu']; ?></p>
+                <p></p>
+                <p>Contenu : <?php echo $donnees['contenu_news']; ?></p>
+                <?php
+                }
+                $req->closeCursor();
+                ?>
             </div>
+        </div>
         </div>
     </section>
 <?php include('footer.php'); ?>

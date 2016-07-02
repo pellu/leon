@@ -879,6 +879,49 @@ table {
         margin-top: 272px;
     }
 
+    #opacitysquare-news {
+        width: 100%;
+        /*background-color: rgba(0, 0, 0, 0.3);*/
+        height: 300px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.5));
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+        z-index:1;
+        bottom: 60px;
+    }
+
+    #opacitysquare-news-2 {
+        width: 100%;
+        /*background-color: rgba(0, 0, 0, 0.3);*/
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(40, 40, 40, 0.5));
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+        z-index:1;
+        margin-top :25px;
+    }
+
+    #opacitysquare-news h2 {
+        font-family: Neon;
+        font-size: 18px;
+        font-weight: normal;
+        color: #7ae3f9;
+        text-transform: uppercase;
+        margin: 32px 0;
+    }
+
+    #opacitysquare-news-2 h2 {
+        font-family: Neon;
+        font-size: 18px;
+        font-weight: normal;
+        color: #7ae3f9;
+        text-transform: uppercase;
+        margin: 32px 0;
+    }
+
+
+    #opacitysquare-news-2 #city-map {
+        max-width:100%;
+        margin: 32px 0;
+    }
+
     #decouvrez {
         text-transform: uppercase;
         height: 29px;
@@ -1869,9 +1912,22 @@ font-style: none;
 /*end IMAGE OVERLAY*/
 
 .event-title, .event-pseudo, .event-city {
-    margin-left:25px;
+     margin-left:25px;
+     margin-bottom: 0;
+ }
+.event-title-2, #event-pseudo-2, {
+    margin-left:60px;
     margin-bottom: 0;
 }
+
+#event-pseudo-2 {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    font-style: none;
+}
+
 .event-title {
     font-family: Lato;
     font-size: 24px;
@@ -1916,9 +1972,9 @@ font-style: none;
 }
 
 .event-photo {
-    width: 810px;
     height: 470px;
     overflow: hidden;
+    min-width: 100%;
 }
 
 .event-att-number {
@@ -1929,6 +1985,61 @@ font-style: none;
     font-weight: bold;
     color: #ffffff;
     padding-top: 20px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+}
+
+.event-share {
+     height: 120px;
+     background-image: linear-gradient(to bottom, #888888, #494949);
+     font-family: Lato;
+     font-size: 16px;
+     font-weight: bold;
+     color: #ffffff;
+     padding-top: 20px;
+     box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+     margin-top: 20px;
+    z-index:2;
+ }
+
+.event-share p {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.event-share a {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    top:10px;
+}
+
+.event-points {
+    height: 143px;
+    background-image: linear-gradient(to bottom, #888888, #494949);
+    margin-top: 20px;
+    padding-top: 20px;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+}
+.event-points p {
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.33;
+    text-align: center;
+    color: #ffffff;
+}
+
+.event-points h4 {
+    margin-top: 30px;
+    font-family: Neon;
+    font-size: 26px;
+    font-weight: normal;
+    text-align: center;
+    color: #7ae3f9;
 }
 
 .fa-user {
@@ -1939,6 +2050,7 @@ font-style: none;
     /*width: 350px;*/
     height: 50px;
     background-image: linear-gradient(to bottom, #565656, #2e2e2e);
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
 }
 
 .event-date-price p {
@@ -1965,6 +2077,7 @@ position: relative;
 .event-user-avatar {
     height:110px;
     width:110px;
+    margin-bottom: 25px;
 }
 
 .event-info {
@@ -1997,4 +2110,94 @@ position: relative;
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.62);
+}
+
+.event-reserver a {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.playcers-nb {
+    font-family: Lato;
+    font-size: 66px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.playcers {
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.type {
+    font-family: Lato;
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate3D(-50%, -50%, 0);
+}
+
+#inline-img {margin-top: 10px;
+    min-width: 100%;
+}
+
+.news-playcers {
+    position: relative;
+    margin-top: 15px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../img/nb-playcers.png);
+    width:176px;
+    height:172px;
+}
+.news-games {
+    position: relative;
+    margin-top: 15px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../img/ps4contr.png);
+    width:176px;
+    height:172px;
+    /*position: relative;*/
+    /*bottom:91px;*/
+}
+
+.news-game {
+    position: relative;
+    margin-top: 15px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../img/fps.png);
+    width:176px;
+    height:172px;
+    /*position: relative;*/
+    /*bottom:40px;*/
+}
+
+.news-shield {
+    position: relative;
+    margin-top: 15px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url(../img/shield.png);
+    width:176px;
+    height:172px;
+}
+
+#news-contacter {
+    margin-top: 15px;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7ae3f9;
+    text-shadow: 0 0 4px #7ae3f9;
+    text-transform: uppercase;
 }
