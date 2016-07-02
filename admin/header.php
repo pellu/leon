@@ -9,7 +9,6 @@ if(isset($_COOKIE['admin'])){ ?>
     <meta charset="utf-8">
     <link href="http://localhost/leon/website/css/style.css" rel="stylesheet">
     <link href="http://localhost/leon/website/css/bootstrap.min.css" rel="stylesheet">
-    <style>button, html input[type="button"], input[type="reset"], input[type="submit"]{color:black;</style>
 </head>
 <body>
 <header>
@@ -25,6 +24,7 @@ if(isset($_COOKIE['admin'])){ ?>
                     </li>
                     <li><a href="/leon/admin/messagerie.php">Messagerie</a>
                     </li>
+                    <li><a href="/leon/admin/participation.php">Annonces participation</a></li>
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/leon/admin/news.php">Liste des news<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/leon/admin/ajoutnews.php">Ajouter une news</a></li>

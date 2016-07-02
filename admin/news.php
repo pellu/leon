@@ -17,7 +17,7 @@ include('header.php');?>
 <?php
 if(isset($_POST['delete'])){
   $mysql->query("DROP TABLE `news`");
-  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, ville_news text NOT NULL, titre_news text NOT NULL, adresse_news text NOT NULL, prix text NOT NULL, photo text NOT NULL, typedesoiree text NOT NULL, typedejeu text NOT NULL, jeu text NOT NULL, nb_participants text NOT NULL, fumeur text NOT NULL, animaux text NOT NULL, contenu_news text NOT NULL, datedejeu text NOT NULL, heuredejeu text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, PRIMARY KEY (id_news));");
+  $mysql->query("CREATE TABLE news (id_news int(11) NOT NULL AUTO_INCREMENT, pseudo_news text NOT NULL, ville_news text NOT NULL, titre_news text NOT NULL, adresse_news text NOT NULL, prix text NOT NULL, photo text NOT NULL, typedesoiree text NOT NULL, typedejeu text NOT NULL, jeu text NOT NULL, nb_participants text NOT NULL, fumeur text NOT NULL, animaux text NOT NULL, contenu_news text NOT NULL, datedejeu text NOT NULL, heuredejeu text NOT NULL, url_news text NOT NULL, date_news text NOT NULL, placesrestantes_news text NOT NULL, PRIMARY KEY (id_news));");
 }
 ?>
 <center><form action="" method="post">
@@ -33,6 +33,7 @@ if(isset($_POST['delete'])){
 <th bgcolor="#3498db">Contenu</th>
 <th bgcolor="#3498db">Date</th>
 <th bgcolor="#3498db">URL</th>
+<th bgcolor="#3498db">Places restantes</th>
 <th bgcolor="#3498db">Action</th>
 </tr>
 <?php
@@ -48,6 +49,7 @@ while($result=mysql_fetch_array($resnews))
     <td bgcolor="#CCCCCC"><?php echo $result['contenu_news']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $result['date_news']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/news/<?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?>"><?php echo $result['url_news']; ?>-<?php echo $result['id_news']; ?></a></td>
+    <td bgcolor="#CCCCCC"><?php echo $result['placesrestantes_news']; ?></td>
     <td bgcolor="#CCCCCC"><a href="http://localhost/leon/admin/modifiernews.php?id=<?php echo $result['id_news']; ?>">Modifier</a> / <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer la news ?');" href="http://localhost/leon/admin/supprimernews.php?id=<?php echo $result['id_news']; ?>">Supprimer</a></td>
     </tr>
     <?php

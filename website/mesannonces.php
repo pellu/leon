@@ -192,6 +192,11 @@ if (isset($_SESSION['email'])) {
                         } else {
                             $nb_participants = "";
                         }
+                        if (isset($_POST['nb_participants'])) {
+                            $placesrestantes_news = $_POST['nb_participants'];
+                        } else {
+                            $placesrestantes_news = "";
+                        }
                         if (isset($_POST['fumeur'])) {
                             $fumeur = $_POST['fumeur'];
                         } else {
@@ -229,7 +234,7 @@ if (isset($_SESSION['email'])) {
                             if (empty($ville_news) OR empty($titre_news) OR empty($adresse_news) OR empty($prix) OR empty($typedesoiree) OR empty($jeu) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])) {
                                 $champspasremplis = 'Tous les champs doivent &ecirc;tre remplis<br><br>';
                             } else {
-                                $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse_news, fumeur, animaux, prix, photo, typedesoiree, typedejeu, jeu, nb_participants, contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse_news','$fumeur','$animaux','$prix','$photo','$typedesoiree','$typedejeu','$jeu','$nb_participants','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
+                                $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse_news, fumeur, animaux, prix, photo, typedesoiree, typedejeu, jeu, nb_participants, placesrestantes_news,contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse_news','$fumeur','$animaux','$prix','$photo','$typedesoiree','$typedejeu','$jeu','$nb_participants','$placesrestantes_news','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
                                 $stmt->bindParam(':pseudo_news', $pseudo_news);
                                 $stmt->bindParam(':ville_news', $ville_news);
                                 $stmt->bindParam(':adresse_news', $adresse_news);
@@ -242,6 +247,7 @@ if (isset($_SESSION['email'])) {
                                 $stmt->bindParam(':jeu', $jeu);
                                 $stmt->bindParam(':typedejeu', $typedejeu);
                                 $stmt->bindParam(':nb_participants', $nb_participants);
+                                $stmt->bindParam(':placesrestantes_news', $placesrestantes_news);
                                 $stmt->bindParam(':contenu_news', $contenu_news);
                                 $stmt->bindParam(':date_news', $date_news);
                                 $stmt->bindParam(':datedejeu', $datedejeu);
@@ -299,10 +305,24 @@ if (isset($_SESSION['email'])) {
                                     <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>"/>
                                     <label>Photo <a href="#" data-toggle="tooltip" data-placement="top"
                                                     title="Photo 1200x1200px maximum">*</a></label>
-
-                                    <div class="file-input">Choisissez votre image
-                                        <input name="photo" type="file" id="fichier_a_uploader"/>
+                                        <div class="file-input">Choisissez votre image
+                                        <input name="photo" type="file" id="fichier_a_uploader" accept="image/*" onchange="loadFile(event)"/>
                                     </div>
+                                </fieldset>
+                                <fieldset>
+                                    <label>Votre photo</label>
+                                        <img id="output" href="" title="Votre image"/>
+                                        <style>#output{height: 105px;width: 167px;}</style>
+                                        <script>
+                                          var loadFile = function(event) {
+                                            var reader = new FileReader();
+                                            reader.onload = function(){
+                                              var output = document.getElementById('output');
+                                              output.src = reader.result;
+                                            };
+                                            reader.readAsDataURL(event.target.files[0]);
+                                          };
+                                        </script>
                                 </fieldset>
                                 <fieldset>
                                     <label>Type de soir&eacute;e</label>
