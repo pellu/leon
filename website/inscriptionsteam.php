@@ -192,11 +192,11 @@ if($form)
                 <option value="meaux">Meaux (77)</option>
                 <option value="montreuil">Montreuil (93)</option>
                 <option value="nanterre">Nanterre (92)</option>
-                <option value="paris1">Neuilly-sur-Seine (92)</option>
+                <option value="neuilly-sur-seine">Neuilly-sur-Seine (92)</option>
                 <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
                 <option value="pantin">Pantin (93)</option>
                 <option value="paris1">Paris (75 001)</option>
-                <option value="paris1">Paris (75 002)</option>
+                <option value="paris2">Paris (75 002)</option>
                 <option value="paris3">Paris (75 003)</option>
                 <option value="paris4">Paris (75 004)</option>
                 <option value="paris5">Paris (75 005)</option>

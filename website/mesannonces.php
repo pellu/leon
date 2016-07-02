@@ -27,16 +27,23 @@ if (isset($_SESSION['email'])) {
                     ?>
                     <div class='row'>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 events-bg-black">
-                            <h2 id="h4">Je participe &agrave; (2)</h2><br>
-                        </div>
-                        <div
-                            class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 events-bg-black">
                             <?php
                             $id_annonce = $_SESSION["userid"];
                             $sql = "SELECT * FROM profil WHERE id=$id_annonce";
                             $resultsql = mysql_query($sql) or die('Erreur SQL !<br />' . $sql . '<br />' . mysql_error());
                             $resultsql = mysql_fetch_array($resultsql);
 
+                            $sqlb = "SELECT COUNT(id_user_participation) AS total FROM participation WHERE id_user_participation=$id_annonce";
+                            $resultb = mysql_query($sqlb);
+                            $rowb = mysql_fetch_row($resultb);
+                            $resub = $rowb[0];
+                            $nombreb = $resub;
+                            ?>
+                            <h2 id="h4">Je participe &agrave; (<?php echo $nombreb ?>)</h2><br>
+                        </div>
+                        <div
+                            class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 events-bg-black">
+                            <?php
                             $sqla = "SELECT COUNT(pseudo_news) AS total FROM news WHERE pseudo_news=$id_annonce";
                             $resultz = mysql_query($sqla);
                             $rowz = mysql_fetch_row($resultz);
