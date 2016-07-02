@@ -26,8 +26,6 @@ header('content-type: text/html; charset=UTF-8');
                             }
                             ?>
                         </p>
-                        <!--                        <h3>Evenement &eacute;crite le : -->
-                        <?php //echo $donnees['date_news']; ?><!--</h3>-->
                         <div class="col-lg-11">
                             <p class="event-title text-left"><?php echo $donnees['titre_news']; ?>
                                 / <?php echo $donnees['heuredejeu']; ?></p>
@@ -81,7 +79,6 @@ header('content-type: text/html; charset=UTF-8');
 
                         </div>
                         <?php if (isset($_SESSION['email'])) {
-<<<<<<< HEAD
                                 if ($_SESSION['userid'] != $donnees['id']) {
                                     if($_SESSION['userid'] != $donnees['id']){?>
                                         <div class="event-reserver"><a href="http://localhost/leon/website/jeparticipe.php?id=<?php echo $id_news; ?>">Réserver</a>
@@ -93,19 +90,6 @@ header('content-type: text/html; charset=UTF-8');
                             <?php }}else{ ?>
                                 <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
                                 </div>
-=======
-                            if ($_SESSION['userid'] != $donnees['id']) {?>
-                            <div class="event-reserver"><a href="http://localhost/leon/website/jeparticipe.php?id=<?php echo $id_news; ?>">Réserver</a>
-                            </div>
-                            <?php }else{?>
-
-                            <div class="event-reserver">C'est votre annonce</div>
-                            <?php
-                            }
-                        } else { ?>
-                        <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
-                        </div>
->>>>>>> 057bfcaf6f1ffac0782abe64d6110203197f19dd
                         <?php } ?>
                     </div>
                     <div id="inline-img">
