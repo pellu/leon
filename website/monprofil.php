@@ -22,6 +22,7 @@
        }
       ?>
 <?php echo'<p>Bonjour ' .$datauser['pseudo']. '!<br/>
+Vous avez '.$datauser['pointstotal'].' points<br/>
 Que voulez-vous faire ?</p>
 
 </div>';

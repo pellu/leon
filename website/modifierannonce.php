@@ -20,7 +20,6 @@ if(!isset($_GET["id"])){
                 $id_news=$_GET["id"];
                 $req = $mysql->prepare('SELECT c.* , p.* FROM news c, profil p WHERE c.pseudo_news=p.id AND id_news="'.$id_news.'" ORDER BY c.id_news DESC LIMIT 1');
                 $req->execute(array($_GET['id']));
-
                 while ($donnees = $req->fetch())
                 {?>
                 <?php
@@ -37,7 +36,6 @@ if(!isset($_GET["id"])){
                             'date' => $date
                         ));
                         echo 'Modification effective';
-
                     }else{echo'';}
                 ?><br>
                     Titre: <?php echo $donnees['titre_news']; ?><br>

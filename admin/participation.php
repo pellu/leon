@@ -42,10 +42,9 @@ while($resultpart=mysql_fetch_array($resparticipation))
     <tr>
     <td bgcolor="#CCCCCC"><?php echo $resultpart['id_participation']; ?></td>
     <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $resultpart['url']; ?>-<?php echo $resultpart['id']; ?>"><?php echo $resultpart['pseudo']; ?></td>
-    <td bgcolor="#CCCCCC"><?php echo $resultpart['id_news_participation']; ?></td>
-    <td bgcolor="#CCCCCC"><?php echo $resultpart['id_user_participation']; ?></td>
+    <td bgcolor="#CCCCCC"><a target="_blank" href="http://localhost/leon/website/news/news-<?php echo $resultpart['id_news_participation']; ?>"><?php echo $resultpart['id_news_participation']; ?></td>
     <td bgcolor="#CCCCCC"><?php echo $resultpart['date_participation']; ?></td>
-    <td bgcolor="#CCCCCC"><?php echo $resultpart['heuredate_participation']; ?></td>
+    <td bgcolor="#CCCCCC"><?php echo $resultpart['heure_participation']; ?></td>
     </tr>
     <?php
 }

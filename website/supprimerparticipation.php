@@ -9,6 +9,21 @@ if(isset($_SESSION['email'])){
 	$hosted_event = $resultsql['hosted_event']-50;
     $pointstotal = $resultsql['pointstotal']-50;
 
+<<<<<<< HEAD
+    $idparticipation = $_GET['id'];
+    $sqlb = "SELECT * FROM news WHERE id_news=$idparticipation";
+    $resultsqlb = mysql_query($sqlb) or die('Erreur SQL !<br />' . $sqlb . '<br />' . mysql_error());
+    $resultsqlb = mysql_fetch_array($resultsqlb);
+
+    $placesrestantes_news = $resultsqlb['placesrestantes_news']+1;
+
+    $modifb = $mysql->prepare("UPDATE news SET placesrestantes_news='$placesrestantes_news' WHERE id_news='".$idparticipation."'");
+    $modifb->execute(array(
+    'placesrestantes_news' => $placesrestantes_news,
+    ));
+
+=======
+>>>>>>> 057bfcaf6f1ffac0782abe64d6110203197f19dd
     $modif = $mysql->prepare("UPDATE profil SET hosted_event='$hosted_event', pointstotal='$pointstotal' WHERE id='".$_SESSION['userid']."'");
     $modif->execute(array(
     'hosted_event' => $hosted_event,

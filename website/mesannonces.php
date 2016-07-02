@@ -41,8 +41,14 @@ if (isset($_SESSION['email'])) {
                             ?>
                             <h2 id="h4">Je participe &agrave; (<?php echo $nombreb ?>)</h2><br>
                             <?php
+<<<<<<< HEAD
+                            // $respart = mysql_query("SELECT * FROM participation WHERE id_user_participation='$id_annonce' LIMIT $nombreb");
+                            // $respart = mysql_query("SELECT * FROM news WHERE pseudo_news='$id_annonce' LIMIT $nombreb");
+                            $respart = mysql_query("SELECT p.* , n.* FROM participation p, news n WHERE id_user_participation=$id_annonce ORDER BY p.id_participation DESC");
+=======
                             $respart = mysql_query("SELECT * FROM participation WHERE id_user_participation='$id_annonce' LIMIT $nombreb");
                             $respart = mysql_query("SELECT * FROM news WHERE pseudo_news='$id_annonce' LIMIT $nombreb");
+>>>>>>> 057bfcaf6f1ffac0782abe64d6110203197f19dd
                             while ($resultpart = mysql_fetch_array($respart)) {
                                 ?>
                                 <div class="item"><img src="http://localhost/leon/website/photos/<?php echo $resultpart['photo']; ?>" alt="">
@@ -66,7 +72,7 @@ if (isset($_SESSION['email'])) {
                             $nombre = $resu;
                             ?>
                             <h2 id="h4">Mes annonces (<?php echo $nombre?>)</h2>
-                            <p><a href="http://localhost/leon/website/mesannonces.php" class="info-address">J'actualise mes annonces</a></p><br><br>
+                            <br>
                             <?php
                             $resnews = mysql_query("SELECT * FROM news WHERE pseudo_news=$id_annonce ORDER BY datedejeu DESC LIMIT $nombre");
                             while ($resultnews = mysql_fetch_array($resnews)) {
@@ -292,7 +298,7 @@ if (isset($_SESSION['email'])) {
                                 $typedejeu = '';
                                 $contenu_news = '';
                                 $titre_news = '';
-                                $champspasremplis = '<p>L\'annonce est bien envoy&eacute;e<br><br></p>';
+                                $champspasremplis = '<p>L\'annonce est bien envoy&eacute;e<br><a href="http://localhost/leon/website/mesannonces.php" class="info-address">J\'actualise mes annonces</a></p>';
                             }
                         }
                         ?>
