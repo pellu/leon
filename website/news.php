@@ -48,7 +48,7 @@ header('content-type: text/html; charset=UTF-8');
                                 class="fa fa-user"
                                 aria-hidden="true"></i><i
                                 class="fa fa-user" aria-hidden="true"></i> Plus
-                            que <?php echo $donnees['nb_participants']; ?> places !</p>
+                            que <?php echo $donnees['placesrestantes_news']; ?> places !</p>
                         <div class="event-date-price"><p
                                 class="event-price"><?php echo $donnees['prix']; ?> &euro;</p>
                             <p class="event-date"><?php echo $donnees['datedejeu']; ?></p>
@@ -114,17 +114,7 @@ header('content-type: text/html; charset=UTF-8');
                     <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
                         <div class="col-lg-8 text-left">
                             <h2>&Agrave; propos de cette annonce</h2>
-                            <p>Avis à tous les fans de Star Wars !</p>
-
-                            <p>Tournoi Battlefront Star Wars sur PS4 (exploration des différentes maps…) Sur place : 1
-                                console PS4, 1 jeu, 2 manettes seulement. Penser à apporter sa manette. Jus de fruits,
-                                sodas, et autres ravitaillements seront prévus sur place (chips, gâteaux, bonbons…)</p>
-
-                            <p>Pour les débutants : une initiation peut être prévue la première demi-heure de la soirée,
-                                pour expliquer le fonctionnement du jeu
-                                et effectuer quelques simulations d’entraînement avant de commencer les parties sur les
-                                maps.</p>
-
+                            <p><?php echo $donnees['contenu_news']; ?></p>
                             <p>Plus d’infos en MP possibles après réservation.</p>
                         </div>
                     </div>
@@ -145,8 +135,6 @@ header('content-type: text/html; charset=UTF-8');
                                     }
                                     ?>
                                 </p>
-                                <!--                        <h3>Evenement &eacute;crite le : -->
-                                <?php //echo $donnees['date_news']; ?><!--</h3>-->
                                 <div class="col-lg-10">
                                     <p class="event-pseudo text-left" id="event-pseudo-2"><?php echo $donnees['pseudo']; ?></p>
                                     <p class="event-city text-left"><a target="_blank"
@@ -163,7 +151,7 @@ header('content-type: text/html; charset=UTF-8');
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <img id="city-map" src="http://localhost/leon/website/img/asnieres.png" alt="<?php echo $donnees['ville_news']; ?>">
+                            <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><img id="city-map" src="http://localhost/leon/website/img/<?php echo $donnees['ville_news']; ?>.png" alt="<?php echo $donnees['ville_news']; ?>"></a>
                         </div>
                     </div>
                 </div>

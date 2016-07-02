@@ -228,12 +228,12 @@ if (isset($_SESSION['email'])) {
                             $url_news = "";
                         }
                         if (isset($_POST['hosted_event'])) {
-                            $hosted_event = $_POST['hosted_event']+1;
+                            $hosted_event = $_POST['hosted_event']+100;
                         } else {
                             $hosted_event = $resultsql['hosted_event'];
                         }
                         if (isset($_POST['pointstotal'])) {
-                            $pointstotal = $_POST['pointstotal']+1;
+                            $pointstotal = $_POST['pointstotal']+100;
                         } else {
                             $pointstotal = $resultsql['pointstotal'];
                         }

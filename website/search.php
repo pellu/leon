@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php include('menu.php');
-header('content-type: text/html; charset=ISO-8859-1'); ?>
+header('content-type: text/html; charset=UTF-8'); ?>
     <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12 parallax" id="trans1">
             <h1 id="maintitle">The Playce to be</h1>
