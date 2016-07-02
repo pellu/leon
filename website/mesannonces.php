@@ -227,6 +227,16 @@ if (isset($_SESSION['email'])) {
                         } else {
                             $url_news = "";
                         }
+                        if (isset($_POST['hosted_event'])) {
+                            $hosted_event = $_POST['hosted_event']+1;
+                        } else {
+                            $hosted_event = $resultsql['hosted_event'];
+                        }
+                        if (isset($_POST['pointstotal'])) {
+                            $pointstotal = $_POST['pointstotal']+1;
+                        } else {
+                            $pointstotal = $resultsql['pointstotal'];
+                        }
                         $date_news = date("d-m-Y");
                         $champspasremplis = "<br><br>";
 
@@ -234,8 +244,6 @@ if (isset($_SESSION['email'])) {
                             if (empty($ville_news) OR empty($titre_news) OR empty($adresse_news) OR empty($prix) OR empty($typedesoiree) OR empty($jeu) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])) {
                                 $champspasremplis = '<p>Tous les champs doivent &ecirc;tre remplis</p><br><br>';
                             } else {
-                                $hosted_event= +1;
-                                $pointstotal= +1;
                                 $modif = $mysql->prepare("UPDATE profil SET hosted_event='$hosted_event', pointstotal='$pointstotal' WHERE id='".$_SESSION['userid']."'");
                                 $modif->execute(array(
                                     'hosted_event' => $hosted_event,
@@ -265,8 +273,6 @@ if (isset($_SESSION['email'])) {
                                 $typedejeu = '';
                                 $contenu_news = '';
                                 $titre_news = '';
-                                $datedejeu = '';
-                                $heuredejeu = '';
                                 $champspasremplis = '<p>L\'annonce est bien envoy&eacute;e<br><br></p>';
                             }
                         }
@@ -277,6 +283,8 @@ if (isset($_SESSION['email'])) {
                             <?php echo $champspasremplis; ?>
                             <form method="POST" action="" enctype="multipart/form-data">
                                 <input type="hidden" name="pseudo" value="<?php echo $id_annonce ?>"/>
+                                <input type="hidden" name="hosted_event" value="<?php echo $hosted_event ?>"/>
+                                <input type="hidden" name="pointstotal" value="<?php echo $pointstotal ?>"/>
                                 <input type="hidden" name="ville_news" value="<?php echo $ville_news ?>"/>
                                 <input type="hidden" name="adresse_news" value="<?php echo $adresse_news ?>"/>
                                 <fieldset>
