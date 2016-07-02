@@ -70,9 +70,9 @@ if (isset($_SESSION['email'])) {
 
                         // SCRIPT ENVOI PHOTO
                         define('TARGET', '../website/photos/');    // Repertoire cible
-                        define('MAX_SIZE', 10000000);    // Taille max en octets du fichier
-                        define('WIDTH_MAX', 1200);    // Largeur max de l'image en pixels
-                        define('HEIGHT_MAX', 1200);    // Hauteur max de l'image en pixels
+                        define('MAX_SIZE', 100000000);    // Taille max en octets du fichier
+                        define('WIDTH_MAX', 2000);    // Largeur max de l'image en pixels
+                        define('HEIGHT_MAX', 2000);    // Hauteur max de l'image en pixels
 
                         // Tableaux de donnees
                         $tabExt = array('jpg', 'gif', 'png', 'jpeg');    // Extensions autorisees
@@ -116,29 +116,29 @@ if (isset($_SESSION['email'])) {
 
                                                 // Si c'est OK, on teste l'upload
                                                 if (move_uploaded_file($_FILES['photo']['tmp_name'], TARGET . $nomImage)) {
-                                                    $message = 'Upload r&eacute;ussi !';
+                                                    $message = '<p>Upload r&eacute;ussi !</p>';
                                                 } else {
                                                     // Sinon on affiche une erreur systeme
-                                                    $message = 'Probl&egrave;me lors de l\'upload !';
+                                                    $message = '<p>Probl&egrave;me lors de l\'upload !</p>';
                                                 }
                                             } else {
-                                                $message = 'Une erreur interne a empêch&eacute; l\'uplaod de l\'image';
+                                                $message = '<p>Une erreur interne a empêch&eacute; l\'uplaod de l\'image</p>';
                                             }
                                         } else {
                                             // Sinon erreur sur les dimensions et taille de l'image
-                                            $message = 'Erreur dans les dimensions de l\'image !';
+                                            $message = '<p>Erreur dans les dimensions de l\'image !</p>';
                                         }
                                     } else {
                                         // Sinon erreur sur le type de l'image
-                                        $message = 'Le fichier à uploader n\'est pas une image !';
+                                        $message = '<p>Le fichier à uploader n\'est pas une image !</p>';
                                     }
                                 } else {
                                     // Sinon on affiche une erreur pour l'extension
-                                    $message = 'L\'extension du fichier est incorrecte !';
+                                    $message = '<p>L\'extension du fichier est incorrecte !</p>';
                                 }
                             } else {
                                 // Sinon on affiche une erreur pour le champ vide
-                                $message = 'Veuillez remplir le formulaire svp !';
+                                $message = '<p>Veuillez remplir le formulaire svp !</p>';
                             }
                         }
 
@@ -232,8 +232,16 @@ if (isset($_SESSION['email'])) {
 
                         if (isset($_POST['submit'])) {
                             if (empty($ville_news) OR empty($titre_news) OR empty($adresse_news) OR empty($prix) OR empty($typedesoiree) OR empty($jeu) OR empty($typedejeu) OR empty($nb_participants) OR empty($contenu_news) OR empty($nb_participants) OR empty($datedejeu) OR empty($heuredejeu) OR empty($_POST['choix'])) {
-                                $champspasremplis = 'Tous les champs doivent &ecirc;tre remplis<br><br>';
+                                $champspasremplis = '<p>Tous les champs doivent &ecirc;tre remplis</p><br><br>';
                             } else {
+                                $hosted_event= +1;
+                                $pointstotal= +1;
+                                $modif = $mysql->prepare("UPDATE profil SET hosted_event='$hosted_event', pointstotal='$pointstotal' WHERE id='".$_SESSION['userid']."'");
+                                $modif->execute(array(
+                                    'hosted_event' => $hosted_event,
+                                    'pointstotal' => $pointstotal,
+                                ));
+
                                 $stmt = $mysql->prepare("INSERT INTO news(id_news, date_news, pseudo_news, titre_news, ville_news, adresse_news, fumeur, animaux, prix, photo, typedesoiree, typedejeu, jeu, nb_participants, placesrestantes_news,contenu_news, datedejeu, heuredejeu, url_news) VALUES ('','$date_news', '$pseudo_news','$titre_news','$ville_news','$adresse_news','$fumeur','$animaux','$prix','$photo','$typedesoiree','$typedejeu','$jeu','$nb_participants','$placesrestantes_news','$contenu_news','$datedejeu','$heuredejeu','$url_news')");
                                 $stmt->bindParam(':pseudo_news', $pseudo_news);
                                 $stmt->bindParam(':ville_news', $ville_news);
