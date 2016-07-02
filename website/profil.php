@@ -4,6 +4,7 @@
 <?php
 header( 'content-type: text/html; charset=UTF-8' );
 $id=$_GET["id"];
+$idpageuser=$_GET["id"];
 $mysql = "SELECT * FROM profil WHERE id='$id' LIMIT 1";
 $req = mysql_query($mysql) or die( mysql_error()." ERROR");
 $data = mysql_fetch_assoc($req);
@@ -36,15 +37,10 @@ if(isset($data['url'])) {
             </div>
         </div>
     </section>
-<?php if(isset($_SESSION['email'])){ ?>
-<section class="container content-section text-center">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2">
-      <form method="POST" action="">
-        <input type="hidden" name="pseudo" value="<?php echo $profil_comments?>">
-        <input type="hidden" name="profil" value="<?php echo $id?>">
+
 <style>
 
+/* Affichage des étoiles */
     p, p a { 
       color: #aaa;
       text-decoration: none;
@@ -105,6 +101,17 @@ if(isset($data['url'])) {
     }
 .rating span{color: orange;}
 </style>
+
+<?php if(isset($_SESSION['email'])){
+if($_SESSION['userid'] != $idpageuser){
+  ?>
+
+<section class="container content-sec)tion text-center">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <form method="POST" action="">
+        <input type="hidden" name="pseudo" value="<?php echo $profil_comments?>">
+        <input type="hidden" name="profil" value="<?php echo $id?>">
         <label>Commentaire: <textarea name="comments"/><?php echo $comments ?></textarea></label><br/>
         <label>Note:
           <div class="rating">
@@ -120,7 +127,7 @@ if(isset($data['url'])) {
     </div>
   </div>
 </section>
-
+<?php }else{}?>
 <?php }else{ ?>
     <?php } ?>
 <section class="container content-section text-center">

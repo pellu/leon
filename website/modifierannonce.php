@@ -55,6 +55,7 @@ if(!isset($_GET["id"])){
         </div>
     </section>
 <br><br>
+<a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer cette annonce ? Vous ne pourrez plus jamais retrouver cette annonce !');" href="http://localhost/leon/website/supprimernews.php?id=<?php echo $id_news; ?>">Je souhaite supprimer mon annonce</a>
 <?php
 }else{?>
 <br><br><br><br><br>

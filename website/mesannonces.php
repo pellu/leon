@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php include('menu.php');
 if (isset($_SESSION['email'])) {
-    header('content-type: text/html; charset=ISO-8859-1');
+    header('content-type: text/html; charset=UTF-8');
     ?>
     <section class="container-fluid content-section text-center" xmlns="http://www.w3.org/1999/html">
         <div class="row">
@@ -31,11 +31,8 @@ if (isset($_SESSION['email'])) {
                         </div>
                         <div
                             class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 events-bg-black">
-                            <h2 id="h4">Mes annonces (4)</h2>
-                            <p><a href="http://localhost/leon/website/mesannonces.php" class="info-address">J'actualise mes annonces</a></p><br><br>
                             <?php
                             $id_annonce = $_SESSION["userid"];
-
                             $sql = "SELECT * FROM profil WHERE id=$id_annonce";
                             $resultsql = mysql_query($sql) or die('Erreur SQL !<br />' . $sql . '<br />' . mysql_error());
                             $resultsql = mysql_fetch_array($resultsql);
@@ -45,6 +42,10 @@ if (isset($_SESSION['email'])) {
                             $rowz = mysql_fetch_row($resultz);
                             $resu = $rowz[0];
                             $nombre = $resu;
+                            ?>
+                            <h2 id="h4">Mes annonces (<?php echo $nombre?>)</h2>
+                            <p><a href="http://localhost/leon/website/mesannonces.php" class="info-address">J'actualise mes annonces</a></p><br><br>
+                            <?php
                             $resnews = mysql_query("SELECT * FROM news WHERE pseudo_news=$id_annonce ORDER BY datedejeu DESC LIMIT $nombre");
                             while ($resultnews = mysql_fetch_array($resnews)) {
                                 ?>
@@ -70,8 +71,8 @@ if (isset($_SESSION['email'])) {
                         // SCRIPT ENVOI PHOTO
                         define('TARGET', '../website/photos/');    // Repertoire cible
                         define('MAX_SIZE', 10000000);    // Taille max en octets du fichier
-                        define('WIDTH_MAX', 800);    // Largeur max de l'image en pixels
-                        define('HEIGHT_MAX', 800);    // Hauteur max de l'image en pixels
+                        define('WIDTH_MAX', 1200);    // Largeur max de l'image en pixels
+                        define('HEIGHT_MAX', 1200);    // Hauteur max de l'image en pixels
 
                         // Tableaux de donnees
                         $tabExt = array('jpg', 'gif', 'png', 'jpeg');    // Extensions autorisees
@@ -297,7 +298,7 @@ if (isset($_SESSION['email'])) {
                                 <fieldset>
                                     <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>"/>
                                     <label>Photo <a href="#" data-toggle="tooltip" data-placement="top"
-                                                    title="Photo carr&eacute;e">*</a></label>
+                                                    title="Photo 1200x1200px maximum">*</a></label>
 
                                     <div class="file-input">Choisissez votre image
                                         <input name="photo" type="file" id="fichier_a_uploader"/>
@@ -357,7 +358,7 @@ if (isset($_SESSION['email'])) {
                                 </fieldset>
                                 <fieldset>
                                     <label>Description</label><textarea " name="contenu_news"
-                                                                     id="annonce-description" placeholder="D&eacute;crivez le th&egrave;me et le d&eacute;roulement  de votre soir&eacute;e…"
+                                                                     id="annonce-description" placeholder="D&eacute;crivez le th&egrave;me et le d&eacute;roulement de votre soir&eacute;e&hellip;"
                                                                      value="<?php echo $contenu_news ?>"/></textarea>
                                 </fieldset>
                                 <fieldset>

@@ -38,10 +38,10 @@ include('config.php');?>
                     <a class="menu" href="http://localhost/leon/website/monprofil.php"><?php echo $dataprofil['pseudo'];?>
                     <?php switch ($dataprofil['avatar']) {
                       case '' :
-                      echo '<img style="height:20px;" src="http://localhost/leon/website/img/avatar.png">';
+                      echo '<img style="height:20px;width:20px;" src="http://localhost/leon/website/img/avatar.png">';
                       break;
                       default :
-                      echo '<img style="height:20px;" src="http://localhost/leon/website/photos/' .$dataprofil['avatar']. '"></li>';
+                      echo '<img style="height:20px;width:20px;" src="http://localhost/leon/website/photos/' .$dataprofil['avatar']. '"></li>';
                       break;
                        }
                     ?>
