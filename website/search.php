@@ -6,7 +6,7 @@ header('content-type: text/html; charset=UTF-8'); ?>
             <h1 id="maintitle">The Playce to be</h1>
             <h2 id="baseline">Trouvez votre soir&eacute;e sans plus attendre !</h2>
             <div id="opacitysquare" class="col-lg-12 col-md-12 col-xs-12">
-                <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-4">
+                <div class="col-lg-6 col-md-6 col-xs-12 col-lg-offset-3 col-md-offset-3">
                     <form action="search.php" method="POST">
                         <select name="search" id="homesearch">
                             <option value="" disabled selected>O&ugrave; vas-tu jouer ?</option>

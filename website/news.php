@@ -80,12 +80,18 @@ header('content-type: text/html; charset=UTF-8');
                             </div>
 
                         </div>
-                        <?php if (isset($_SESSION['email'])) { ?>
-                            <div class="event-reserver"><a href="http://localhost/leon/website/paypal.php">Réserver</a>
+                        <?php if (isset($_SESSION['email'])) {
+                            if ($_SESSION['userid'] != $donnees['id']) {?>
+                            <div class="event-reserver"><a href="http://localhost/leon/website/jeparticipe.php?id=<?php echo $id_news; ?>">Réserver</a>
                             </div>
-                        <?php } else { ?>
-                            <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
-                            </div>
+                            <?php }else{?>
+
+                            <div class="event-reserver">C'est votre annonce</div>
+                            <?php
+                            }
+                        } else { ?>
+                        <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
+                        </div>
                         <?php } ?>
                     </div>
 

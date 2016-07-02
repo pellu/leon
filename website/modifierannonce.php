@@ -1,7 +1,7 @@
 <?php session_start();?>
 <?php include('menu.php');
 if(isset($_SESSION['email'])){
-header( 'content-type: text/html; charset=ISO-8859-1' );
+header( 'content-type: text/html; charset=UTF-8' );
 if(!isset($_GET["id"])){
     header("Location:http://localhost/leon/website/mesannonces.php");
 }
