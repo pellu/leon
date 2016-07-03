@@ -214,7 +214,7 @@ header('content-type: text/html; charset=UTF-8');
                                     </p><br/>
                                     <p class="event-city text-left"><?php echo $donnees['description']; ?>
                                     </p>
-                                    <p class="event-city text-left" id="news-contacter">Contacter
+                                    <p class="event-city text-left" id="news-contacter"><a href="http://localhost/leon/website/contactprofil.php">Contacter</a>
                                     </p>
                                 </div>
 

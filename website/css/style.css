@@ -2377,13 +2377,13 @@ position: relative;
 }
 
 #formulaire input[type="submit"] {
-    margin: 25px 40% 150px 40%;
+    margin: 20px 40% 20px 40%;
     width:20%;
 }
 
 #formulaire input[type="submit"]:hover {
     width:20%;
-    margin: 25px 40% 150px 40%;
+    margin: 20px 40% 20px 40%;
     font-weight: bold;
     color: #7ae3f9;
     text-shadow: 0 0 12px #7ae3f9;

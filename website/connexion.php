@@ -91,7 +91,7 @@ if (isset($_SESSION['email'])) {
     <a href="inscription.php">Je souhaite m'inscrire avec un mail</a>
 <?php
 if (!isset($_SESSION['steamid'])) {
-    echo "<div style='margin: 30px auto; text-align: center;'><p>Vous pouvez vous connecter via steam ou mail</p>";
+    echo "<div style='margin: 10px auto; text-align: center;'><p>Vous pouvez vous connecter via steam</p>";
     loginbutton();
     echo "</div>";
 } else {

@@ -37,8 +37,7 @@ if (isset($data['url'])) {
                             m'appelle <?php echo $data['pseudo']; ?> !</h2>
                         <p id="adresse" class="text-left"><?php echo $data['city']; ?>, Ile-de-France, France | Membre
                             depuis le <?php echo $data['date_inscription']; ?></p>
-                        <p class="text-left"><a href="#" class="linkmodal">Signaler ce profil</a> | <a href="#"
-                                                                                                       class="linkmodal">Contacter</a>
+                        <p class="text-left"><a href="http://localhost/leon/website/signalement.php" class="linkmodal">Signaler ce profil</a> | <a href="http://localhost/leon/website/contactprofil.php" class="linkmodal">Contacter</a>
                         </p>
                         <p id="h5" class="text-left">Mes Annonces (2)</p>
                         <div class="row">
