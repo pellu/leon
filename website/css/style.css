@@ -2344,23 +2344,26 @@ position: relative;
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
+    position: relative;
+    bottom: 12px;
 }
 
 #formulaire input[type="text"],
-#formulaire input[type="password"]{
+#formulaire input[type="password"],
+#formulaire input[type="select"]{
     width: 200px;
     display: block;
     margin-bottom: 10px;
 }
 
 #formulaire input[type="submit"] {
+    margin: 25px 40% 150px 40%;
     width:20%;
-    margin: 25px 40%;
 }
 
 #formulaire input[type="submit"]:hover {
     width:20%;
-    margin: 25px 40%;
+    margin: 25px 40% 150px 40%;
     font-weight: bold;
     color: #7ae3f9;
     text-shadow: 0 0 12px #7ae3f9;
@@ -2379,4 +2382,19 @@ position: relative;
     color: #7ae3f9;
     text-shadow: 0 0 12px #7ae3f9;
     text-decoration: none;
+}
+
+#formulaire #message {
+    margin: 200px 0
+}
+
+#formulaire .small {
+    font-family: Lato;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+#formulaire .nl-sub {
+    position: relative;
+    top:5px;
 }

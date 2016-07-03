@@ -6,6 +6,11 @@ if(isset($_SESSION['email']))
 <br><br><br><br><br><br><br><br>
 You win!
 <a href="http://localhost/leon/website/mesannonces.php">Votre participation a bien été prise en compte !</a>
+  <div class="progress progress-striped active">
+    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+      <span class="sr-only">100% Complete (success)</span>
+    </div>
+  </div>
 <?php }else{?>
 <br><br><br><br><br>
 <section class="container content-section text-center">
