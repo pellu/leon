@@ -48,7 +48,7 @@ include('config.php');?>
                     </a></li>
                 <?php }else{ ?>
                     <li>
-                        <a class="menu" href="#partenaire">Devenir h&ocirc;te</a>
+                        <a class="menu" href="http://letsplayce.com/website/connexion.php">Devenir h&ocirc;te</a>
                     </li>
                     <li>
                         <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>

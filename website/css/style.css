@@ -208,7 +208,11 @@ ul {
 }
 
 .navbar-custom .nav li.active a {
-    background-color: rgba(255, 255, 255, .3);
+    color: #fff;
+    border: 1px inset #fff;
+    border-radius: 3px;
+    background-color: transparent;
+    outline: 0;
 }
 
 .navbar-custom .nav li.active a:hover {

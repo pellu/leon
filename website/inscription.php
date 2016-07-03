@@ -151,7 +151,7 @@ if($form)
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-5 text-right"><h2><label for="pass">Mot
-                  de passe</label></h2></div>
+                  de passe<span class="small">(6 caract&egrave;res min.)</span></label></h2></div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7 text-left"><input type="password"
                                                                               name="pass"
                                                                               id="pass"/></div>
