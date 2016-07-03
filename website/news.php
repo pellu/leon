@@ -18,10 +18,10 @@ header('content-type: text/html; charset=UTF-8');
                         <p>
                             <?php switch ($donnees['avatar']) {
                                 case '' :
-                                    echo '<div class="col-lg-1"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/img/avatar.png"></div>';
+                                    echo '<div class="col-lg-1"><a href="http://localhost/website/profil/'.$donnees["pseudo"]. '-' .$donnees["id"].'"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/img/avatar.png"></a></div>';
                                     break;
                                 default :
-                                    echo '<div class="col-lg-1"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/photos/' . $donnees['avatar'] . '"></div>';
+                                    echo '<div class="col-lg-1"><a href="http://localhost/website/profil/'.$donnees["pseudo"]. '-' .$donnees["id"].'"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/photos/' . $donnees['avatar'] . '"></a></div>';
                                     break;
                             }
                             ?>
@@ -29,10 +29,55 @@ header('content-type: text/html; charset=UTF-8');
                         <div class="col-lg-11">
                             <p class="event-title text-left"><?php echo $donnees['titre_news']; ?>
                                 / <?php echo $donnees['heuredejeu']; ?></p>
-                            <p class="event-pseudo text-left"><?php echo $donnees['pseudo']; ?></p>
+                            <p class="event-pseudo text-left"><a href="http://localhost/website/profil/<?php echo $donnees['pseudo']; ?>-<?php echo $donnees['id']; ?>"><?php echo $donnees['pseudo']; ?></a></p>
                             <p class="event-city text-left"><a target="_blank"
                                                                href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a>,
-                                Ile-de-France, France / ☆☆☆☆☆ (14 commentaires)
+                                Ile-de-France, France / 
+                                <?php
+                                    $sqlb = "SELECT AVG(etoiles) AS moyenne FROM comments WHERE profil_comments='".$donnees['id']."'";
+                                    $reqetoiles = mysql_query($sqlb) or die('Erreur SQL !br>' . $sqlb . '<br>' . mysql_error());
+                                    $rowetoiles = mysql_fetch_row($reqetoiles);
+                                    $resuetoiles = round($rowetoiles[0]);
+                                    $nombreoiles = $resuetoiles;
+
+                                    switch ($nombreoiles) {
+                                        case '' :
+                                            echo '';
+                                            break;
+                                        case '1' :
+                                            echo '<span class="rating"><span value="' . $nombreoiles . '">☆</span>☆☆☆☆</span>';
+                                            break;
+                                        case '2' :
+                                            echo '<span class="rating"><span value="' . $nombreoiles . '">☆☆</span>☆☆☆</span>';
+                                            break;
+                                        case '3' :
+                                            echo '<span class="rating"><span value="' . $nombreoiles . '">☆☆☆</span>☆☆</span>';
+                                            break;
+                                        case '4' :
+                                            echo '<span class="rating"><span class="rating" value="' . $nombreoiles . '">☆☆☆☆</span>☆</span>';
+                                            break;
+                                        default :
+                                            echo '<span class="rating"><span value="' . $nombreoiles . '">☆☆☆☆☆</span></span>';
+                                            break;
+                                    }
+
+                                    $sqla = "SELECT COUNT(profil_comments) AS total FROM comments WHERE profil_comments='".$donnees['id']."'";
+                                    $resultz = mysql_query($sqla);
+                                    $rowz = mysql_fetch_row($resultz);
+                                    $resu = $rowz[0];
+                                    $nombre = $resu;
+
+                                    switch ($nombre) {
+                                        case '0' :
+                                            echo ' (Pas encore de commentaires)';
+                                            break;
+                                        case '1' :
+                                            echo ' ('.$nombre . ' commentaire)';
+                                            break;
+                                        default :
+                                            echo ' ('.$nombre . ' commentaires)';
+                                    }
+                                ?>
                             </p>
                         </div>
 
@@ -42,11 +87,22 @@ header('content-type: text/html; charset=UTF-8');
                              src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
                     </div>
                     <div class="col-lg-4">
-                        <p class="event-att-number"><i class="fa fa-user" aria-hidden="true"></i><i
-                                class="fa fa-user"
-                                aria-hidden="true"></i><i
-                                class="fa fa-user" aria-hidden="true"></i> Plus
-                            que <?php echo $donnees['placesrestantes_news']; ?> places !</p>
+                        <p class="event-att-number">
+                        <?php
+                            $placesquireste=$donnees['placesrestantes_news'];
+
+                                switch ($placesquireste) {
+                                    case '0' :
+                                        echo 'Plus de places !';
+                                        break;
+                                    case '1' :
+                                        echo 'Plus que '.$placesquireste. ' place !';
+                                        break;
+                                    default :
+                                        echo 'Plus que '.$placesquireste. ' places !';
+                                    }
+                            ?>
+                            </p>
                         <div class="event-date-price"><p
                                 class="event-price"><?php echo $donnees['prix']; ?> &euro;</p>
                             <p class="event-date"><?php echo $donnees['datedejeu']; ?></p>
@@ -112,9 +168,14 @@ header('content-type: text/html; charset=UTF-8');
                             <div class="event-points"><p>La participation à l’évènement  vous rapporte</p>
                                 <h4>50 points</h4></div>
                             <div class="event-share col-lg-12"><p>Partager cette annonce</p>
-                                <div class="col-lg-4 text-left"><a href="http://www.facebook.com">Facebook</a></div>
-                                <div class="col-lg-4 text-Center"><a href="http://www.twitter.com">Twitter</a></div>
-                                <div class="col-lg-4 text-right"><a href="http://www.google.com">Google +</a></div>
+                                <div class="col-lg-4 text-left">
+                                    <?php 
+                                    $adresse = 'http://localhost/leon/website/news/'.$donnees['url_news'].'-'.$donnees['id_news'];
+                                    $phrase = 'Annonce: '.$donnees['titre_news']. ' de '.$donnees['pseudo'].' ! Annonce disponible sur';
+                                    ?>
+                                <a href="http://www.facebook.com"><a href="https://www.facebook.com/share.php?u=<?php echo $adresse;?>&title=<?php echo $phrase;?>" target="_blank">Facebook</a></div>
+                                <div class="col-lg-4 text-Center"><a href="https://twitter.com/home?status=<?php echo $phrase;?>+<?php echo $adresse;?>+%23Playce+via @LetsPlayce" data-size="large" target="_blank">Twitter</a></div>
+                                <div class="col-lg-4 text-right"><a href="https://plus.google.com/share?url=<?php echo $adresse;?>">Google +</a></div>
                             </div>
                         </div>
                     </div>
@@ -136,16 +197,16 @@ header('content-type: text/html; charset=UTF-8');
                                 <p>
                                     <?php switch ($donnees['avatar']) {
                                         case '' :
-                                            echo '<div class="col-lg-2"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/img/avatar.png"></div>';
+                                            echo '<div class="col-lg-2"><a href="http://localhost/website/profil/'.$donnees["pseudo"]. '-' .$donnees["id"].'"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/img/avatar.png"></a></div>';
                                             break;
                                         default :
-                                            echo '<div class="col-lg-2"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/photos/' . $donnees['avatar'] . '"></div>';
+                                            echo '<div class="col-lg-2"><a href="http://localhost/website/profil/'.$donnees["pseudo"]. '-' .$donnees["id"].'"><img class="img-circle event-user-avatar" src="http://localhost/leon/website/photos/' . $donnees['avatar'] . '"></a></div>';
                                             break;
                                     }
                                     ?>
                                 </p>
                                 <div class="col-lg-10">
-                                    <p class="event-pseudo text-left" id="event-pseudo-2"><?php echo $donnees['pseudo']; ?></p>
+                                    <p class="event-pseudo text-left" id="event-pseudo-2"><a href="http://localhost/website/profil/<?php echo $donnees['pseudo']; ?>-<?php echo $donnees['id']; ?>"><?php echo $donnees['pseudo']; ?></a></p>
                                     <p class="event-city text-left"><a target="_blank"
                                                                        href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><?php echo $donnees['ville_news']; ?></a>,
                                         Ile-de-France, France / </p>

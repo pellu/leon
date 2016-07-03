@@ -14,14 +14,15 @@
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <h2>404</h2>
                         <a href="http://localhost/leon/website/index.php"><h3 class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-4">Try again</h3></a>
+                        <?php
+							if (!empty($_SERVER['HTTP_REFERER'])) {
+							    echo '<p><a href="' . $_SERVER['HTTP_REFERER'] . '">
+							    <a href="http://localhost/leon/website/index.php"><h3 class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-4">Retour page pr&eacutec&eacutedente</h3></a>';
+							}
+						?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<?php
-if (!empty($_SERVER['HTTP_REFERER'])) {
-    echo '<p><a href="' . $_SERVER['HTTP_REFERER'] . '">Retour page pr&eacutec&eacutedente</a></p>';
-}
-?>
 <?php include('footer.php'); ?>
