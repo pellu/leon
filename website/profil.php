@@ -35,22 +35,26 @@ if (isset($data['url'])) {
                     </div>
                     <div class="col-lg-6"><h2 id="hello" class="text-left">Bonjour, je
                             m'appelle <?php echo $data['pseudo']; ?> !</h2>
-                        <p id="adresse" class="text-left"><?php echo $data['city']; ?>, Ile-de-France, France | Membre depuis le <?php echo $data['date_inscription']; ?></p>
-                        <p class="text-left"><a href="#" class="linkmodal">Signaler ce profil</a> | <a href="#" class="linkmodal">Contacter</a></p>
+                        <p id="adresse" class="text-left"><?php echo $data['city']; ?>, Ile-de-France, France | Membre
+                            depuis le <?php echo $data['date_inscription']; ?></p>
+                        <p class="text-left"><a href="#" class="linkmodal">Signaler ce profil</a> | <a href="#"
+                                                                                                       class="linkmodal">Contacter</a>
+                        </p>
                         <p id="h5" class="text-left">Mes Annonces (2)</p>
                         <div class="row">
                             <div class="col-lg-12">
-<!--                                <div class="col-lg-offset-1 col-lg-offset-3">-->
-<!--                                    <img class="med-event-img" src="" height="158" alt="">-->
-<!--                                    <div class="med-squared-title"></div>-->
-<!--                                </div>-->
+                                <!--                                <div class="col-lg-offset-1 col-lg-offset-3">-->
+                                <!--                                    <img class="med-event-img" src="" height="158" alt="">-->
+                                <!--                                    <div class="med-squared-title"></div>-->
+                                <!--                                </div>-->
                                 <div class="col-lg-6">
                                     <div class="item"><img
                                             src="http://localhost/leon/website/photos/960ba8d78d074a140514ad3db6471c95.png"
                                             alt="">
                                         <div class="overlay"><a
                                                 href="#">Modifier
-                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                     <div class="squared-title"><a target="_blank"
                                                                   href="#">Titre de la soirée</a>
@@ -62,7 +66,8 @@ if (isset($data['url'])) {
                                             alt="">
                                         <div class="overlay"><a
                                                 href="#">Modifier
-                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                     <div class="squared-title"><a target="_blank"
                                                                   href="#">Titre de la soirée</a>
@@ -83,7 +88,8 @@ if (isset($data['url'])) {
                                             alt="">
                                         <div class="overlay"><a
                                                 href="#">Modifier
-                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                     <div class="squared-title"><a target="_blank"
                                                                   href="#">Titre de la soirée</a>
@@ -95,7 +101,8 @@ if (isset($data['url'])) {
                                             alt="">
                                         <div class="overlay"><a
                                                 href="#">Modifier
-                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></div>
+                                                l'annonce <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                     <div class="squared-title"><a target="_blank"
                                                                   href="#">Titre de la soirée</a>
@@ -103,13 +110,40 @@ if (isset($data['url'])) {
                                 </div>
                             </div>
                         </div>
+                        <p id="h5" class="text-left">&Agrave; propos de <?php echo $data['pseudo']; ?></p>
+                        <p class="text-left" id="adresse"><?php echo $data['description']; ?></p>
                     </div>
                     <div class="col-lg-3">
-                        <img src="http://localhost/leon/website/img/PS.png" alt="Controller Gaming" id="controller" width="100%">
+                        <img src="http://localhost/leon/website/img/PS.png" alt="Controller Gaming" id="controller"
+                             width="100%">
                     </div>
-                    <p class="text-left">Description : <?php echo $data['description']; ?></p>
-
                 </div>
+                <div id="opacitysquare-news-2" class="col-lg-12 col-md-12 col-xs-12">
+                    <div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-4'>
+                        <div class="col-lg-7 text-left">
+                            <h2>Ce que pensent les utilisateurs de <?php echo $data['pseudo']; ?> :</h2>
+                            <p>7 commentaires /  ☆☆☆☆☆</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="rest" class="col-lg-12 col-md-12 col-xs-12">
+                    <div class='col-lg-7 col-md-12 col-sm-12 col-xs-12 col-lg-offset-5' id="profil-comments">
+                        <div class="col-lg-7 text-left">
+                            <div class="col-lg-4 text-center">
+                                <img src="http://localhost/leon/website/img/avatar-comments.png" alt="">
+                                <h3><?php echo $data['pseudo']; ?></h3>
+                            </div>
+                            <div class="col-lg-8">
+                                <p><?php echo $data['description']; ?></p>
+                                <p>☆☆☆☆☆</p>
+                                <p>Participant &bull; Posté le XX/XX/2016</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-12" id="comment-circuit"></div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
@@ -204,7 +238,7 @@ if (isset($data['url'])) {
     if ($_SESSION['userid'] != $idpageuser) {
         ?>
 
-        <section class="container content-sec)tion text-center">
+        <section class="container content-section text-center">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
                     <form method="POST" action="">
