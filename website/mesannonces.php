@@ -41,7 +41,7 @@ if (isset($_SESSION['email'])) {
                             ?>
                             <h2 id="h4">Je participe &agrave; (<?php echo $nombreb ?>)</h2><br>
                             <?php
-                            $respart = mysql_query("SELECT p.* , n.* FROM participation p, news n WHERE id_user_participation=$id_annonce ORDER BY p.id_participation DESC");
+                            $respart = mysql_query("SELECT p.* , n.* FROM participation p, news n WHERE id_user_participation='$id_annonce' ORDER BY p.id_participation LIMIT $nombreb");
                             while ($resultpart = mysql_fetch_array($respart)) {
                                 ?>
                                 <div class="item"><img src="http://localhost/leon/website/photos/<?php echo $resultpart['photo']; ?>" alt="">

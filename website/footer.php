@@ -16,9 +16,10 @@
                                            class="footer-title">Contact</a></p>
                 <p><a href="http://localhost/leon/website/faq.php">FAQ</a></p>
                 <p><a href="http://localhost/leon/website/mentionslegales.php">CGU</a></p>
-                <p><a href="http://letsplayce.com/cp_playce.pdf"
-           onclick="trackOutboundNewWindow('http://letsplayce.com/cp_playce.pdf'); return false;"
-           onclick="window.open(this.href); return false;" id="kitpresse" alt="Télécharger le Kit Press de Playce - LetsPlayce.com">Kit Presse</a></p>
+                <p><a href="http://letsplayce.com/website/img/KitPresse-playce.zip"
+                        onclick="trackOutboundNewWindow('http://letsplayce.com/website/img/KitPresse-playce.zip'); return false;"
+                        onclick="window.open(this.href); return false;" id="kitpresse" alt="Télécharger le Kit Press de Playce - LetsPlayce.com"></a>
+                </p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 left">
                 <p class="footer-title">Suivez-nous</p>

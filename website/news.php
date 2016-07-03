@@ -80,18 +80,25 @@ header('content-type: text/html; charset=UTF-8');
                         </div>
                         <?php if (isset($_SESSION['email'])) {
                                 if ($_SESSION['userid'] != $donnees['id']) {
-                                    if($_SESSION['userid'] != $donnees['id']){?>
+                                    //Savoir si l'utilisateur a déjà participé ou pas à l'évent
+                                        $reqgetid="SELECT * FROM participation WHERE id_participation='" . $id_news . "'";
+                                        $requsergetid = mysql_query($reqgetid) or die('Erreur SQL !<br />'.$reqgetid.'<br />'.mysql_error());
+                                        $donneesgetid=mysql_fetch_assoc($requsergetid);
+
+                                    if($_SESSION['userid'] != $donneesgetid['id_user_participation']){?>
                                         <div class="event-reserver"><a href="http://localhost/leon/website/jeparticipe.php?id=<?php echo $id_news; ?>">Réserver</a>
                                         </div>
                                     <?php }else{ ?>
-                                         <div class="event-reserver">C'est votre annonce</div>
+                                         <div class="event-reserver">Vous participez déjà / <a href="http://localhost/leon/website/supprimerparticipation.php?id=<?php echo $id_news; ?>">Ne plus participer</a></div>
                                 <?php }}else{ ?>
-                                    <div class="event-reserver">C'est votre annonce</div>
+                                    <div class="event-reserver">C'est votre annonce / <a href="http://localhost/leon/website/modifierannonce.php?id=<?php echo $id_news; ?>">Modifier l'annonce</a></div>
                             <?php }}else{ ?>
                                 <div class="event-reserver"><a href="http://localhost/leon/website/connexion.php">Connexion/Inscription</a>
                                 </div>
                         <?php } ?>
                     </div>
+                    <?php 
+                    echo $_SESSION['userid'];?>
                     <div id="inline-img">
                         <div class="col-lg-8">
                             <div class="news-playcers"><p
