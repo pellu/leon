@@ -160,12 +160,10 @@ header('content-type: text/html; charset=UTF-8');
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><img id="city-map" src="http://localhost/leon/website/img/<?php echo $donnees['ville_news']; ?>.png" alt="<?php echo $donnees['ville_news']; ?>"></a>
+                            <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><img id="city-map" src="http://localhost/leon/website/img/maps/<?php echo $donnees['ville_news']; ?>.png" alt="<?php echo $donnees['ville_news']; ?>"></a>
                         </div>
                     </div>
                 </div>
-
-
                 <p><?php echo $donnees['datedejeu']; ?></p>
                 <p></p>
                 <p>Contenu : <?php echo $donnees['contenu_news']; ?></p>

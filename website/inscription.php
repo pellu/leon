@@ -147,11 +147,11 @@ if($form)
               <option value="" disabled selected>Quelle est ta ville ?</option>
               <option value="antony">Antony (92)</option>
               <option value="argenteuil">Argenteuil (95)</option>
+              <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
               <option value="aubervilliers">Aubervilliers (93)</option>
               <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
-              <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
-              <option value="Boulogne-Billancourt">Boulogne-Billancourt (92)</option>
               <option value="bondy">Bondy (93)</option>
+              <option value="boulogne-billancourt">Boulogne-Billancourt (92)</option>
               <option value="cergy">Cergy (95)</option>
               <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
               <option value="chelles">Chelles (77)</option>
@@ -163,7 +163,7 @@ if($form)
               <option value="drancy">Drancy (93)</option>
               <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
               <option value="evry">&Eacute;vry (91)</option>
-              <option value="fontenay-sous-Bois">Fontenay-sous-Bois (94)</option>
+              <option value="fontenay-sous-bois">Fontenay-sous-Bois (94)</option>
               <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
               <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
               <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
