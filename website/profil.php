@@ -18,7 +18,7 @@ if (isset($data['url'])) {
 ?>
     <section id="rest" class="container-fluid content-section text-center">
         <div class="row">
-            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id="">
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                 <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
                     <div class="col-lg-3 col-md-5 col-sm-12 col-xs-12">
                         <?php switch ($data['avatar']) {
@@ -31,7 +31,7 @@ if (isset($data['url'])) {
                         }
                         ?>
                         <img src="http://localhost/leon/website/img/verified.png" alt="Compte vérifié" height="343"
-                             width="250">
+                             width="250" class="verified">
                     </div>
                     <div class="col-lg-6"><h2 id="hello" class="text-left">Bonjour, je
                             m'appelle <?php echo $data['pseudo']; ?> !</h2>

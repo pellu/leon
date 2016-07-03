@@ -1676,6 +1676,10 @@ table {
     margin-bottom: 10px;
 }
 
+.verified {
+    margin-top: 25px;
+}
+
 /*END PROFIL*/
 
 /*MON PROFIL*/
@@ -2237,4 +2241,24 @@ position: relative;
     color: #7ae3f9;
     text-shadow: 0 0 4px #7ae3f9;
     text-transform: uppercase;
+}
+
+#pages-mentions h1 .fa-circle {
+    font-size: 18px !important;
+}
+
+#pages-mentions h2 {
+    font-family: Neon;
+    font-size: 24px;
+    font-weight: bold;
+    color: #7ae3f9;
+    text-shadow: 0 0 5px #7ae3f9;
+    margin-top: 25px;
+}
+
+#pages-mentions p {
+    font-family: Lato;
+    font-size: 16px;
+    font-weight: normal;
+    color: #ffffff;
 }
