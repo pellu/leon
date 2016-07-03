@@ -8,7 +8,7 @@ header('content-type: text/html; charset=UTF-8');
                 <div class='col-lg-6 col-md-6 col-sm-8 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-2' id="pages-mentions">
                     <br><br><br><br><br><br>
                     <h1 class="glowingtext">Foire aux Questions</h1>
-                    <h2 class="text-left">• 	Playce, qu’est-ce que c’est ? Playce, qu’est-ce que c’est ?</h2>
+                    <h2 class="text-left">&bull; Playce, qu’est-ce que c’est ? Playce, qu’est-ce que c’est ?</h2>
                     <p class="text-left">Playce est une plateforme (un site pour le moment) qui vous permet d’organiser des soirées
                         jeux-vidéos
                         près de chez vous, ou même chez vous si vous le souhaitez. En effet, hôte ou participants, on
