@@ -426,7 +426,7 @@ if (isset($_SESSION['email'])) {
                                 <fieldset>
                                     <input type="hidden" name="url_news" value="<?php echo $url_news ?>"/>
                                     <label> J'accepte
-                                        les <a target="_blank" href="conditions.php" id="cgu">CGU</a></label><input
+                                        les <a target="_blank" href="cgu.php" id="cgu">CGU</a></label><input
                                         type="checkbox" class="right" name="choix[]"
                                         value="1">
                                 </fieldset>

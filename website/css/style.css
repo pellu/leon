@@ -2268,6 +2268,15 @@ position: relative;
     margin-top: 25px;
 }
 
+#pages-mentions h3 {
+    font-family: Neon;
+    font-size: 20px;
+    font-weight: bold;
+    color: #7ae3f9;
+    text-shadow: 0 0 5px #7ae3f9;
+    margin-top: 15px;
+}
+
 #pages-mentions p {
     font-family: Lato;
     font-size: 16px;
