@@ -17,7 +17,6 @@ $req1 = mysql_query('SELECT m1.id, m1.title, m1.timestamp, count(m2.id) as reps,
 $req2 = mysql_query('SELECT m1.id, m1.title, m1.timestamp, count(m2.id) as reps, profil.id as userid, profil.pseudo from pm as m1, pm as m2,profil where ((m1.user1="'.$_SESSION['userid'].'" AND m1.user1read="yes" AND profil.id=m1.user2) or (m1.user2="'.$_SESSION['userid'].'" and m1.user2read="yes" and profil.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
 ?>
     <h1>Messagerie</h1>
-<p>Voici la liste de vos messages</p>
 <!-- <a href="message_ecrire.php" class="link_new_pm">Nouveau message priv&eacute;</a><br />-->
 <h2>Messages non-lus(<?php echo intval(mysql_num_rows($req1)); ?>):</h2>
     <div class="col-lg-12">
