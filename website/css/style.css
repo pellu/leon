@@ -1007,16 +1007,17 @@ table {
 
     #participant {
         display: block;
-        width: 354px;
         /*text-indent: -9999px;*/
         color: transparent;
+
     }
 
     #hote {
         display: block;
-        width: 246px;
         /*text-indent: 9999px;*/
         color: transparent;
+        position: relative;
+        left:109px;
     }
 
     #user-avatar-1 {
@@ -1223,14 +1224,12 @@ table {
 
     #participant {
         display: block;
-        width: 354px;
         /*text-indent: -9999px;*/
         color: transparent;
     }
 
     #hote {
         display: block;
-        width: 246px;
         /*text-indent: 9999px;*/
         color: transparent;
     }
@@ -1442,14 +1441,12 @@ table {
 
     #participant {
         display: block;
-        width: 172px;
         /*text-indent: -9999px;*/
         color: transparent;
     }
 
     #hote {
         display: block;
-        width: 123px;
 
         color: transparent;
     }
