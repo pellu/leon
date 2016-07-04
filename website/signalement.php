@@ -21,7 +21,7 @@ $message_formulaire_invalide = "Vérifiez que tous les champs soient bien rempli
     FIN DE LA CONFIGURATION
     ********************************************************************************************
 */
- 
+
 /*
  * cette fonction sert à nettoyer et enregistrer un texte
  */
@@ -32,7 +32,7 @@ function Rec($text)
     {
         $text = stripslashes($text);
     }
- 
+
     $text = nl2br($text);
     return $text;
 };
@@ -65,12 +65,13 @@ $resultsqlb = mysql_fetch_array($resultsqlb);
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='rest'>
                 <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
                     <form action="" method="post">
+    <br><br><br><br><br>
                         <?php include('headerprofil.php'); ?>
                         <h1 class="text-center">Signalement de l'utilisateur <?php echo $resultsqlb['pseudo']; ?></h1>
 <?php
 $pseudo   = (isset($_POST['pseudo']))  ? Rec($_POST['pseudo'])  : $resultsql['pseudo'];
 $email    = (isset($_POST['email']))   ? Rec($_POST['email'])   : $_SESSION['email'];
-$objet    = (isset($_POST['objet']))   ? Rec($_POST['objet'])   : 'Je signal l\'utilisateur '.$resultsqlb['pseudo'];
+$objet    = (isset($_POST['objet']))   ? Rec($_POST['objet'])   : 'Je signale l\'utilisateur '.$resultsqlb['pseudo'];
 $message  = (isset($_POST['message'])) ? Rec($_POST['message']) : '';
 // On va vérifier les variables et l'email ...
 $email = (IsEmail($email)) ? $email : ''; // soit l'email est vide si erroné, soit il vaut l'email entré
@@ -82,9 +83,9 @@ if (isset($_POST['envoi']))
     {
             $message=htmlentities($message,ENT_QUOTES,'UTF-8');
             // les 4 variables sont remplies, on génère puis envoie le mail
-            $headers  = 'Ma demande: '.$objet.' '. "\r\n" . 'Informations : '.$pseudo.' / '.$email.'' . "\r\n" . 
+            $headers  = 'Ma demande: '.$objet.' '. "\r\n" . 'Informations : '.$pseudo.' / '.$email.'' . "\r\n" .
             'Mon message : ' .$message. '' . "\r\n";
-            
+
         //$headers .= 'Reply-To: '.$email. "\r\n" ;
         //$headers .= 'X-Mailer:PHP/'.phpversion();
 
@@ -97,7 +98,7 @@ if (isset($_POST['envoi']))
         {
             $cible = $destinataire;
         };
- 
+
         // Envoi du mail
         if (mail($cible, $objet, $headers))
         {
@@ -132,7 +133,7 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label>Mon message</label>
                                 </h2></div>
-                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><textarea rows="8" cols="50" class="col-lg-8" type="text" for="message" id="message" name="message" placeholder="Je signal l\'utilisateur car...">'.stripslashes($message).'</textarea>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><textarea rows="8" cols="50" class="col-lg-8" type="text" for="message" id="message" name="message" placeholder="Je signale l\'utilisateur car...">'.stripslashes($message).'</textarea>
                             </div>
                         </div>
                     <input type="submit" name="envoi" value="Envoyer" />
