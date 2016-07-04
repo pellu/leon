@@ -91,7 +91,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'],
             $form = false;
 ?>
 <div class="message"><h2>Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.</h2><br />
-<a href="connexion.php">Se connecter</a></div>
+<?php logoutapreinscriptionbutton(); ?></div>
 <?php
           }
           else
