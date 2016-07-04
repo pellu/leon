@@ -12,6 +12,12 @@ $resultsqlb = mysql_query($sqlb) or die('Erreur SQL !<br />' . $sqlb . '<br />' 
 $resultsqlb = mysql_fetch_array($resultsqlb);
 ?>
 <div class="content">
+    <section id="rest" class="container-fluid content-section text-center">
+    <div class="row">
+    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+    <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
+    <br><br><br><br><br>
+    <?php include('headerprofil.php'); ?>
     <h1>Nouveau message priv&eacute;</h1>
     <?php
     $form = true;
@@ -50,8 +56,8 @@ if(isset($_POST['title'], $_POST['recip'], $_POST['message']))
                 if(mysql_query('insert into pm (id, id2, title, user1, user2, message, timestamp, user1read, user2read)values("'.$id.'", "1", "'.$title.'", "'.$_SESSION['userid'].'", "'.$dn1['recipid'].'", "'.$message.'", "'.time().'", "yes", "no")'))
                 {
     ?>
-    <div class="message"><p>Le message a bien &eacute;t&eacute; envoy&eacute;.<br />
-    <a href="message_liste.php">Liste de mes messages priv&eacute;s</a></p></div>
+    <div class="message"><p>Le message a bien &eacute;t&eacute; envoy&eacute;.</p>
+    <a href="message_liste.php"><p>Liste de mes messages priv&eacute;s</a></p></div>
     <?php
                     $form = false;
                 }
@@ -93,13 +99,8 @@ if(isset($error))
 }
 //On affiche le formulaire
 ?>
-    <section id="rest" class="container-fluid content-section text-center">
-        <div class="row">
-            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
-                    <?php include('headerprofil.php'); ?>
                         <form action="" method="post">
-                        <h1>Je contacte <?php echo $resultsqlb['pseudo'];?></h1>
+                        <h2>Je contacte <?php echo $resultsqlb['pseudo'];?></h2>
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="title">Objet</label>
                                 </h2></div>
@@ -128,13 +129,20 @@ if(isset($error))
 <?php
 }
 }else{?>
-<br><br><br><br><br>
-<section class="container content-section text-center">
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-<div class="message">Pour acc&eacute;der &agrave; cette page, vous devez &ecirc;tre connect&eacute;.<br />
-<a href="connexion.php">Se connecter</a></div>
-</div></div></section>
+
+    <section id="rest" class="container-fluid content-section text-center">
+        <div class="row">
+            <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12'
+                     id="formulaire">
+                    <div class="message"><h1>Vous devez &ecirc;tre connect&eacute;(e).<br>pour
+                            visualiser ce contenu</h1><br/>
+                        <a href="connexion.php">Se connecter</a></div>
+                    <br><br><br>
+                </div>
+            </div>
+        </div>
+    </section>
 <?php
 }
 ?>

@@ -83,8 +83,9 @@ if(isset($_POST['pseudo'], $_POST['pass'],  $_POST['passverif'], $_POST['email']
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
 ?>
-<div id="message"><h2>Votre inscription a bien &eacute;t&eacute; prise en compte</h2>
+<div id="message"><h1>Votre inscription a bien &eacute;t&eacute; prise en compte</h1>
 <a href="connexion.php">Se connecter</a></div>
+              <br><br><br><br><br>
             </div>
             </div>
             </div></section>
