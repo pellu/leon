@@ -49,8 +49,7 @@ if (isset($_SESSION['email'])) {
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
-                                        for="pseudo">Pseudo de l'hébergeur : </label>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label>Pseudo de l'hébergeur : </label>
                                 </h2></div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
                                 <h2><?php echo $donnees['pseudo']; ?></h2>
@@ -66,19 +65,79 @@ if (isset($_SESSION['email'])) {
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
-                                        for="pseudo">Description actuelle de l'évènement : </label>
+                                        for="pseudo">Evènement prévu le :</label>
                                 </h2></div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-                                <h2><?php echo $contenu_news; ?></h2>
+                                <h2><?php echo $donnees['datedejeu']; ?> &agrave <?php echo $donnees['heuredejeu']; ?></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
+                                        for="pseudo">Vous avez prévu de recevoir :</label>
+                                </h2></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h2><?php echo  $donnees['nb_participants']; ?> personnes</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
+                                        for="pseudo">Type de soirée / Type de jeu / Jeu :</label>
+                                </h2></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h2><?php echo  $donnees['typedesoiree']; ?> / <?php echo  $donnees['typedejeu']; ?> / <?php echo  $donnees['jeu']; ?></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
+                                        for="pseudo">Autorisation de fumer :</label>
+                                </h2></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h2><?php echo  $donnees['fumeur']; ?></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
+                                        for="pseudo">Présence d'animaux :</label>
+                                </h2></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                                <h2><?php echo  $donnees['animaux']; ?></h2>
                             </div>
                         </div>
                         <form method="post" action="">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
-                                            for="pseudo">Nouvelle description de l'évènement : </label>
+                                            for="pseudo">Description de l'évènement : </label>
                                     </h2></div>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"><textarea
                                         name="contenu_news"/><?php echo $contenu_news; ?></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label
+                                            for="pseudo">Photo<a href="#" data-toggle="tooltip" data-placement="top"
+                                                                 title="Photo 1200x1200px maximum">*</a> de l'évènement : </label>
+                                    </h2></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"><div class="file-input" style="margin-left:0; max-width: 163px;">Choisissez votre image
+                                        <input name="photo" type="file" id="fichier_a_uploader" accept="image/*"
+                                               onchange="loadFile(event)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><h2><label>Aperçu de la Photo</label>
+                                    </h2></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"><img id="output" href="" title="Votre image"/>
+                                    <style>#output{height: 105px;width: 167px;}</style>
+                                    <script>
+                                        var loadFile = function(event) {
+                                            var reader = new FileReader();
+                                            reader.onload = function(){
+                                                var output = document.getElementById('output');
+                                                output.src = reader.result;
+                                            };
+                                            reader.readAsDataURL(event.target.files[0]);
+                                        };
+                                    </script>
                                 </div>
                             </div>
                             <input type="submit" name="submit" value="Modifier"/>
@@ -111,3 +170,9 @@ if (isset($_SESSION['email'])) {
 }
 ?>
 <?php include('footer.php'); ?>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+

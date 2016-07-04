@@ -340,8 +340,9 @@ if (isset($_SESSION['email'])) {
                                     <label>Photo <a href="#" data-toggle="tooltip" data-placement="top"
                                                     title="Photo 1200x1200px maximum">*</a></label>
                                         <div class="file-input">Choisissez votre image
-                                        <input name="photo" type="file" id="fichier_a_uploader" accept="image/*" onchange="loadFile(event)"/>
-                                    </div>
+                                        <input name="photo" type="file" id="fichier_a_uploader" accept="image/*"
+                                               onchange="loadFile(event)"/>
+                                        </div>
                                 </fieldset>
                                 <fieldset>
                                     <label>Votre photo</label>

@@ -3,7 +3,7 @@
     <section id="rest" class="container-fluid content-section text-center">
         <div class="row">
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
+                <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire"><br><br><br><br><br>
                     <?php
                     if (isset($_SESSION['email'])) {
                         include('headerprofil.php');
@@ -150,14 +150,14 @@
                             </div>
                             <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir vous d&eacute;sinscrire ? Vous ne pourrez plus jamais retrouver votre compte ! Cependant les annonces, les commentaires et les messages sont stockés en cas de signalement !');"
                                href="http://localhost/leon/website/desinscription.php?id=<?php echo $_SESSION['userid']; ?>">Je
-                                souhaite me désinscrire</a>
+                                souhaite me désinscrire</a><br/><br/><br/>
                             <?php
                         }
                     } else {
                         ?>
-                        <div class="message"><h1>Vous devez &ecirc;tre connect&eacute;(e).<br>pour visualiser ce contenu</h1><br/>
-                            <a href="connexion.php">Se connecter</a></div><br><br><br>
-
+                        <br><br><br><br><br><br><br><br>
+                        <div class="message"><h1>Vous devez &ecirc;tre connect&eacute;.</h1><br/>
+                            <a href="connexion.php">Se connecter</a></div>
                         <?php
                     }
                     ?>
