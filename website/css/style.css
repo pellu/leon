@@ -2349,6 +2349,14 @@ position: relative;
     text-shadow: 0 0 12px #7ae3f9;
     text-transform: uppercase;
 }
+#fourofour p {
+    margin-top: 30px;
+    margin-bottom: 32px;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff;
+}
 
 #fourofour h3 {
     width:140px;
@@ -2360,6 +2368,12 @@ position: relative;
     border-radius: 4px;
     border: solid 1px #ffffff;
 }
+
+#fourofour .load p {  font-family: Lato;
+    font-size: 18px;
+    font-weight: normal;
+    font-style: italic;
+    color: #7ae3f9;}
 
 #formulaire h1 {
     margin-top: 150px;
@@ -2435,6 +2449,7 @@ position: relative;
     position: relative;
     top:5px;
 }
+
 
 /* ------------------------------
 ----------- ETOILES -------------
