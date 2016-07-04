@@ -153,8 +153,6 @@ header('content-type: text/html; charset=UTF-8');
                                 </div>
                         <?php } ?>
                     </div>
-                    <?php 
-                    echo $_SESSION['userid'];?>
                     <div id="inline-img">
                         <div class="col-lg-8">
                             <div class="news-playcers"><p
@@ -184,7 +182,7 @@ header('content-type: text/html; charset=UTF-8');
                     <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
                         <div class="col-lg-8 text-left">
                             <h2>&Agrave; propos de cette annonce</h2>
-                            <p><?php echo $donnees['contenu_news']; ?></p>
+                            <p><?php echo substr($donnees['contenu_news'], 0, 800); ?></p>
                             <p>Plus d’infos en MP possibles après réservation.</p>
                         </div>
                     </div>
@@ -192,7 +190,14 @@ header('content-type: text/html; charset=UTF-8');
                 <div id="opacitysquare-news-2" class="col-lg-12 col-md-12 col-xs-12">
                     <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
                         <div class="col-lg-7 text-left">
-                            <h2>Votre hébergeur</h2>
+                        <?php if (isset($_SESSION['email'])) {?>
+                            <?php if($_SESSION['userid'] == $donnees['id']){?>
+                                <h2>C'est vous l'hébergeur</h2>
+                            <?php }else{?>
+                                <h2>Votre hébergeur</h2>
+                            <?php }}else{?>
+                                <h2>Votre hébergeur</h2>
+                            <?php }?>
                             <div class="row">
                                 <p>
                                     <?php switch ($donnees['avatar']) {
@@ -214,8 +219,13 @@ header('content-type: text/html; charset=UTF-8');
                                     </p><br/>
                                     <p class="event-city text-left"><?php echo $donnees['description']; ?>
                                     </p>
-                                    <p class="event-city text-left" id="news-contacter"><a href="http://localhost/leon/website/contactprofil.php">Contacter</a>
+                                    <?php if (isset($_SESSION['email'])) {?>
+                                    <p class="event-city text-left" id="news-contacter"><a href="http://localhost/leon/website/contactprofil.php?id=<?php echo $donnees['id'];?>">Contacter</a>
                                     </p>
+                                    <?php }else{?>
+                                    <p class="event-city text-left" id="news-contacter">Contacter (il faut être conecté)</a>
+                                    </p>
+                                    <?php }?>
                                 </div>
 
                             </div>
@@ -225,9 +235,6 @@ header('content-type: text/html; charset=UTF-8');
                         </div>
                     </div>
                 </div>
-                <p><?php echo $donnees['datedejeu']; ?></p>
-                <p></p>
-                <p>Contenu : <?php echo $donnees['contenu_news']; ?></p>
                 <?php
                 }
                 $req->closeCursor();

@@ -226,7 +226,7 @@ if (isset($_SESSION['email'])) {
                             $animaux = "";
                         }
                         if (isset($_POST['contenu_news'])) {
-                            $contenu_news = htmlspecialchars($_POST['contenu_news']);
+                            $contenu_news = nl2br($_POST['contenu_news']);
                         } else {
                             $contenu_news = "";
                         }
@@ -411,10 +411,14 @@ if (isset($_SESSION['email'])) {
                                     </select>
                                 </fieldset>
                                 <fieldset>
-                                    <label>Description</label><textarea " name="contenu_news"
-                                                                     id="annonce-description" placeholder="D&eacute;crivez le th&egrave;me et le d&eacute;roulement de votre soir&eacute;e&hellip;"
-                                                                     value="<?php echo $contenu_news ?>"/></textarea>
+                                    <label>Description</label><textarea name="contenu_news" id="annonce-description" placeholder="D&eacute;crivez le th&egrave;me et le d&eacute;roulement de votre soir&eacute;e&hellip;" value="<?php echo $contenu_news ?>"/></textarea><br>
                                 </fieldset>
+                                    <p>Il vous reste <span id="reste_description"></span> caractères.</p>
+                                    <script type="text/javascript">
+                                        <!--
+                                            maxlength_textarea('annonce-description','reste_description',800);
+                                        -->
+                                   </script>
                                 <fieldset>
                                     <label>Date de la soir&eacute;e</label><input type="date" name="datedejeu"
                                                                                   value="<?php echo $datedejeu ?>"/>

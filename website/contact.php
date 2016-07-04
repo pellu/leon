@@ -129,6 +129,7 @@ if (($err_formulaire) || (!isset($_POST['envoi'])))
 	      			<select class="col-lg-8 col-md-8 col-sm-8 col-xs-8" name="objet">
 	        			<option style="color: #fff;" value="Contact support technique">Contact support technique</option>
 				        <option style="color: #fff;" value="Dénonciation de profil">Dénonciation de profil</option>
+				        <option style="color: #fff;" value="Partager votre expérience</option>
 				        <option style="color: #fff;" value="Rapport de mauvaise rencontres">Rapport de mauvaise rencontres</option>
 				        <option style="color: #fff;" value="J\'ai trouvé un bug sur le site">J\'ai trouvé un bug sur le site</option>
 				    </select>

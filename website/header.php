@@ -21,5 +21,6 @@
     <link rel="stylesheet" media="screen" type="text/css" title="style"
           href="http://localhost/leon/website/css/bootstrap.min.css"/>
     <link href="http://localhost/leon/website/css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="js/calcul.js"></script>
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

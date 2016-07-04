@@ -33,13 +33,8 @@ if (isset($_SESSION['email'])) {
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label>Mon message</label>
                                 </h2></div>
-                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><textarea rows="8" cols="50"
-                                                                                                 class="col-lg-8"
-                                                                                                 type="text"
-                                                                                                 for="message"
-                                                                                                 id="message"
-                                                                                                 name="message"
-                                                                                                 placeholder="Je vous contactes car ..."></textarea>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left">
+                                <textarea rows="8" cols="50" class="col-lg-8" type="text" for="message" id="message" name="message" placeholder="Je vous contactes car ..."></textarea>
                             </div>
                         </div>
                         <input type="submit" name="envoi" value="Envoyer le formulaire"/>

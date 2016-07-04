@@ -53,7 +53,7 @@ function resultat_recherche($search)
                             }
                         ?>
                     </div>
-                    <div class="result-description text-left"><p><?php echo $row['contenu_news']; ?></p>
+                    <div class="result-description text-left"><p><?php echo substr($row['contenu_news'], 0, 200); ?></p>
                 </div>
                 <a href="http://localhost/leon/website/news/<?php echo $row['url_news']; ?>-<?php echo $row['id_news']; ?>">
                     <p class="regarder-annonce" >Voir l'annonce</p></a>
