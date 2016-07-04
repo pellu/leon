@@ -12,15 +12,8 @@ if(!isset($_SESSION['steamid'])) {
     <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
     <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
         <br>
-      <a href='https://github.com/SmItH197/SteamAuthentication'>
-        <button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
-      </a>
-      <a href='https://github.com/SmItH197/SteamAuthentication/releases'>
-        <button class='btn btn-warning' style='margin: 2px 3px;' type='button'>Download</button>
-      </a>
     <br><br><br><br>
 <?php if(isset($_SESSION['steamid'])) {?>
-    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4>
     <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Je souhaite me d&eacute;connecter de Steam <i class="fa fa-steam" aria-hidden="true"></i></label>
             </h2></div>

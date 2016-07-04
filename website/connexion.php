@@ -97,14 +97,6 @@ if (!isset($_SESSION['steamid'])) {
 } else {
     header("Location:http://localhost/leon/website/inscriptionsteam.php");
 } ?>
-    <div style="display:none;" style='float:left;'>
-        <a href='https://github.com/SmItH197/SteamAuthentication'>
-            <button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
-        </a>
-        <a href='https://github.com/SmItH197/SteamAuthentication/releases'>
-            <button class='btn btn-warning' style='margin: 2px 3px;' type='button'>Download</button>
-        </a>
-    </div>
     </div>
     </div>
     </div>

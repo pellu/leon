@@ -5,7 +5,7 @@ include('config.php');?>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <i class="fa fa-bars">Menu</i>
+                <p style="margin-top: -5px;">Menu</p>
             </button>
             <a class="navbar-brand" href="http://localhost/leon/website/">
                 <img src="http://localhost/leon/website/img/logo-final.png">
@@ -15,7 +15,7 @@ include('config.php');?>
             <ul class="nav navbar-nav">
                 <?php if(isset($_SESSION['email'])){?>
                 <li>
-                    <a class="menu" href="http://localhost/leon/website/connexion.php">Devenir h&ocirc;te</a>
+                    <a class="menu" href="#">Devenir h&ocirc;te</a>
                 </li>
                 <li>
                     <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
