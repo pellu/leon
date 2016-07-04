@@ -18,9 +18,9 @@ function resultat_recherche($search)
     $recherche = mysql_query("SELECT * FROM profil INNER JOIN news ON profil.id=news.pseudo_news WHERE $where");
     $rows = mysql_num_rows($recherche);
     echo "<div class='row'>
-    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='rest-search'>
+    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='rest'>
     <div class='row'>
-        <div class='col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1'>
+        <div class='col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2'>
     ";
     if ($rows) {
         echo "<br/><h3 id='h3'>R&eacute;sultats de votre recherche &agrave; <strong>" . $searchs . "</strong></h3><br/><div class='row'>
@@ -62,8 +62,7 @@ function resultat_recherche($search)
             <?php
         }
         echo "</div></div></div></div>";
-    } else echo "<h3 id='h3' style='padding-bottom: 50px;'>Pas de r&eacute;sultats de votre recherche &agrave; <strong>" . $searchs . "</strong></h3><div class='row'>
-    <div class='col-lg-2 col-md-2 col-sm-12 col-xs-12'></div></div>";
+    } else echo "<h3 id='h3'>Pas de r&eacute;sultats pour votre recherche &agrave; <strong>" . $searchs . "</strong></h3><br/><div class='row'>";
 }
 
 ?>
