@@ -156,8 +156,8 @@
                     } else {
                         ?>
                         <div class="message"><h1>Vous devez &ecirc;tre connect&eacute;(e).<br>pour visualiser ce contenu</h1><br/>
-                            <a href="connexion.php">Se connecter</a></div>
-                        
+                            <a href="connexion.php">Se connecter</a></div><br><br><br>
+
                         <?php
                     }
                     ?>

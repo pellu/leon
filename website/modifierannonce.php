@@ -13,7 +13,7 @@ if (isset($_SESSION['email'])) {
                     <br><br><br><br><br>
                     <?php include('headerprofil.php'); ?>
 
-                    <h1>Je modifie mon annonce</h1>
+                    <h1>Modifier mon annonce</h1>
                     <?php
                     $id_news = $_GET["id"];
                     $req = $mysql->prepare('SELECT c.* , p.* FROM news c, profil p WHERE c.pseudo_news=p.id AND id_news="' . $id_news . '" ORDER BY c.id_news DESC LIMIT 1');
@@ -35,7 +35,7 @@ if (isset($_SESSION['email'])) {
                                 'contenu_news' => $contenu_news,
                                 'date' => $date
                             ));
-                            echo 'Modification effective';
+                            echo '<h2>Modification effective</h2>';
                         } else {
                             echo '';
                         }
@@ -81,7 +81,7 @@ if (isset($_SESSION['email'])) {
                                         name="contenu_news"/><?php echo $contenu_news; ?></textarea>
                                 </div>
                             </div>
-                            <input type="submit" name="submit" value="Modifier l'annonce"/>
+                            <input type="submit" name="submit" value="Modifier"/>
                             <a onclick="return confirm('&Ecirc;tes-vous sur de vouloir supprimer cette annonce ? Vous ne pourrez plus jamais retrouver cette annonce !');"
                                href="http://localhost/leon/website/supprimernews.php?id=<?php echo $id_news; ?>">Je souhaite supprimer mon
                                 annonce</a><br><br><br>
@@ -103,7 +103,7 @@ if (isset($_SESSION['email'])) {
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                 <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
                     <div class="message"><h1>Vous devez &ecirc;tre connect&eacute;(e).<br>pour visualiser ce contenu</h1><br/>
-                        <a href="connexion.php">Se connecter</a></div>
+                        <a href="connexion.php">Se connecter</a></div><br><br><br>
             </div></div>
         </div>
     </section>
