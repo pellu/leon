@@ -67,6 +67,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'],
         $pass = mysql_real_escape_string(sha1($_POST['passverif']));
         $city = mysql_real_escape_string($_POST['city']);
         $adresse = mysql_real_escape_string($_POST['adresse']);
+        $pointstotal = 0;
 
         if(empty($_POST['choix'])){
         }else{
@@ -85,7 +86,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'],
           $url=Slug($pseudo);
           $date_inscription=date("d-m-Y");
           //On enregistre les informations dans la base de donnee
-          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, url, id_steam) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'",  "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$url.'", "'.$id_steam.'")'))
+          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, pointstotal, url, id_steam) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'",  "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$pointstotal.'", "'.$url.'", "'.$id_steam.'")'))
           {
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
@@ -252,7 +253,6 @@ if($form)
         </div>
     </form>
 </div>
-
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Je souhaite me d&eacute;connecter de Steam <i class="fa fa-steam" aria-hidden="true"></i></label>
             </h2></div>
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" style="width: 200px;"><?php logoutbutton(); ?>

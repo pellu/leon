@@ -49,7 +49,7 @@ if (isset($_SESSION['email'])) {
                                         <a href="http://localhost/leon/website/supprimerparticipation.php?id=<?php echo $resultpart['id_news']; ?>">Ne plus participer <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
-                                <div class="squared-title"><a target="_blank" href="http://localhost/leon/website/news/<?php echo $resultpart['url_news']; ?>-<?php echo $resultpart['id_news']; ?>"><?php echo $resultpart['titre_news']; ?></a>
+                                <div class="squared-title"><a href="http://localhost/leon/website/news/<?php echo $resultpart['url_news']; ?>-<?php echo $resultpart['id_news']; ?>"><?php echo $resultpart['titre_news']; ?></a>
                                 </div>
                                 <?php
                             }

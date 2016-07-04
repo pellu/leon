@@ -60,6 +60,7 @@ if(isset($_POST['pseudo'], $_POST['pass'],  $_POST['passverif'], $_POST['email']
         $pass = mysql_real_escape_string(sha1($_POST['passverif']));
         $city = mysql_real_escape_string($_POST['city']);
         $adresse = mysql_real_escape_string($_POST['adresse']);
+        $pointstotal = 0;
 
         if(empty($_POST['choix'])){
         }else{
@@ -78,7 +79,7 @@ if(isset($_POST['pseudo'], $_POST['pass'],  $_POST['passverif'], $_POST['email']
           $url=Slug($pseudo);
           $date_inscription=date("d-m-Y");
           //On enregistre les informations dans la base de donnee
-          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, url) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$url.'")'))
+          if(mysql_query('INSERT INTO profil (id, date_inscription, pseudo, pass, email, city, adresse, pointstotal, url) VALUES ("'.$id.'", "'.$date_inscription.'", "'.$pseudo.'", "'.$pass.'", "'.$email.'", "'.$city.'", "'.$adresse.'", "'.$pointstotal.'", "'.$url.'")'))
           {
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
@@ -239,8 +240,6 @@ if($form)
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7 text-left"><input type="checkbox" name="choix[]" value="1" checked></div>
           </div>
           <input type="submit" value="Envoyer" />
-
-          
     </div>
     </form>
 </div>
