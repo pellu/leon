@@ -1,9 +1,7 @@
 <?php include('menu.php');
 require ('steamauth/steamauth.php');
 if(!isset($_SESSION['steamid'])) {
-    echo "<div style='margin: 30px auto; text-align: center;'><h1>Vous pouvez vous connecter via steam</h1><br>";
-    loginbutton('');
-  echo "</div>";
+    header("location:connexion.php");
   }  else {
     include ('steamauth/userInfo.php');
   ?>
@@ -14,12 +12,6 @@ if(!isset($_SESSION['steamid'])) {
         <br>
     <br><br><br><br>
 <?php if(isset($_SESSION['steamid'])) {?>
-    <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Je souhaite me d&eacute;connecter de Steam <i class="fa fa-steam" aria-hidden="true"></i></label>
-            </h2></div>
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" style="width: 200px;"><?php logoutbutton(); ?>
-        </div>
-    </div>
     <?php
     }
 
@@ -260,6 +252,11 @@ if($form)
         </div>
     </form>
 </div>
+
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Je souhaite me d&eacute;connecter de Steam <i class="fa fa-steam" aria-hidden="true"></i></label>
+            </h2></div>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" style="width: 200px;"><?php logoutbutton(); ?>
+        </div>
 <?php
 }
 ?>

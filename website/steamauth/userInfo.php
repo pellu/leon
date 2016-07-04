@@ -24,17 +24,17 @@ if (empty($_SESSION['steam_uptodate']) or empty($_SESSION['steam_personaname']))
 }
 
 $steamprofile['steamid'] = $_SESSION['steam_steamid'];
-$steamprofile['communityvisibilitystate'] = $_SESSION['steam_communityvisibilitystate'];
-$steamprofile['profilestate'] = $_SESSION['steam_profilestate'];
+// $steamprofile['communityvisibilitystate'] = $_SESSION['steam_communityvisibilitystate'];
+// $steamprofile['profilestate'] = $_SESSION['steam_profilestate'];
 $steamprofile['personaname'] = $_SESSION['steam_personaname'];
 $steamprofile['lastlogoff'] = $_SESSION['steam_lastlogoff'];
 $steamprofile['profileurl'] = $_SESSION['steam_profileurl'];
-$steamprofile['avatar'] = $_SESSION['steam_avatar'];
-$steamprofile['avatarmedium'] = $_SESSION['steam_avatarmedium'];
-$steamprofile['avatarfull'] = $_SESSION['steam_avatarfull'];
-$steamprofile['personastate'] = $_SESSION['steam_personastate'];
-$steamprofile['realname'] = $_SESSION['steam_realname'];
-$steamprofile['primaryclanid'] = $_SESSION['steam_primaryclanid'];
-$steamprofile['timecreated'] = $_SESSION['steam_timecreated'];
-$steamprofile['uptodate'] = $_SESSION['steam_uptodate'];
+// $steamprofile['avatar'] = $_SESSION['steam_avatar'];
+// $steamprofile['avatarmedium'] = $_SESSION['steam_avatarmedium'];
+// $steamprofile['avatarfull'] = $_SESSION['steam_avatarfull'];
+// $steamprofile['personastate'] = $_SESSION['steam_personastate'];
+// $steamprofile['realname'] = $_SESSION['steam_realname'];
+// $steamprofile['primaryclanid'] = $_SESSION['steam_primaryclanid'];
+// $steamprofile['timecreated'] = $_SESSION['steam_timecreated'];
+// $steamprofile['uptodate'] = $_SESSION['steam_uptodate'];
 ?>
