@@ -105,7 +105,7 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'],
             //Si ca a fonctionne, on naffiche pas le formulaire
             $form = false;
 ?>
-<div class="message">Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.<br />
+<div class="message"><h2>Vous avez bien &eacute;t&eacute; inscrit. Vous pouvez dor&eacute;navant vous connecter.</h2><br />
 <a href="connexion.php">Se connecter</a></div>
 <?php
           }
@@ -113,35 +113,35 @@ if(isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'],
           {
             //Sinon on dit quil y a eu une erreur
             $form = true;
-            $message = 'Une erreur est survenue lors de l\'inscription.';
+            $message = '<h2>Une erreur est survenue lors de l\'inscription.</h2>';
           }
         }
         else
         {
           //Sinon, on dit que le pseudo voulu est deja pris
           $form = true;
-          $message = 'Un autre utilisateur utilise d&eacute;j&agrave; le mail que vous d&eacute;sirez utiliser.';
+          $message = '<h2>Un autre utilisateur utilise d&eacute;j&agrave; le mail que vous d&eacute;sirez utiliser.</h2>';
         }
       }
       else
       {
         //Sinon, on dit que lemail nest pas valide
         $form = true;
-        $message = 'L\'email que vous avez entr&eacute; n\'est pas valide.';
+        $message = '<h2>L\'email que vous avez entr&eacute; n\'est pas valide.</h2>';
       }
     }
     else
     {
       //Sinon, on dit que le mot de passe nest pas assez long
       $form = true;
-      $message = 'Le mot de passe que vous avez entr&eacute; contien moins de 6 caract&egrave;res.';
+      $message = '<h2>Le mot de passe que vous avez entr&eacute; contient moins de 6 caract&egrave;res.</h2>';
     }
   }
   else
   {
     //Sinon, on dit que les mots de passes ne sont pas identiques
     $form = true;
-    $message = 'Les mots de passe que vous avez entr&eacute; ne sont pas identiques.';
+    $message = '<h2>Les mots de passe que vous avez entr&eacute; ne sont pas identiques.</h2>';
   }
 }
 else
@@ -251,12 +251,6 @@ if($form)
                         <option value="villejuif">Villejuif (94)</option>
                         <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
                     </select></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="adresse">Adresse</label>
-                    </h2></div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" />
-                </div>
             </div>
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="adresse">Adresse</label>
