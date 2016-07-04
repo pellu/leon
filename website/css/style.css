@@ -2371,7 +2371,8 @@ position: relative;
 #formulaire input[type="text"],
 #formulaire input[type="password"],
 #formulaire input[type="select"]{
-    width: 200px;
+    min-width:50%;
+    max-width: 100%;
     display: block;
     margin-bottom: 10px;
 }
@@ -2405,7 +2406,9 @@ position: relative;
 }
 
 #formulaire #message {
-    margin: 200px 0
+    height: 200px;
+    min-width:50%;
+    max-width: 100%;
 }
 
 #formulaire .small {

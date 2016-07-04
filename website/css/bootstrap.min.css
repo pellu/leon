@@ -289,13 +289,50 @@ body {
     /*line-height: inherit*/
 /*}*/
 
-input, button, select, textarea {
+input, select, textarea {
     display: block;
     height: 34px;
+    border-radius: 4px;
+    /*box-shadow: 0 0 12px 2px #7ae3f9;*/
+    border: solid 1px #7ae3f9;
+    background-color: #292929;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+button {
+    display: block;
+    height: 34px;
+    border-radius: 4px;
+    /*box-shadow: 0 0 12px 2px #7ae3f9;*/
+    border: solid 1px #7ae3f9;
+    background-color: #292929;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+input:hover, select:hover, textarea:hover {
+    display: block;
     border-radius: 4px;
     box-shadow: 0 0 12px 2px #7ae3f9;
     border: solid 1px #7ae3f9;
     background-color: #292929;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+input:focus, select:focus, textarea:focus {
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 0 12px 2px #7ae3f9;
+    border: solid 1px #7ae3f9;
+    background-color: #4f4f4f;
     font-family: Lato;
     font-size: 14px;
     font-weight: normal;
