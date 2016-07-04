@@ -34,7 +34,7 @@ while($dn1 = mysql_fetch_array($req1))
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><p><a href="message_lire.php?id=<?php echo $dn1['id']; ?>"><?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></a></p></div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><p><?php echo $dn1['reps']-1; ?></p></div>
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><p><a target="_blank" href="http://localhost/leon/website/profil/<?php echo $dn1['pseudo']?>-<?php echo $dn1['userid']?>"><?php echo $dn1['pseudo']; ?></a></p></div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><p><?php echo date('d/m/Y H:i:s' ,$dn1['timestamp']); ?></p></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"><p><?php echo date('d/m/Y' ,$dn2['timestamp']); ?> &agrave; <?php echo date('H:i:s' ,$dn2['timestamp']); ?></p></div>
     </div>
 <?php
 }
