@@ -6,6 +6,10 @@ function logoutbutton() {
 	echo "<form action='' method='get'><button name='logout' type='submit'>Logout</button></form>"; //logout button
 }
 
+function logoutapreinscriptionbutton() {
+	echo "<form action='' method='get'><button name='logout' type='submit'>Se connecter</button></form>"; //logout button
+}
+
 function loginbutton($buttonstyle = "large_no") {
 	$button['small'] = "small";
 	$button['large_no'] = "large_noborder";
