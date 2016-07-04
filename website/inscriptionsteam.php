@@ -1,28 +1,32 @@
 <?php include('menu.php');
 require ('steamauth/steamauth.php');
 if(!isset($_SESSION['steamid'])) {
-    echo "<div style='margin: 30px auto; text-align: center;'>Vous pouvez vous connecter via steam<br>";
+    echo "<div style='margin: 30px auto; text-align: center;'><h1>Vous pouvez vous connecter via steam</h1><br>";
     loginbutton('');
   echo "</div>";
   }  else {
     include ('steamauth/userInfo.php');
   ?>
-  <section class="container content-section text-center">
-  <div class="row">
-    <div class="col-lg-12 col-ls-12 col-xs-12">
-    <br><br><br><br><br><br>
-  <div style="display:none;" style='float:left;'>
+    <section id="rest" class="container-fluid content-section text-center">
+    <div class="row">
+    <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+    <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
+        <br>
       <a href='https://github.com/SmItH197/SteamAuthentication'>
         <button class='btn btn-success' style='margin: 2px 3px;' type='button'>GitHub Repo</button>
       </a>
       <a href='https://github.com/SmItH197/SteamAuthentication/releases'>
         <button class='btn btn-warning' style='margin: 2px 3px;' type='button'>Download</button>
       </a>
-    </div>
-    <br>
-    <br>
+    <br><br><br><br>
 <?php if(isset($_SESSION['steamid'])) {?>
-    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4><span style='float:right;'>Je me d&eacute;connecte<br> de steam<?php logoutbutton(); ?></span>
+    <h4 style="display:none;" style='margin-bottom: 3px; float:left;'>Steam WebAPI-Output:</h4>
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Je souhaite me d&eacute;connecter de Steam <i class="fa fa-steam" aria-hidden="true"></i></label>
+            </h2></div>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left" style="width: 200px;"><?php logoutbutton(); ?>
+        </div>
+    </div>
     <?php
     }
 
@@ -155,80 +159,116 @@ if($form)
 ?>
 <div class="content">
     <form action="" method="POST">
-        Veuillez remplir ce formulaire pour vous inscrire:<br />
+        <h1>Inscription<br/><i class="fa fa-steam" aria-hidden="true"></i></h1>
+        <p>Veuillez remplir ce formulaire pour vous inscrire:</p>
         <div class="center">
             <label for="pseudo" style="display:none;">Votre pseudo: <input type="text" name="pseudo" value="<?php echo $pseudo;?>"/></label><br/>
-            <label>Votre pseudo est <a title="Vous pourrez changer votre pseudo une fois inscrit">*</a>: <?php echo $pseudo_steam ?></label><br/>
-            <label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label><input type="password" name="pass" /><br />
-            <label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label><input type="password" name="passverif" /><br />
-            <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-            <label>Votre ville:
-              <select name="city">
-              <option value="" disabled selected>Quelle est ta ville ?</option>
-              <option value="antony">Antony (92)</option>
-              <option value="argenteuil">Argenteuil (95)</option>
-              <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
-              <option value="aubervilliers">Aubervilliers (93)</option>
-              <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
-              <option value="bondy">Bondy (93)</option>
-              <option value="boulogne-billancourt">Boulogne-Billancourt (92)</option>
-              <option value="cergy">Cergy (95)</option>
-              <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
-              <option value="chelles">Chelles (77)</option>
-              <option value="clamart">Clamart (92)</option>
-              <option value="clichy">Clichy (92)</option>
-              <option value="colombes">Colombes (92)</option>
-              <option value="courbevoie">Courbevoie (92)</option>
-              <option value="creteil">Cr&eacute;teil (94)</option>
-              <option value="drancy">Drancy (93)</option>
-              <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
-              <option value="evry">&Eacute;vry (91)</option>
-              <option value="fontenay-sous-bois">Fontenay-sous-Bois (94)</option>
-              <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
-              <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
-              <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
-              <option value="levallois-perret">Levallois-Perret (92)</option>
-              <option value="maisons-alfort">Maisons-Alfort (94)</option>
-              <option value="meaux">Meaux (77)</option>
-              <option value="montreuil">Montreuil (93)</option>
-              <option value="nanterre">Nanterre (92)</option>
-              <option value="neuilly-sur-seine">Neuilly-sur-Seine (92)</option>
-              <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
-              <option value="pantin">Pantin (93)</option>
-              <option value="paris1">Paris (75 001)</option>
-              <option value="paris2">Paris (75 002)</option>
-              <option value="paris3">Paris (75 003)</option>
-              <option value="paris4">Paris (75 004)</option>
-              <option value="paris5">Paris (75 005)</option>
-              <option value="paris6">Paris (75 006)</option>
-              <option value="paris7">Paris (75 007)</option>
-              <option value="paris8">Paris (75 008)</option>
-              <option value="paris9">Paris (75 009)</option>
-              <option value="paris10">Paris (75 010)</option>
-              <option value="paris11">Paris (75 011)</option>
-              <option value="paris12">Paris (75 012)</option>
-              <option value="paris13">Paris (75 013)</option>
-              <option value="paris14">Paris (75 014)</option>
-              <option value="paris15">Paris (75 015)</option>
-              <option value="paris16">Paris (75 016)</option>
-              <option value="paris17">Paris (75 017)</option>
-              <option value="paris18">Paris (75 018)</option>
-              <option value="paris19">Paris (75 019)</option>
-              <option value="paris20">Paris (75 020)</option>
-              <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
-              <option value="saint-denis">Saint-Denis (93)</option>
-              <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
-              <option value="sarcelles">Sarcelles (95)</option>
-              <option value="sartrouville">Sartrouville (78)</option>
-              <option value="sevran">Sevran (93)</option>
-              <option value="versailles">Versailles (78)</option>
-              <option value="villejuif">Villejuif (94)</option>
-              <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
-            </select>
-            </label><br>
-            <label for="adresse">Adresse</label><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
-            <label for="id_steam" style="display:none;"><input type="text" name="id_steam" value="<?php echo $id_steam;?>"/></label><br/>
-            <input type="checkbox" name="choix[]" value="1" checked> Je m'inscris &agrave; la newsletter<br>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pseudo">Votre pseudo est <a href="#" data-toggle="tooltip" data-placement="top" title="Vous pourrez changer votre pseudo une fois inscrit">*</a> :</label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="text" name="pseudo" value="<?php echo $pseudo;?>"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="pass">Mot de passe<span class="small">(6 caract&egrave;res min.)</span></label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="password" name="pass" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm56 col-xs-5 text-right"><h2><label for="passverif">Mot de passe<span class="small">(v&eacute;rification)</span></label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="password" name="passverif" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="email">Email</label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label>Votre ville:</label></h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><select name="city">
+                        <option value="" disabled selected>Quelle est ta ville ?</option>
+                        <option value="antony">Antony (92)</option>
+                        <option value="argenteuil">Argenteuil (95)</option>
+                        <option value="asnieres-sur-seine">Asni&egrave;res-sur-Seine (92)</option>
+                        <option value="aubervilliers">Aubervilliers (93)</option>
+                        <option value="aulnay-sous-bois">Aulnay-sous-Bois (93)</option>
+                        <option value="bondy">Bondy (93)</option>
+                        <option value="boulogne-billancourt">Boulogne-Billancourt (92)</option>
+                        <option value="cergy">Cergy (95)</option>
+                        <option value="champigny-sur-marne">Champigny-sur-Marne (94)</option>
+                        <option value="chelles">Chelles (77)</option>
+                        <option value="clamart">Clamart (92)</option>
+                        <option value="clichy">Clichy (92)</option>
+                        <option value="colombes">Colombes (92)</option>
+                        <option value="courbevoie">Courbevoie (92)</option>
+                        <option value="creteil">Cr&eacute;teil (94)</option>
+                        <option value="drancy">Drancy (93)</option>
+                        <option value="epinay-sur-seine">&Eacute;pinay-sur-Seine (93)</option>
+                        <option value="evry">&Eacute;vry (91)</option>
+                        <option value="fontenay-sous-bois">Fontenay-sous-Bois (94)</option>
+                        <option value="issy-les-moulineaux">Issy-les-Moulineaux (92)</option>
+                        <option value="ivry-sur-seine">Ivry-sur-Seine (94)</option>
+                        <option value="le-blanc-mesnil">Le Blanc-Mesnil (93)</option>
+                        <option value="levallois-perret">Levallois-Perret (92)</option>
+                        <option value="maisons-alfort">Maisons-Alfort (94)</option>
+                        <option value="meaux">Meaux (77)</option>
+                        <option value="montreuil">Montreuil (93)</option>
+                        <option value="nanterre">Nanterre (92)</option>
+                        <option value="neuilly-sur-seine">Neuilly-sur-Seine (92)</option>
+                        <option value="noisy-le-grand">Noisy-le-Grand (93)</option>
+                        <option value="pantin">Pantin (93)</option>
+                        <option value="paris1">Paris (75 001)</option>
+                        <option value="paris2">Paris (75 002)</option>
+                        <option value="paris3">Paris (75 003)</option>
+                        <option value="paris4">Paris (75 004)</option>
+                        <option value="paris5">Paris (75 005)</option>
+                        <option value="paris6">Paris (75 006)</option>
+                        <option value="paris7">Paris (75 007)</option>
+                        <option value="paris8">Paris (75 008)</option>
+                        <option value="paris9">Paris (75 009)</option>
+                        <option value="paris10">Paris (75 010)</option>
+                        <option value="paris11">Paris (75 011)</option>
+                        <option value="paris12">Paris (75 012)</option>
+                        <option value="paris13">Paris (75 013)</option>
+                        <option value="paris14">Paris (75 014)</option>
+                        <option value="paris15">Paris (75 015)</option>
+                        <option value="paris16">Paris (75 016)</option>
+                        <option value="paris17">Paris (75 017)</option>
+                        <option value="paris18">Paris (75 018)</option>
+                        <option value="paris19">Paris (75 019)</option>
+                        <option value="paris20">Paris (75 020)</option>
+                        <option value="rueil-malmaison">Rueil-Malmaison (92)</option>
+                        <option value="saint-denis">Saint-Denis (93)</option>
+                        <option value="saint-maur-des-fosses">Saint-Maur-des-Foss&eacute;s (94)</option>
+                        <option value="sarcelles">Sarcelles (95)</option>
+                        <option value="sartrouville">Sartrouville (78)</option>
+                        <option value="sevran">Sevran (93)</option>
+                        <option value="versailles">Versailles (78)</option>
+                        <option value="villejuif">Villejuif (94)</option>
+                        <option value="vitry-sur-seine">Vitry-sur-Seine (94)</option>
+                    </select></div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="adresse">Adresse</label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label for="adresse">Adresse</label>
+                    </h2></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="text" name="adresse" value="<?php if(isset($_POST['adresse'])){echo htmlentities($_POST['adresse'], ENT_QUOTES, 'UTF-8');} ?>" />
+                </div>
+            </div>
+            <label for="id_steam" style="display:none;"><input type="text" name="id_steam" value="<?php echo $id_steam;?>"/></label>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><p class="nl-sub">Je m'inscris à la Newsletter</p></div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input type="checkbox" name="choix[]" value="1" checked></div>
+            </div>
             <input type="submit" value="Envoyer" />
         </div>
     </form>
@@ -241,3 +281,8 @@ if($form)
 ?>
 </div></div></section>
 <?php include('footer.php');?>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
