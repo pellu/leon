@@ -121,13 +121,6 @@ header('content-type: text/html; charset=UTF-8');
                                 </div>
                             </div>
                             <div class="col-lg-12 event-section">
-
-                                <div class="col-lg-8 text-left"><p>Frais de Service <i class="fa fa-question-circle"
-                                                                                       aria-hidden="true"></i></p>
-                                </div>
-                                <div class="col-lg-4 text-right"><p>0,50 &euro;</p></div>
-                            </div>
-                            <div class="col-lg-12 event-section">
                                 <div class="col-lg-8 text-left"><p>Total <i class="fa fa-question-circle"
                                                                             aria-hidden="true"></i></p></div>
                                 <div class="col-lg-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p></div>
