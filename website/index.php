@@ -135,7 +135,7 @@
             <a href="#">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="hote"><a
                         href="http://letsplayce.com/website/connexion.php"><img class="img-responsive pull-right"
-                                                                                src="http://localhost/leon/website/img/hebergeur-h.png"
+                                                                                src="http://localhost/leon/website/img/hebergeur.png"
                                                                                 alt="hebergeur"
                                                                                 onMouseOver="this.src='http://localhost/leon/website/img/hebergeur-h.png'"
                                                                                 onmouseleave="this.src='http://localhost/leon/website/img/hebergeur.png'"></a>Hote

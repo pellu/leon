@@ -13,7 +13,8 @@
                     }
 
                     if (isset($_POST['envoi']) AND ($_POST['email'])) {
-                        echo 'Vous recevrez un mail avec un lien';
+                        echo '<h1 class="text-center">Merci de votre confiance</h1>
+<p>Vous recevrez bient&ocirc;t un mail avec un lien pour votre nouveau mot de passe</p><br><br><br><br><br>';
                     } else {
                         // afficher le formulaire
                         echo '

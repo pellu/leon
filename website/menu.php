@@ -15,7 +15,7 @@ include('config.php');?>
             <ul class="nav navbar-nav">
                 <?php if(isset($_SESSION['email'])){?>
                 <li>
-                    <a class="menu" href="#">H&eacute;berger</a>
+                    <a class="menu" href="http://localhost/leon/website/connexion.php">H&eacute;berger</a>
                 </li>
                 <li>
                     <a class="menu" id="tue-active" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;nement</a>

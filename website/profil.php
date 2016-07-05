@@ -85,28 +85,51 @@ if (isset($data['url'])) {
                             </div>
                             </div>
 
+                        <p id="h5" class="text-left">&Agrave; propos de <?php echo $data['pseudo']; ?></p>
+                        <p class="text-left" id="adresse"><?php echo $data['description']; ?></p>
+                    </div>
+                <div class="col-lg-3 col-md-3 hidden-sm hidden-xs>
+                        <img src="http://localhost/leon/website/img/circuits-droite.png" alt="Circuits" id="controller"
+                width="100%">
+            </div>
+        </div>
+
                             <?php if (isset($_SESSION['email'])) {
                                 if ($_SESSION['userid'] != $idpageuser) {
                                     ?>
 
                                     <section class="container content-section text-center">
                                         <div class="row">
-                                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
-                                                <form method="POST" action="">
-                                                    <input type="hidden" name="pseudo" value="<?php echo $profil_comments ?>">
-                                                    <input type="hidden" name="profil" value="<?php echo $id ?>">
-                                                    <label>Commentaire: <textarea name="comments"/><?php echo $comments ?></textarea></label><br/>
-                                                    <label>Note:
-                                                        <div class="rating">
-                                                            <input name="etoiles" type="checkbox" id="e5" value="5"><label for="e5">☆</label>
-                                                            <input name="etoiles" type="checkbox" id="e4" value="4"><label for="e4">☆</label>
-                                                            <input name="etoiles" type="checkbox" id="e3" value="3"><label for="e3">☆</label>
-                                                            <input name="etoiles" type="checkbox" id="e2" value="2"><label for="e2">☆</label>
-                                                            <input name="etoiles" type="checkbox" id="e1" value="1"><label for="e1">☆</label>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2" id="formulaire">
+
+                                                    <form method="post" action="">
+                                                        <p class="text-center">Vous désirez commenter ce profil ?</p><br/>
+                                                        <input type="hidden" name="pseudo" value="<?php echo $profil_comments ?>">
+                                                        <input type="hidden" name="profil" value="<?php echo $id ?>">
+
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-5 text-right"><h2><label>Votre commentaire</label>
+                                                                </h2></div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7 text-left"><textarea name="comments"/><?php echo $comments ?></textarea>
+                                                            </div>
                                                         </div>
-                                                    </label>
-                                                    <input type="submit" value="ENVOYER"/>
-                                                </form>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-5 text-right"><h2><label>Votre note pour cet utilisateur</label>
+                                                                </h2></div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-7 text-left rating" style="margin-left:0; position: relative; left: -150px;">
+                                                                <input name="etoiles" type="checkbox" id="e5" value="5"><label for="e5">☆</label>
+                                                                <input name="etoiles" type="checkbox" id="e4" value="4"><label for="e4">☆</label>
+                                                                <input name="etoiles" type="checkbox" id="e3" value="3"><label for="e3">☆</label>
+                                                                <input name="etoiles" type="checkbox" id="e2" value="2"><label for="e2">☆</label>
+                                                                <input name="etoiles" type="checkbox" id="e1" value="1"><label for="e1">☆</label>
+
+                                                            </div>
+                                                        </div>
+                                                        <input type="submit" value="ENVOYER"/>
+                                                    </form>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </section>
@@ -115,14 +138,6 @@ if (isset($data['url'])) {
                             <?php } else { ?>
                             <?php } ?>
 
-                        <p id="h5" class="text-left">&Agrave; propos de <?php echo $data['pseudo']; ?></p>
-                        <p class="text-left" id="adresse"><?php echo $data['description']; ?></p>
-                    </div>
-                    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs>
-                        <img src="http://localhost/leon/website/img/circuits-droite.png" alt="Circuits" id="controller"
-                             width="100%">
-                    </div>
-                </div>
                 <div id="opacitysquare-news-2" class="col-lg-12 col-md-12 col-xs-12">
                     <div class='col-lg-6 col-md-12 col-sm-12 col-xs-12 col-lg-offset-4'>
                         <div class="col-lg-7 text-left">
@@ -242,10 +257,6 @@ if (isset($data['url'])) {
                     </div>
                 </div>
 
-
-            </div>
-        </div>
-    </section>
                     <?php
                     }
                     ?>
