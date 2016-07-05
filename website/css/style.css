@@ -452,6 +452,16 @@ footer p a {
     margin: 8px !important;
 }
 
+footer p a:hover {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #7ae3f9;
+    text-shadow: 0 0 10px #7ae3f9;
+    margin: 8px !important;
+    text-decoration: none;
+}
+
 footer p {
     margin: 0px;
 }
@@ -484,6 +494,33 @@ footer .fa-instagram {
     display: inline-block;
     color: #ffffff;
     font-size: 18px;
+}
+
+footer .fa-facebook:hover {
+    display: inline-block;
+    color: #7ae3f9;
+    text-shadow: 0 0 10px #7ae3f9;
+    margin-right: 25px;
+    font-size: 18px;
+    text-decoration: none;
+
+}
+
+footer .fa-twitter:hover {
+    display: inline-block;
+    color: #7ae3f9;
+    text-shadow: 0 0 10px #7ae3f9;
+    margin-right: 25px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+footer .fa-instagram:hover {
+    display: inline-block;
+    color: #7ae3f9;
+    text-shadow: 0 0 10px #7ae3f9;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 footer form.input-group {

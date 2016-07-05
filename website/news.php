@@ -83,7 +83,7 @@ header('content-type: text/html; charset=UTF-8');
 
                     </div>
                     <div class="col-lg-8">
-                        <img class="event-photo"
+                        <img class="event-photo img-responsive"
                              src="http://localhost/leon/website/photos/<?php echo $donnees['photo']; ?>">
                     </div>
                     <div class="col-lg-4">
@@ -224,7 +224,7 @@ header('content-type: text/html; charset=UTF-8');
                             </div>
                         </div>
                         <div class="col-lg-5">
-                            <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><img id="city-map" src="http://localhost/leon/website/img/maps/<?php echo $donnees['ville_news']; ?>.png" alt="<?php echo $donnees['ville_news']; ?>"></a>
+                            <a target="_blank" href="https://www.google.fr/maps/place/<?php echo $donnees['ville_news']; ?>"><img id="city-map" class="img-responsive" src="http://localhost/leon/website/img/maps/<?php echo $donnees['ville_news']; ?>.png" alt="<?php echo $donnees['ville_news']; ?>"></a>
                         </div>
                     </div>
                 </div>
