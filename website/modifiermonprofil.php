@@ -8,7 +8,7 @@
                     if (isset($_SESSION['email'])) {
                         include('headerprofil.php');
                         //On verifie si le formulaire a ete envoye
-                        if (isset($_POST['pseudo'], $_POST['pass'], $_POST['passverif'], $_POST['email'], $_POST['avatar'])) {
+                        if (isset($_POST['pseudo'])) {
                             //On enleve lechappement si get_magic_quotes_gpc est active
                             if (get_magic_quotes_gpc()) {
                                 $_POST['pseudo'] = stripslashes($_POST['pseudo']);
@@ -17,10 +17,6 @@
                                 $_POST['email'] = stripslashes($_POST['email']);
                                 $_POST['avatar'] = stripslashes($_POST['avatar']);
                             }
-                            //On verifie si le mot de passe et celui de la verification sont identiques
-                            if ($_POST['pass'] == $_POST['passverif']) {
-                                //On verifie si le mot de passe a 6 caracteres ou plus
-                                if (strlen($_POST['pass']) >= 6) {
                                     //On verifie si lemail est valide
                                     if (preg_match('#^(([a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+\.?)*[a-z0-9!\#$%&\\\'*+/=?^_`{|}~-]+)@(([a-z0-9-_]+\.?)*[a-z0-9-_]+)\.[a-z]{2,}$#i', $_POST['email'])) {
                                         //On echape les variables pour pouvoir les mettre dans une requette SQL
@@ -52,22 +48,7 @@
                                             //Sinon, on dit que le pseudo voulu est deja pris
                                             $form = true;
                                             $message = '<h2>Un autre utilisateur utilise d&eacute;j&agrave; le nom d\'utilisateur que vous d&eacute;sirez utiliser.</h2>';
-                                        }
-                                    } else {
-                                        //Sinon, on dit que lemail nest pas valide
-                                        $form = true;
-                                        $message = '<h2>L\'email que vous avez entr&eacute; n\'est pas valide.</h2>';
-                                    }
-                                } else {
-                                    //Sinon, on dit que le mot de passe nest pas assez long
-                                    $form = true;
-                                    $message = '<h2>Le mot de passe que vous avez entr&eacute; contien moins de 6 caract&egrave;res.</h2>';
-                                }
-                            } else {
-                                //Sinon, on dit que les mots de passes ne sont pas identiques
-                                $form = true;
-                                $message = '<h2>Les mot de passe que vous avez entr&eacute; ne sont pas identiques.</h2>';
-                            }
+                                        }}
                         } else {
                             $form = true;
                         }
@@ -125,6 +106,14 @@
                                             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input
                                                     type="password" name="passverif" id="passverif"
                                                     value="<?php echo $pass; ?>"/>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right"><h2><label
+                                                        for="email">Email</label>
+                                                </h2></div>
+                                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7 text-left"><input
+                                                    type="text" name="email" id="email" value="<?php echo $email; ?>"/>
                                             </div>
                                         </div>
                                         <div class="row">
