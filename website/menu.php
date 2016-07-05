@@ -18,7 +18,7 @@ include('config.php');?>
                     <a class="menu" href="#">H&eacute;berger</a>
                 </li>
                 <li>
-                    <a class="menu" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;nement</a>
+                    <a class="menu" id="tue-active" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;nement</a>
                 </li>
                 <li>
                     <?php
@@ -51,7 +51,7 @@ include('config.php');?>
                         <a class="menu" href="http://letsplayce.com/website/connexion.php">H&eacute;berger</a>
                     </li>
                     <li>
-                        <a class="menu" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;</a>
+                        <a class="menu" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;nement</a>
                     </li>
                     <li>
                         <a class="menu" href="http://localhost/leon/website/connexion.php">Connexion</a>

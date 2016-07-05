@@ -193,6 +193,15 @@ ul {
 }
 
 .navbar-custom .nav li a:hover {
+    /*border: 1px inset #fff;*/
+    /*border-radius: 3px;*/
+    color: #7ae3f9;
+    text-shadow: 0 0 4px #7ae3f9;
+    background-color: transparent;
+    outline: 0;
+}
+
+#tue-active {
     color: #fff;
     border: 1px inset #fff;
     border-radius: 3px;
@@ -202,8 +211,11 @@ ul {
 
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:active {
-    outline: 0;
+    color: #fff;
+    border: 1px inset #fff;
+    border-radius: 3px;
     background-color: transparent;
+    outline: 0;
 }
 
 .navbar-custom .nav li.active {
@@ -1062,14 +1074,12 @@ p {
 
 #participant {
     display: block;
-    /*text-indent: -9999px;*/
     color: transparent;
     padding: 0;
 }
 
 #hote {
     display: block;
-    /*text-indent: 9999px;*/
     color: transparent;
     padding: 0;
 }
@@ -1164,11 +1174,21 @@ p {
     background-color: transparent;
     width: 145px;
     height: 40px;
+    border: solid 1px #7ae3f9;
+    color: #ffffff;
+    top: 5px;
+}
+#rechercher:hover {
+    position: relative;
+    background-color: transparent;
+    width: 145px;
+    height: 40px;
     box-shadow: 0 0 15px 3px #7ae3f9;
     border: solid 1px #7ae3f9;
     color: #ffffff;
     top: 5px;
 }
+
 /*IPAD STYLES*/
 @media only screen and (max-width: 640px) {
 
@@ -1237,11 +1257,11 @@ p {
         background-color: transparent;
         width: 100px;
         height: 40px;
-        box-shadow: 0 0 15px 3px #7ae3f9;
         border: solid 1px #7ae3f9;
         color: #ffffff;
         top: 5px;
     }
+
 
     #shareexp {
         margin-left: 20px;
@@ -1276,7 +1296,6 @@ p {
     .partagez-votre-experience a:hover{
         text-decoration: none;
     }
-
 }
 
 
@@ -1352,6 +1371,25 @@ p {
     border: solid 2px #7ae3f9;
 }
 
+.regarder-annonce:hover {
+    position: relative;
+    background-color: #7ae3f9;
+    bottom: 38px;
+    font-family: Lato;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: normal;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    padding-top: 10px;;
+    width: 485px;
+    height: 55px;
+    box-shadow: 0 0 10px 2px #7ae3f9;
+    border: solid 2px #7ae3f9;
+}
+
 .regarder-annonce a {
     position: relative;
     background-color: #292929;
@@ -1386,6 +1424,112 @@ p {
     bottom: 65px;
 }
 
+/*IPHONE STYLES*/
+@media only screen and (max-width: 480px) {
+    #rest-search {
+        background-color: #4f4f4f;
+    }
+
+    .result-price {
+        position: relative;
+        bottom: 113px;
+        font-family: Lato;
+        font-size: 24px;
+        font-weight: bold;
+        color: #7ae3f9;
+        width: 90.5px;
+        height: 56.8px;
+        background-color: #2e2e2e;
+        box-shadow: 4px 0 13px 2px #545454;
+        padding: 12px 22px;
+    }
+
+    .result-square {
+        position: relative;
+        bottom: 57px;
+        display: block;
+        width: 100%;
+        height: 170px;
+        background-color: #ffffff;
+    }
+
+    .result-square p {
+        color: #000000;
+    }
+
+    .result-title {
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #393535;
+        text-transform: uppercase;
+        padding-top: 17px;
+        padding-left: 22px;
+    }
+
+    .result-user {
+        font-family: Lato;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: italic;
+        text-align: right;
+        padding-right: 26px;
+        color: #393535;
+    }
+
+    .regarder-annonce {
+        position: relative;
+        background-color: #292929;
+        bottom: 38px;
+        font-family: Lato;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff !important;
+        text-transform: uppercase;
+        padding-top: 10px;;
+        width: 100%;
+        height: 55px;
+        box-shadow: 0 0 10px 2px #7ae3f9;
+        border: solid 2px #7ae3f9;
+    }
+
+    .regarder-annonce a {
+        position: relative;
+        background-color: #292929;
+        bottom: 38px;
+        font-family: Lato;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+        padding-top: 10px;;
+        width: 100%;
+        height: 55px;
+        box-shadow: 0 0 10px 2px #7ae3f9;
+        border: solid 2px #7ae3f9;
+    }
+
+    .result-user-avatar {
+        position: relative;
+        bottom: 95px;
+        left: 280px;
+    }
+
+    .result-description {
+        font-family: Lato;
+        font-size: 16px;
+        font-weight: normal;
+        color: #000000;
+        padding-left: 22px;
+        padding-right: 30px;
+        position: relative;
+        bottom: 65px;
+    }
+}
+
 /*END SEARCH*/
 
 /*PROFIL*/
@@ -1399,6 +1543,14 @@ p {
 }
 
 .linkmodal {
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: bold;
+    color: #7ae3f9;
+    /*text-shadow: 0 0 4px #7ae3f9;*/
+    text-transform: uppercase;
+}
+.linkmodal:hover {
     font-family: Lato;
     font-size: 14px;
     font-weight: bold;
@@ -1425,21 +1577,6 @@ p {
     color: #ffffff;
     margin-bottom: 10px;
 }
-
-.squared-title {
-    width: 251px;
-    height: 42px;
-    background-image: linear-gradient(to bottom, #565656, #2e2e2e);
-    font-family: Lato;
-    font-size: 14px;
-    padding: 10px 0;
-    margin: 0 auto;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
 .verified {
     margin-top: 25px;
 }
@@ -1566,6 +1703,21 @@ p {
     font-weight: normal;
     text-transform: uppercase;
     color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.squared-title:hover {
+    width: 251px;
+    height: 42px;
+    background-image: none;
+    background-color: #7ae3f9;
+    box-shadow: 0 0 6px 2px #7ae3f9;
+    font-family: Lato;
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
     margin-bottom: 10px;
 }
 

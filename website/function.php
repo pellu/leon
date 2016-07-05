@@ -29,7 +29,7 @@ function resultat_recherche($search)
             ?>
 
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1" id="result">
-                <div class="result-photo"><a href="http://localhost/leon/website/news/<?php echo $row['url_news']; ?>-<?php echo $row['id_news']; ?>"><img src="http://localhost/leon/website/photos/<?php echo $row['photo']; ?>" alt="" width="485" height="320"></a></div>
+                <div class="result-photo"><a href="http://localhost/leon/website/news/<?php echo $row['url_news']; ?>-<?php echo $row['id_news']; ?>"><img class="img-responsive" src="http://localhost/leon/website/photos/<?php echo $row['photo']; ?>" alt="<?php echo $row['titre_news']; ?>"></a></div>
                 <div class="result-price"><?php echo $row['prix']; ?>&nbsp;&euro;</div>
                 <div class="result-square">
                     <div class="result-title text-left"><?php echo $row['titre_news']; ?></div>

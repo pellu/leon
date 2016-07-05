@@ -109,21 +109,21 @@ header('content-type: text/html; charset=UTF-8');
                         </div>
                         <div class="event-info">
                             <div class="col-lg-12 event-section">
-                                <div class="col-lg-6 text-left"><p>Arrivée</p></div>
-                                <div class="col-lg-6 text-right"><p>Joueurs</p></div>
-                                <div class="col-lg-6 text-left"><p
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"><p>Arrivée</p></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><p>Joueurs</p></div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left"><p
                                         class="data"><?php echo $donnees['heuredejeu']; ?></p>
                                 </div>
-                                <div class="col-lg-6 text-right"><p class="data">1 Joueur</p><br/><br/></div>
-                                <div class="col-lg-8 text-left"><p><?php echo $donnees['prix']; ?> &euro; x 1
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right"><p class="data">1 Joueur</p><br/><br/></div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left"><p><?php echo $donnees['prix']; ?> &euro; x 1
                                         joueur</p></div>
-                                <div class="col-lg-4 text-right"><p>= <?php echo $donnees['prix']; ?> &euro;</p>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p>
                                 </div>
                             </div>
                             <div class="col-lg-12 event-section">
-                                <div class="col-lg-8 text-left"><p>Total <i class="fa fa-question-circle"
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left"><p>Total <i class="fa fa-question-circle"
                                                                             aria-hidden="true"></i></p></div>
-                                <div class="col-lg-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right"><p><?php echo $donnees['prix']; ?> &euro;</p></div>
                             </div>
 
                         </div>
@@ -159,14 +159,14 @@ header('content-type: text/html; charset=UTF-8');
                             <div class="event-points"><p>La participation à l’évènement  vous rapporte</p>
                                 <h4>50 points</h4></div>
                             <div class="event-share col-lg-12"><p>Partager cette annonce</p>
-                                <div class="col-lg-4 text-left">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
                                     <?php 
                                     $adresse = 'http://localhost/leon/website/news/'.$donnees['url_news'].'-'.$donnees['id_news'];
                                     $phrase = 'Annonce: '.$donnees['titre_news']. ' de '.$donnees['pseudo'].' ! Annonce disponible sur';
                                     ?>
                                 <a href="http://www.facebook.com"><a href="https://www.facebook.com/share.php?u=<?php echo $adresse;?>&title=<?php echo $phrase;?>" target="_blank">Facebook</a></div>
-                                <div class="col-lg-4 text-Center"><a href="https://twitter.com/home?status=<?php echo $phrase;?>+<?php echo $adresse;?>+%23Playce+via @LetsPlayce" data-size="large" target="_blank">Twitter</a></div>
-                                <div class="col-lg-4 text-right"><a href="https://plus.google.com/share?url=<?php echo $adresse;?>">Google +</a></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-Center"><a href="https://twitter.com/home?status=<?php echo $phrase;?>+<?php echo $adresse;?>+%23Playce+via @LetsPlayce" data-size="large" target="_blank">Twitter</a></div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right"><a href="https://plus.google.com/share?url=<?php echo $adresse;?>">Google +</a></div>
                             </div>
                         </div>
                     </div>

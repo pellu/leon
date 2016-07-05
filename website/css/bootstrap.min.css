@@ -340,13 +340,14 @@ input:focus, select:focus, textarea:focus {
 }
 
 a {
-    color: #428bca;
+    color: #7ae3f9;
     text-decoration: none
 }
 
-a:hover, a:focus {
-    color: #2a6496;
-    text-decoration: underline
+a:hover {
+    text-shadow: 0 0 12px 2px #7ae3f9;
+    color: #fff;;
+    text-decoration: none
 }
 
 a:focus {
