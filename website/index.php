@@ -79,12 +79,7 @@
     </div>
     <div id="rest" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2">
-            <h3 id="decouvrez">Decouvrir Playce</h3>
-                <span class="scroll-btn glowing-btn">
-                    <a href="#">
-                        <span class="mouse"><span></span></span>
-                    </a>
-                </span>
+            <h3 id="decouvrez"><a href="#rechercher">Decouvrir Playce</a></h3>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 col-lg-offset-4 col-md-offset-3 col-sm-offset-3">
             <h3 id="h3">Qu'est-ce que Playce ?</h3>
@@ -260,4 +255,33 @@
         $('.scrollTop a').scrollTop();
     }
     scrollNav();
+</script>
+
+<script>
+    $(document).ready(function(){
+        // Add scrollspy to <body>
+        $('body').scrollspy({target: ".navbar", offset: 50});
+
+        // Add smooth scrolling on all links inside the navbar
+        $("#decouvrez a").on('click', function(event) {
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            }  // End if
+        });
+    });
 </script>

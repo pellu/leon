@@ -1001,6 +1001,17 @@ table {
     font-weight: bold;
     text-align: center;
     color: #7ae3f9;
+    opacity: 0.7;
+}
+
+#decouvrez:hover {
+    text-transform: uppercase;
+    height: 29px;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
     text-shadow: 0 0 12px #7ae3f9;
     opacity: 0.7;
 }
