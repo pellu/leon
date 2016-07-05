@@ -15,10 +15,10 @@ include('config.php');?>
             <ul class="nav navbar-nav">
                 <?php if(isset($_SESSION['email'])){?>
                 <li>
-                    <a class="menu" href="#">Devenir h&ocirc;te</a>
+                    <a class="menu" href="#">H&eacute;berger</a>
                 </li>
                 <li>
-                    <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
+                    <a class="menu" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;nement</a>
                 </li>
                 <li>
                     <?php
@@ -48,10 +48,10 @@ include('config.php');?>
                     </a></li>
                 <?php }else{ ?>
                     <li>
-                        <a class="menu" href="http://letsplayce.com/website/connexion.php">Devenir h&ocirc;te</a>
+                        <a class="menu" href="http://letsplayce.com/website/connexion.php">H&eacute;berger</a>
                     </li>
                     <li>
-                        <a class="menu" href="http://localhost/leon/website/search.php">Trouver une soir&eacute;e</a>
+                        <a class="menu" href="http://localhost/leon/website/search.php">Trouver un &eacute;v&egrave;</a>
                     </li>
                     <li>
                         <a class="menu" href="http://localhost/leon/website/connexion.php">Connexion</a>
