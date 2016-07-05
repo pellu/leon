@@ -1,15 +1,13 @@
 <?php session_start(); ?>
 <?php include('menu.php');
 require('steamauth/steamauth.php');
-?>    <section id="rest" class="container-fluid content-section text-center">
-    <div class="row">
-        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-            <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
+?>
 <?php
 //Si lutilisateur est connecte, on le deconecte
 if (isset($_SESSION['email'])) {
     header("Location:monprofil.php");
     ?>
+
 
     <?php
 } else {
@@ -53,7 +51,10 @@ if (isset($_SESSION['email'])) {
         }
         //On affiche le formulaire
         ?>
-
+        <section id="rest" class="container-fluid content-section text-center">
+        <div class="row">
+        <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+        <div class='col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12 col-xs-12' id="formulaire">
         <form action="" method="post">
             <h1 class="text-center">Se connecter</h1>
             <p class="text-center">Veuillez entrer vos identifiants pour vous connecter:</p><br/>

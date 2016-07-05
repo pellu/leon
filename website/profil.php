@@ -19,22 +19,21 @@ if (isset($data['url'])) {
         <div class="row">
             <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
             <br>
-                <div class='col-lg-8 col-md-12 col-sm-12 col-xs-12 col-lg-offset-2'>
-                    <div class="col-lg-3 col-md-5 col-sm-12 col-xs-12">
+                    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 col-lg-offset-2">
 
                         <?php switch ($data['avatar']) {
                             case '' :
-                                echo '<img src="http://localhost/leon/website/img/avatar.png">';
+                                echo '<img class="img-responsive img-center" src="http://localhost/leon/website/img/avatar.png">';
                                 break;
                             default :
-                                echo '<img src="http://localhost/leon/website/photos/' . $data['avatar'] . '" height="250" width="250">';
+                                echo '<img class="img-responsive img-center" src="http://localhost/leon/website/photos/' . $data['avatar'] . '" >';
                                 break;
                         }
                         ?>
-                        <img src="http://localhost/leon/website/img/verified.png" alt="Compte vérifié" height="343"
-                             width="250" class="verified">
+                        <img class="img-responsive img-center" src="http://localhost/leon/website/img/verified.png" alt="Compte vérifié"
+                             class="verified">
                     </div>
-                    <div class="col-lg-6"><h2 id="hello" class="text-left">Bonjour, je
+                    <div class="col-lg-4 col-md-4 col-sm-8 col-xs-12"><h2 id="hello" class="text-left">Bonjour, je
                             m'appelle <?php echo $data['pseudo']; ?> !</h2>
                         <p id="adresse" class="text-left"><a style="color:white;" target="_blank"
                                                                href="https://www.google.fr/maps/place/<?php echo $data['city']; ?>"><?php echo $data['city']; ?></a>, Ile-de-France, France | Membre
@@ -59,12 +58,12 @@ if (isset($data['url'])) {
                             <p id="h5" class="text-left">Mes annonces (<?php echo $nombre?>)</p>
                             <br>
                             <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <?php
                             $resnews = mysql_query("SELECT * FROM news WHERE pseudo_news=$id ORDER BY datedejeu DESC LIMIT $nombre");
                             while ($resultnews = mysql_fetch_array($resnews)) {
                                 ?>
-                                <div class="col-lg-6">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="item"><img src="http://localhost/leon/website/photos/<?php echo $resultnews['photo']; ?>" alt="">
                                 <div class="overlay">
                                     <?php if (isset($_SESSION['email'])) {?>
@@ -92,7 +91,7 @@ if (isset($data['url'])) {
 
                                     <section class="container content-section text-center">
                                         <div class="row">
-                                            <div class="col-lg-8 col-lg-offset-2">
+                                            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2">
                                                 <form method="POST" action="">
                                                     <input type="hidden" name="pseudo" value="<?php echo $profil_comments ?>">
                                                     <input type="hidden" name="profil" value="<?php echo $id ?>">
@@ -119,8 +118,8 @@ if (isset($data['url'])) {
                         <p id="h5" class="text-left">&Agrave; propos de <?php echo $data['pseudo']; ?></p>
                         <p class="text-left" id="adresse"><?php echo $data['description']; ?></p>
                     </div>
-                    <div class="col-lg-3">
-                        <img src="http://localhost/leon/website/img/PS.png" alt="Controller Gaming" id="controller"
+                    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs>
+                        <img src="http://localhost/leon/website/img/circuits-droite.png" alt="Circuits" id="controller"
                              width="100%">
                     </div>
                 </div>
